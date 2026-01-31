@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 13:46:38 by jegerman          #+#    #+#             */
-/*   Updated: 2026/01/29 17:08:31 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/01/31 18:26:51 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,15 @@
 # define CONTACT_HPP
 
 # include <string>
+typedef std::string String;
 
 class Contact
 {
 	public:
 
-	Contact(void);
-	~Contact(void);
-
-	// 29/01 - Unsure of the implementation...
-	int	set_contact(void);
-	int	get_contact(void);
-	// 29/01 - set_first_name...
-	// 29/01 - set_last_name...?
+	int		get_contact(void) const;
+	int		set_contact(String first_name, String last_name, String nickname,
+			String phone_number, String darkest_secret);
 	
 	private:
 
