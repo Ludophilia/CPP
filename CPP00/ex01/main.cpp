@@ -6,11 +6,19 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 15:54:51 by jegerman          #+#    #+#             */
-/*   Updated: 2026/01/31 18:37:05 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/02/04 15:15:26 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <main.hpp>
+
+// 4/02: Display the saved contacts as a list of 4 columns. Index, first name,
+// last name, nickname.
+
+// What should be done?
+
+// ==========
+
 
 int	main(void)
 {
@@ -24,9 +32,9 @@ int	main(void)
 		std::cin >> uin;
 		if (uin == "ADD" && phonebook.add_contact() == -1)
 			return (1);
+		// 4/02: Display the saved contacts...
 		else if (uin == "SEARCH")
 		{
-			// 31/01 : How are you going to win the game against Paris tomorrow?
 			std::cout << "(2) search contact" << std::endl;
 		}
 		else if (uin == "EXIT" || std::cin.fail() || std::cin.eof())
