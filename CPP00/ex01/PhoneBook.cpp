@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 17:08:57 by jegerman          #+#    #+#             */
-/*   Updated: 2026/01/31 18:36:56 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/02/10 18:52:02 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,18 @@ PhoneBook::PhoneBook(void)
 {
 	this->nbr = 0;
 };
+
+int	PhoneBook::get_size(void) const
+{
+	return (this->nbr);
+}
+
+Contact	*PhoneBook::get_contact(int pos)
+{
+	if (pos < 0 || pos > CONTACT_MAX - 1)
+		return (NULL);
+	return (this->contacts + pos);
+}
 
 int	PhoneBook::proc_field(std::string uprompt, std::string *field) const
 {
@@ -34,7 +46,7 @@ int	PhoneBook::add_contact(void)
 	Contact		*new_contact;
 	String		first, last, nickname, phone, secret;
 
-	std::cout << "[Contact #" << this->nbr + 1 << "]\n";
+	std::cout << "adding contact #" << this->nbr + 1 << ":\n";
 	if (this->proc_field("\tfirst name: ", &first) == -1
 		|| this->proc_field("\tlast name: ", &last) == -1
 		|| this->proc_field("\tnickname: ", &nickname) == -1
@@ -44,10 +56,5 @@ int	PhoneBook::add_contact(void)
 	new_contact = this->contacts + this->nbr;
 	new_contact->set_contact(first, last, nickname, phone, secret);
 	this->nbr = (this->nbr == 7) ? 0 : (this->nbr + 1);
-	return (0);
-}
-
-int	PhoneBook::print_contacts(void)
-{
 	return (0);
 }
