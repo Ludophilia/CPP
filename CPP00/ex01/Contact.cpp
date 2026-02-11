@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 17:58:49 by jegerman          #+#    #+#             */
-/*   Updated: 2026/02/10 19:47:56 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/02/11 21:24:19 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,3 +41,29 @@ String	Contact::get_field(String field, bool trucate) const
 		return (NULL);
 	return (trucate && fdata.length() > 10 ? (fdata.substr(0, 9) + ".") : fdata); 	
 };
+
+int	Contact::display_summary(int index) const
+{
+	std::cout	<< "|"
+				<< std::setw(10) << index << "|"
+				<< std::setw(10) << this->get_field("first_name", true) << "|"
+				<< std::setw(10) << this->get_field("last_name", true) << "|"
+				<< std::setw(10) << this->get_field("nickname", true) << "|"
+				<< std::endl;
+	return (0);
+}
+
+int	Contact::display_contact(void) const
+{
+	std::cout	<< "First name: "
+				<< this->get_field("first_name", false) << "\n"
+				<< "Last name: "
+				<< this->get_field("last_name", false) << "\n"
+				<< "Nickname: "
+				<< this->get_field("nickname", false) << "\n"
+				<< "Phone number: "
+				<< this->get_field("phone_number", false) << "\n"
+				<< "Darkest secret: "
+				<< this->get_field("darkest_secret", false) << "\n";
+	return (0);
+}

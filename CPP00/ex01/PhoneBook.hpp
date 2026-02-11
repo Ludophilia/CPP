@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 13:08:25 by jegerman          #+#    #+#             */
-/*   Updated: 2026/02/10 18:50:37 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/02/11 21:30:45 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ class PhoneBook
 
 	PhoneBook(void);
 
-	int		get_size(void) const;
 	Contact	*get_contact(int pos);
 	int		add_contact(void);
+	int		search_contact(void);
 
 	private:
 
@@ -34,6 +34,7 @@ class PhoneBook
 	int		nbr;
 
 	int	proc_field(std::string uprompt, std::string *field) const;
+	int	display_summary(void);
 };
 
 #endif
