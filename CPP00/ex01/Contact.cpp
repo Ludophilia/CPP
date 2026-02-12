@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 17:58:49 by jegerman          #+#    #+#             */
-/*   Updated: 2026/02/11 21:24:19 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/02/12 16:39:28 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	Contact::set_contact(String name, String surname, String nickname,
 	return (0);
 };
 
-String	Contact::get_field(String field, bool trucate) const
+String	Contact::get_field(String field, bool trnc) const
 {
 	String	fdata;
 
@@ -39,7 +39,7 @@ String	Contact::get_field(String field, bool trucate) const
 		fdata = this->darkest_secret;
 	else
 		return (NULL);
-	return (trucate && fdata.length() > 10 ? (fdata.substr(0, 9) + ".") : fdata); 	
+	return (trnc && fdata.length() > 10 ? (fdata.substr(0, 9) + ".") : fdata); 	
 };
 
 int	Contact::display_summary(int index) const

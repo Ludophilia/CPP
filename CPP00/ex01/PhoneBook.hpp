@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 13:08:25 by jegerman          #+#    #+#             */
-/*   Updated: 2026/02/11 21:30:45 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/02/12 16:24:35 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class PhoneBook
 	Contact	contacts[CONTACT_MAX];
 	int		nbr;
 
-	int	proc_field(std::string uprompt, std::string *field) const;
+	int	proc_field(String uprompt, String &field) const;
 	int	display_summary(void);
 };
 

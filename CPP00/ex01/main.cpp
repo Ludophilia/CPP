@@ -6,47 +6,48 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 15:54:51 by jegerman          #+#    #+#             */
-/*   Updated: 2026/02/11 21:42:36 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/02/12 18:57:47 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <main.hpp>
 
-int	main(void)
+static int	process_choice(String &uin)
 {
 	PhoneBook	phonebook;
-	String		uin;
-	
+
+	if (uin == "ADD")
+	{
+		if (phonebook.add_contact() == -1)
+			return (-1);
+	}
+	else if (uin == "SEARCH")
+	{
+		if (phonebook.search_contact() == -1)
+			return (-1);
+	}
+	else if (uin == "EXIT")
+		std::cout << uin << std::endl;
+	else
+		std::cout << "usage: (ADD | SEARCH) a contact or EXIT phonebook\n";
+	return (0);
+}
+
+int	main(void)
+{
+	String	uin;
+
 	while (1)
 	{
 		std::cout << "phonebook> ";
-		std::cin >> uin;
-		if (uin == "ADD")
+		std::getline(std::cin, uin);
+		if (std::cin.fail() || std::cin.eof())
 		{
-			// Darkest secret: 5000 prototypes and no breakthroughs
-			// phonebook> uin was: prototypes
-			// usage: (ADD | SEARCH) a contact or EXIT phonebook
-			// phonebook> uin was: and
-			// usage: (ADD | SEARCH) a contact or EXIT phonebook
-			// phonebook> uin was: no
-			// usage: (ADD | SEARCH) a contact or EXIT phonebook
-			// phonebook> uin was: breakthroughs
-			// usage: (ADD | SEARCH) a contact or EXIT phonebook
-			if (phonebook.add_contact() == -1)
-				return (1);
+			std::cout << "\nSomething wrong occured :/\n";
+			return (1);
 		}
-		else if (uin == "SEARCH")
-		{
-			if (phonebook.search_contact() == -1)
-				return (2);
-		}
-		else if (uin == "EXIT" || std::cin.fail() || std::cin.eof())
-			return (std::cout << (uin == "EXIT" ? "" : "\n"), 0);			
-		else
-		{
-			std::cout << "uin was: " << uin << std::endl; 
-			std::cout << "usage: (ADD | SEARCH) a contact or EXIT phonebook\n";
-		}
+		if (process_choice(uin) == -1)
+			return (2);
 		uin.clear();
 	}
 	return (0);
