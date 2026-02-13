@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 13:46:38 by jegerman          #+#    #+#             */
-/*   Updated: 2026/02/11 21:23:10 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/02/13 19:10:03 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ class Contact
 
 	int		set_contact(String first_name, String last_name, String nickname,
 			String phone_number, String darkest_secret);
-	String	get_field(String field, bool trucate) const;
 	int		display_summary(int index) const;
 	int		display_contact(void) const;
 
@@ -34,6 +33,8 @@ class Contact
 	String	nickname;
 	String	phone_number;
 	String	darkest_secret;
+
+	String	get_field(String field, bool trucate) const;
 };
 
 #endif

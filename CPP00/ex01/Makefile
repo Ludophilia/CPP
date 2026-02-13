@@ -6,7 +6,7 @@
 #    By: jegerman <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/27 16:55:45 by jegerman          #+#    #+#              #
-#    Updated: 2026/01/29 18:25:51 by jegerman         ###   ########.fr        #
+#    Updated: 2026/02/13 18:57:34 by jegerman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,9 @@ CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -I.
 
 SRCS := main.cpp
 SRCS += Contact.cpp
+SRCS += Contact_utils.cpp
 SRCS += PhoneBook.cpp
+SRCS += PhoneBook_utils.cpp
 
 OBJS := $(SRCS:.cpp=.o)
 
