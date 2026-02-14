@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 13:08:25 by jegerman          #+#    #+#             */
-/*   Updated: 2026/02/13 19:09:32 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/02/14 16:48:14 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ class PhoneBook
 
 	private:
 
-	Contact	contacts[CONTACT_MAX];
-	int		size;
-	int		pos;
+	Contact	_contacts[CONTACT_MAX];
+	int		_size;
+	int		_pos;
 
 	int	validate_input(String &uin) const;
 	int	process_field(String uprompt, String &field) const;

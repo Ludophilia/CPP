@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 18:40:32 by jegerman          #+#    #+#             */
-/*   Updated: 2026/02/13 18:58:28 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/02/14 16:49:52 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 int	PhoneBook::get_size(void) const
 {
-	return (this->size > CONTACT_MAX ? CONTACT_MAX : this->size);
+	return (this->_size > CONTACT_MAX ? CONTACT_MAX : this->_size);
 }
 
 Contact	*PhoneBook::get_contact(int pos)
 {
 	if (pos < 0 || pos > CONTACT_MAX - 1)
 		return (NULL);
-	return (this->contacts + pos);
+	return (this->_contacts + pos);
 }
 
 int	PhoneBook::process_field(String uprompt, String &field) const

@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 17:58:49 by jegerman          #+#    #+#             */
-/*   Updated: 2026/02/13 18:57:23 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/02/14 16:43:54 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 int	Contact::set_contact(String name, String surname, String nickname,
 	String phone, String secret)
 {
-	this->first_name = name;
-	this->last_name = surname;
-	this->nickname = nickname;
-	this->phone_number = phone;
-	this->darkest_secret = secret;
+	this->_first_name = name;
+	this->_last_name = surname;
+	this->_nickname = nickname;
+	this->_phone_number = phone;
+	this->_darkest_secret = secret;
 	return (0);
 }
 

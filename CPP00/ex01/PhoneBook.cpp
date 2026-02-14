@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 17:08:57 by jegerman          #+#    #+#             */
-/*   Updated: 2026/02/13 19:12:19 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/02/14 16:48:44 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 PhoneBook::PhoneBook(void) 
 {
-	this->pos = 0;
-	this->size = 0;
+	this->_pos = 0;
+	this->_size = 0;
 }
 
 int	PhoneBook::add_contact(void)
@@ -29,10 +29,10 @@ int	PhoneBook::add_contact(void)
 		|| this->process_field("Phone: ", phone) == -1
 		|| this->process_field("Darkest secret: ", secret) == -1)
 		return (-1);
-	new_contact = this->contacts + this->pos;
+	new_contact = this->_contacts + this->_pos;
 	new_contact->set_contact(first, last, nickname, phone, secret);
-	this->pos = (this->pos == 7) ? 0 : (this->pos + 1);
-	this->size++;
+	this->_pos = (this->_pos == 7) ? 0 : (this->_pos + 1);
+	this->_size++;
 	return (0);
 }
 
