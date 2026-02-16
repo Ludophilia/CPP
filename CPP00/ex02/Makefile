@@ -6,7 +6,7 @@
 #    By: jegerman <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/27 16:55:45 by jegerman          #+#    #+#              #
-#    Updated: 2026/02/14 19:54:00 by jegerman         ###   ########.fr        #
+#    Updated: 2026/02/16 20:40:02 by jegerman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME := account
 CXX := c++
 CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -I.
 
-SRCS := main.cpp
+SRCS := test.cpp
 SRCS += Account.cpp
 
 OBJS := $(SRCS:.cpp=.o)
