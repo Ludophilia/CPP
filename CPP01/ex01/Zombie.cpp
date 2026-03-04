@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/03 18:57:39 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/04 14:24:36 by jegerman         ###   ########.fr       */
+/*   Created: 2026/03/03 17:29:57 by jegerman          #+#    #+#             */
+/*   Updated: 2026/03/04 16:47:51 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-int	main(void)
+void	Zombie::setName(String name)
 {
-	Zombie	*ralph;
+	this->_name = name;
+}
 
-	randomChump("James");
-	ralph = newZombie("Ralph");
-	if (ralph == NULL)
-		return (1);
-	ralph->annouce();
-	delete ralph;
-	return (0);
+void	Zombie::annouce(void) const
+{
+	std::cout << this->_name << ":"
+			  << " BraiiiiiiinnnzzzZ..."
+			  << std::endl;
 }

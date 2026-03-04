@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/03 18:57:39 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/04 14:24:36 by jegerman         ###   ########.fr       */
+/*   Created: 2026/03/03 16:58:48 by jegerman          #+#    #+#             */
+/*   Updated: 2026/03/04 16:38:05 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef ZOMBIE_HPP
 
-int	main(void)
+# define ZOMBIE_HPP
+
+# include <iostream>
+# include <string>
+
+typedef std::string String;
+
+class Zombie
 {
-	Zombie	*ralph;
+	public:
 
-	randomChump("James");
-	ralph = newZombie("Ralph");
-	if (ralph == NULL)
-		return (1);
-	ralph->annouce();
-	delete ralph;
-	return (0);
-}
+	void	annouce(void) const;
+	void	setName(String name);
+
+	private:
+
+	String	_name;
+};
+
+Zombie	*zombieHorde(int N, String name);
+
+
+#endif

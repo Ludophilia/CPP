@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 18:09:55 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/03 18:38:04 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/03/04 15:56:40 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,5 @@
 
 Zombie	*newZombie(String name)
 {
-	Zombie	*zombie;
-
-	zombie = new Zombie(name);
-	if (zombie == NULL)
-		return (NULL);
-	return (zombie);
+	return (new Zombie(name));
 }

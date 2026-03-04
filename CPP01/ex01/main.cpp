@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 18:57:39 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/04 14:24:36 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/03/04 16:52:59 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 int	main(void)
 {
-	Zombie	*ralph;
+	Zombie	*horde;
+	int		nbr;
 
-	randomChump("James");
-	ralph = newZombie("Ralph");
-	if (ralph == NULL)
-		return (1);
-	ralph->annouce();
-	delete ralph;
+	nbr = 5;
+	horde = zombieHorde(nbr, "Matt");
+	for (int i = 0; i < nbr; i++)
+		horde[i].annouce();
+	delete[] horde;
 	return (0);
 }

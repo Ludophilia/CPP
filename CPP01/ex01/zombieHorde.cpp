@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/03 18:57:39 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/04 14:24:36 by jegerman         ###   ########.fr       */
+/*   Created: 2026/03/03 18:09:55 by jegerman          #+#    #+#             */
+/*   Updated: 2026/03/04 16:33:27 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-int	main(void)
+Zombie	*zombieHorde(int N, String name)
 {
-	Zombie	*ralph;
+	Zombie	*zombies;
 
-	randomChump("James");
-	ralph = newZombie("Ralph");
-	if (ralph == NULL)
-		return (1);
-	ralph->annouce();
-	delete ralph;
-	return (0);
+	zombies = new Zombie[N];
+	for (int i = 0; i < N; i++)
+		zombies[i].setName(name);
+	return (zombies);
 }
