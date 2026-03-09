@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 19:07:09 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/09 13:57:53 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/03/09 14:16:26 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,10 @@ typedef std::string String;
 class Weapon
 {
 	public:
-		static int count;
-
 		Weapon(const String &type);
-		// Weapon();
 
-		// ~Weapon();
-
-		String	&getType(void) const;
-		void	setType(String newType);
+		const String	&getType(void) const;
+		void			setType(String newType);
 	
 	private:
 		String	_type;

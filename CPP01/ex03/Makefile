@@ -6,7 +6,7 @@
 #    By: jegerman <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/27 16:55:45 by jegerman          #+#    #+#              #
-#    Updated: 2026/03/04 20:48:39 by jegerman         ###   ########.fr        #
+#    Updated: 2026/03/09 14:49:29 by jegerman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -I.
 SRCS := main.cpp
 SRCS += Weapon.cpp
 SRCS += HumanA.cpp
-# SRCS += HumanB.cpp
+SRCS += HumanB.cpp
 
 OBJS := $(SRCS:.cpp=.o)
 
