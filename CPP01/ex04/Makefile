@@ -6,16 +6,17 @@
 #    By: jegerman <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/27 16:55:45 by jegerman          #+#    #+#              #
-#    Updated: 2026/03/09 15:15:26 by jegerman         ###   ########.fr        #
+#    Updated: 2026/03/11 01:13:26 by jegerman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME := sed
+NAME := transformer
 
 CXX := c++
 CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -I.
 
 SRCS := main.cpp
+SRCS += Transformer.cpp
 
 OBJS := $(SRCS:.cpp=.o)
 
