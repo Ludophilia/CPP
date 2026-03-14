@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 01:04:51 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/14 01:00:21 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/03/14 23:39:52 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Fixed::Fixed(const int intVal): _value(intVal << _fbits)
 	std::cout << "Int constructor called" << std::endl;
 }
 
-Fixed::Fixed(const float floatVal): _value(floatVal * (1 << _fbits))
+Fixed::Fixed(const float floatVal): _value(roundf(floatVal * (1 << _fbits)))
 {
 	std::cout << "Float constructor called" << std::endl;
 }
@@ -62,7 +62,7 @@ Fixed &Fixed::operator=(const Fixed &rhs)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &rhs)
-		this->setRawBits(rhs.getRawBits());
+		this->_value = rhs.getRawBits();
 	return (*this);
 }
 
