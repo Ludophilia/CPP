@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 01:04:51 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/15 01:26:23 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/03/15 22:29:19 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,46 @@ Fixed	Fixed::operator/(const Fixed &rhs) const
 
 // ++ and -- (pre / post)
 
+Fixed	&Fixed::operator++()
+{
+	this->_value += 1;
+	return (*this);
+}
+
+Fixed	Fixed::operator++(int)
+{
+	Fixed	prev = *this;
+
+	this->_value += 1;
+	return (prev);
+}
+
+Fixed	&Fixed::operator--()
+{
+	this->_value -= 1;
+	return (*this);
+}
+
+Fixed	Fixed::operator--(int)
+{
+	Fixed	prev = *this;
+
+	this->_value -= 1;
+	return (prev);
+}
+
+
+// A static member function min that takes two references to fixed-point numbers as
+// parameters, and returns a reference to the smallest one
+
+// A static member function min that takes two references to constant fixed-point
+// numbers as parameters, and returns a reference to the smallest one.
+
+// A static member function max that takes two references to fixed-point numbers as
+//parameters, and returns a reference to the greatest one.
+
+// A static member function max that takes two references to constant fixed-point
+// numbers as parameters, and returns a reference to the greatest one.
 
 std::ostream	&operator<<(std::ostream &out, const Fixed &rhs)
 {
