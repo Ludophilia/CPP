@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 00:13:18 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/15 00:27:58 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/03/15 01:25:42 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,10 @@ class Fixed
 	
 	// +, -, *, and /.
 
-	Fixed	operator+(const Fixed &rhs);
+	Fixed	operator+(const Fixed &rhs) const;
+	Fixed	operator-(const Fixed &rhs) const;
+	Fixed	operator*(const Fixed &rhs) const;
+	Fixed	operator/(const Fixed &rhs) const;
 
 	
 	

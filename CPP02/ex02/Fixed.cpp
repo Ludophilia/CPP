@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 01:04:51 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/15 00:28:13 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/03/15 01:26:23 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,28 @@
 
 Fixed::Fixed(void): _value(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+	// std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const int intVal): _value(intVal << _fbits)
 {
-	std::cout << "Int constructor called" << std::endl;
+	// std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed(const float floatVal): _value(roundf(floatVal * (1 << _fbits)))
 {
-	std::cout << "Float constructor called" << std::endl;
+	// std::cout << "Float constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &src)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	// std::cout << "Copy constructor called" << std::endl;
 	*this = src;
 }
 
 Fixed::~Fixed(void)
 {
-	std::cout << "Destructor called" << std::endl;
+	// std::cout << "Destructor called" << std::endl;
 }
 
 int		Fixed::getRawBits(void) const
@@ -60,7 +60,7 @@ void	Fixed::setRawBits(const int raw)
 
 Fixed &Fixed::operator=(const Fixed &rhs)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	// std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &rhs)
 		this->_value = rhs.getRawBits();
 	return (*this);
@@ -98,8 +98,29 @@ bool	Fixed::operator!=(const Fixed &rhs) const
 	return (this->_value != rhs.getRawBits());
 }
 
+// +, -, *, and /.
 
+Fixed	Fixed::operator+(const Fixed &rhs) const
+{
+	return (Fixed(this->toFloat() + rhs.toFloat()));
+}
 
+Fixed	Fixed::operator-(const Fixed &rhs) const
+{
+	return (Fixed(this->toFloat() - rhs.toFloat()));
+}
+
+Fixed	Fixed::operator*(const Fixed &rhs) const
+{
+	return (Fixed(this->toFloat() * rhs.toFloat()));
+}
+
+Fixed	Fixed::operator/(const Fixed &rhs) const
+{
+	return (Fixed(this->toFloat() / rhs.toFloat()));
+}
+
+// ++ and -- (pre / post)
 
 
 std::ostream	&operator<<(std::ostream &out, const Fixed &rhs)
