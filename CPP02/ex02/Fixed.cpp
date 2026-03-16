@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 01:04:51 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/16 01:09:39 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/03/16 19:01:42 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,61 +117,45 @@ Fixed	Fixed::operator/(const Fixed &rhs) const
 
 Fixed	&Fixed::operator++()
 {
-	this->_value += 1;
-	return (*this);
+	return (this->_value += 1, *this);
 }
 
 Fixed	Fixed::operator++(int)
 {
 	Fixed	prev = *this;
 
-	this->_value += 1;
-	return (prev);
+	return (this->_value += 1, prev);
 }
 
 Fixed	&Fixed::operator--()
 {
-	this->_value -= 1;
-	return (*this);
+	return (this->_value -= 1, *this);
 }
 
 Fixed	Fixed::operator--(int)
 {
 	Fixed	prev = *this;
 
-	this->_value -= 1;
-	return (prev);
+	return (this->_value -= 1, prev);
 }
 
 Fixed	&Fixed::min(Fixed &lhs, Fixed &rhs)
 {
-	if (lhs <= rhs)
-		return (lhs);
-	else
-		return (rhs);
+	return (lhs <= rhs ? lhs : rhs);
 }
 const Fixed	&Fixed::min(const Fixed &lhs, const Fixed &rhs)
 {
-	if (lhs <= rhs)
-		return (lhs);
-	else
-		return (rhs);
+	return (lhs <= rhs ? lhs : rhs);
 }
 
 Fixed	&Fixed::max(Fixed &lhs, Fixed &rhs)
 {
-	if (lhs >= rhs)
-		return (lhs);
-	else
-		return (rhs);
+	return (lhs >= rhs ? lhs : rhs);
 }
 
 const Fixed	&Fixed::max(const Fixed &lhs, const Fixed &rhs)
 {
-	if (lhs >= rhs)
-		return (lhs);
-	else
-		return (rhs);
+	return (lhs >= rhs ? lhs : rhs);
 }
 
 std::ostream	&operator<<(std::ostream &out, const Fixed &rhs)
