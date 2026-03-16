@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 01:04:51 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/15 22:29:19 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/03/16 01:09:39 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,28 @@
 
 Fixed::Fixed(void): _value(0)
 {
-	// std::cout << "Default constructor called" << std::endl;
+	std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const int intVal): _value(intVal << _fbits)
 {
-	// std::cout << "Int constructor called" << std::endl;
+	std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed(const float floatVal): _value(roundf(floatVal * (1 << _fbits)))
 {
-	// std::cout << "Float constructor called" << std::endl;
+	std::cout << "Float constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &src)
 {
-	// std::cout << "Copy constructor called" << std::endl;
+	std::cout << "Copy constructor called" << std::endl;
 	*this = src;
 }
 
 Fixed::~Fixed(void)
 {
-	// std::cout << "Destructor called" << std::endl;
+	std::cout << "Destructor called" << std::endl;
 }
 
 int		Fixed::getRawBits(void) const
@@ -60,13 +60,10 @@ void	Fixed::setRawBits(const int raw)
 
 Fixed &Fixed::operator=(const Fixed &rhs)
 {
-	// std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &rhs)
 		this->_value = rhs.getRawBits();
 	return (*this);
 }
-
-// >, <, >=, <=, ==, and !=
 
 bool	Fixed::operator>(const Fixed &rhs) const
 {
@@ -98,8 +95,6 @@ bool	Fixed::operator!=(const Fixed &rhs) const
 	return (this->_value != rhs.getRawBits());
 }
 
-// +, -, *, and /.
-
 Fixed	Fixed::operator+(const Fixed &rhs) const
 {
 	return (Fixed(this->toFloat() + rhs.toFloat()));
@@ -119,8 +114,6 @@ Fixed	Fixed::operator/(const Fixed &rhs) const
 {
 	return (Fixed(this->toFloat() / rhs.toFloat()));
 }
-
-// ++ and -- (pre / post)
 
 Fixed	&Fixed::operator++()
 {
@@ -150,18 +143,36 @@ Fixed	Fixed::operator--(int)
 	return (prev);
 }
 
+Fixed	&Fixed::min(Fixed &lhs, Fixed &rhs)
+{
+	if (lhs <= rhs)
+		return (lhs);
+	else
+		return (rhs);
+}
+const Fixed	&Fixed::min(const Fixed &lhs, const Fixed &rhs)
+{
+	if (lhs <= rhs)
+		return (lhs);
+	else
+		return (rhs);
+}
 
-// A static member function min that takes two references to fixed-point numbers as
-// parameters, and returns a reference to the smallest one
+Fixed	&Fixed::max(Fixed &lhs, Fixed &rhs)
+{
+	if (lhs >= rhs)
+		return (lhs);
+	else
+		return (rhs);
+}
 
-// A static member function min that takes two references to constant fixed-point
-// numbers as parameters, and returns a reference to the smallest one.
-
-// A static member function max that takes two references to fixed-point numbers as
-//parameters, and returns a reference to the greatest one.
-
-// A static member function max that takes two references to constant fixed-point
-// numbers as parameters, and returns a reference to the greatest one.
+const Fixed	&Fixed::max(const Fixed &lhs, const Fixed &rhs)
+{
+	if (lhs >= rhs)
+		return (lhs);
+	else
+		return (rhs);
+}
 
 std::ostream	&operator<<(std::ostream &out, const Fixed &rhs)
 {

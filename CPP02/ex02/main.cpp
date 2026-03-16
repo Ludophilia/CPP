@@ -5,46 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/13 19:21:30 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/15 22:30:28 by jegerman         ###   ########.fr       */
+/*   Created: 2026/03/16 01:04:24 by jegerman          #+#    #+#             */
+/*   Updated: 2026/03/16 01:08:17 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-int	main(void)
+int main(void)
 {
-	Fixed			a;
-	// Fixed const		b(Fixed(5.05f) * Fixed(2));
+	Fixed 			a;
+	Fixed const 	b(Fixed(5.05f) * Fixed(2));
 
-	// std::cout << (Fixed(42) < Fixed(100)) << std::endl;
-	// std::cout << (Fixed(42) > Fixed(100)) << std::endl;
-
-	// std::cout << (Fixed(100) + Fixed(100)) << std::endl;
-	// std::cout << (Fixed(100) - Fixed(100)) << std::endl;
-	// std::cout << (Fixed(42.2f) * Fixed(2)) << std::endl;
-	// std::cout << (Fixed(42.0f) / Fixed(2)) << std::endl;
-
-	// std::cout << (Fixed(42) + Fixed(1)).toInt() << std::endl;
-
-	// std::cout << a << std::endl;
-	// std::cout << ++a << std::endl;
-	// std::cout << a << std::endl;
-	// a.setRawBits(0);
-	// std::cout << a++ << std::endl;
-	// std::cout << a << std::endl;
-
-	
-	// a.setRawBits(0);
-	// std::cout << a << std::endl;
-	// std::cout << --a << std::endl;
-	// std::cout << a << std::endl;
-	// a.setRawBits(0);
-	// std::cout << a-- << std::endl;
-	// std::cout << a << std::endl;
-
-
-	// std::cout << b << std::endl;
-	// std::cout << Fixed::max( a, b ) << std::endl;
-	return 0;
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+	std::cout << Fixed::max(a, b) << std::endl;
+	return (0);
 }
