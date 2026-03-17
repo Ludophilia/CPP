@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 01:29:10 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/16 22:50:44 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/03/17 01:27:23 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,25 @@
 
 ClapTrap::ClapTrap(void): _hit_pts(10), _energy_pts(10), _attack_dmg(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "Default ClapTrap constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const String &name): _name(name), _hit_pts(10),
 	_energy_pts(10), _attack_dmg(0)
 {
-	std::cout << "String constructor called" << std::endl;
+	std::cout << "String ClapTrap constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &src): _name(src._name), 
 	_hit_pts(src._hit_pts), _energy_pts(src._energy_pts),
 	_attack_dmg(src._attack_dmg)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "Copy ClapTrap constructor called" << std::endl;
 }
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << "Default destructor called" << std::endl;
+	std::cout << "Default ClapTrap destructor called" << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &rhs)
