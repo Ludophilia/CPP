@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 19:21:14 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/17 01:25:36 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/03/18 01:42:48 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,24 @@
 int	main(void)
 {
 	ScavTrap	scav00;
-	// ClapTrap	clap01("01");
-	// ClapTrap	clap02("02");
-	// ClapTrap	clap03("03");
-	// ClapTrap	clap01a = clap01;
-	// ClapTrap	clap02a(clap02);
-	// ClapTrap	clap03a = ClapTrap("03");
+	ScavTrap	scav01("scav01");
 
-	// clap00 = clap01;
-	// for (int i = 0 ; i < 11; i++)
-	// 	clap00.attack("02");
-	// clap00.beRepaired(10);
-	// clap02.takeDamage(0);
-	// clap03.takeDamage(20);
-	// clap03.attack("01");
-	// clap03.beRepaired(20);
+	scav00.attack("g0d");
+	scav00 = scav01;
+	scav00.attack("g0d");
+	scav00.guardGate();
+
+	for (int i = 0; i < 51; i++)
+		scav01.attack("d0g");
+	scav01.guardGate();
+
+	ClapTrap *scav02 = new ScavTrap(scav01);
+	scav02->attack("d0g");
+
+	scav00 = ScavTrap();
+	scav00.beRepaired(20000);
+	scav00.takeDamage(42000);
+	scav00.attack("em1");
+	scav00.beRepaired(20000);
+	delete scav02;
 }

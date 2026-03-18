@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 01:29:10 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/17 01:27:23 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/03/18 00:49:48 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &rhs)
 	return (*this);
 }
 
-void	ClapTrap::attack(const std::string& target)
+void	ClapTrap::attack(const String &target)
 {
 	if (this->_energy_pts <= 0 || this->_hit_pts <= 0)
 	{
