@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 22:35:46 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/22 23:00:40 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/03/24 00:46:53 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,21 @@
 
 Dog::Dog(void): _brain(new Brain)
 {
-	this->type = "Dog";
 	std::cout << "Default Dog constructor called" << std::endl;
+	this->type = "Dog";
 }
 
 Dog::Dog(const Dog &src): Animal(src), _brain(new Brain(*src._brain)) 
 {
-	std::cout << "Copy Dog constructor called" << std::endl;
+	std::cout << "Copy Dog constructor called with brain " << std::endl;
+	std::cout << "\t- Source Brain address: " << src._brain << std::endl;
+	std::cout << "\t- New Brain address: " << this->_brain << std::endl;
 }
 
 Dog::~Dog(void)
 {
-	delete this->_brain;	
 	std::cout << "Default Dog destructor called" << std::endl;
+	delete this->_brain;
 }
 
 Dog	&Dog::operator=(const Dog &rhs)
@@ -41,5 +43,5 @@ Dog	&Dog::operator=(const Dog &rhs)
 
 void	Dog::makeSound(void) const
 {
-	std::cout << "* Shakespearian dog howls *" << std::endl;
+	std::cout << "🐕 *Shakespearian dog howls*" << std::endl;
 }

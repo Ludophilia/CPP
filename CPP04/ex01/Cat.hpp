@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 22:17:00 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/20 21:20:40 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/03/23 20:49:28 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class Cat: public Animal
 
 	private:
 
-	Brain	*brain;
+	Brain	*_brain;
 };
 
 #endif

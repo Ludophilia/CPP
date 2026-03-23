@@ -6,40 +6,45 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 21:32:45 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/22 23:00:45 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/03/24 00:46:40 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 #include "Dog.hpp"
+#define ANIMAL_NB (4)
 
 int	main(void)
 {
-	const Animal		*animal = NULL;
-	const Animal		*cat = NULL;
-	const Animal		*dog = NULL;
+	static Animal	*animals[ANIMAL_NB];
+
 	try
 	{
-		animal = new Animal();
-		cat = new Cat();
-		dog = new Dog();
-		
-		// std::cout << animal->getType() << " " << std::endl;
-		// animal->makeSound();
-		// std::cout << cat->getType() << " " << std::endl;
-		// cat->makeSound(); // will output the cat sound!
-		// std::cout << dog->getType() << " " << std::endl;
-		// dog->makeSound();
+		for (int i = 0 ; i < ANIMAL_NB ; i++)
+		{
+			if (i % 2 == 0)
+				animals[i] = new Dog();
+			else
+				animals[i] = new Cat();
+			std::cout << animals[i]->getType() << " " << std::endl;
+			animals[i]->makeSound();
+		}
 
+		Dog	new_dog(*static_cast<Dog *>(animals[0]));
+		std::cout << new_dog.getType() << " " << std::endl;
+		new_dog.makeSound();
+		Cat	new_cat(*static_cast<Cat *>(animals[0]));
+		std::cout << new_cat.getType() << " " << std::endl;
+		new_cat.makeSound();
 	}
 	catch (const std::bad_alloc &e)
 	{
-		// It's not enough... Could leak everywhere...
 		std::cerr << "Error: " << e.what() << std::endl;
+		for (int i = 0 ; i < ANIMAL_NB ; i++)
+			delete animals[i];
 		return (1);
 	}
-	delete animal;
-	delete cat;
-	delete dog;
+	for (int i = 0 ; i < ANIMAL_NB ; i++)
+		delete animals[i];
 	return (0);
 }
