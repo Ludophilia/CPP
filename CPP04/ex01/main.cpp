@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 21:32:45 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/24 00:46:40 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/03/24 00:50:29 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int	main(void)
 			delete animals[i];
 		return (1);
 	}
+
 	for (int i = 0 ; i < ANIMAL_NB ; i++)
 		delete animals[i];
 	return (0);
