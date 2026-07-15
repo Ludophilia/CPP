@@ -6,12 +6,14 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 17:58:49 by jegerman          #+#    #+#             */
-/*   Updated: 2026/07/15 20:45:06 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/07/15 23:09:24 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.hpp"
 
+// Do we really need that interface? Why not just create a trucate function
+// and just pass the attribute directly?
 String	Contact::get_field(const String &field, bool trncate) const
 {
 	String	fdata;
@@ -42,7 +44,6 @@ int	Contact::set_contact(const String &name, const String &surname,
 	return (0);
 }
 
-// Why get_field... Why not use the 
 int	Contact::display_summary(int index) const
 {
 	std::cout	<< "|"
@@ -54,6 +55,8 @@ int	Contact::display_summary(int index) const
 	return (0);
 }
 
+// Why get_field... Why not use the member attributes directly instead of a
+// getter... 
 int	Contact::display_contact(void) const
 {
 	std::cout	<< "First name: "
