@@ -6,13 +6,24 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 17:58:49 by jegerman          #+#    #+#             */
-/*   Updated: 2026/07/15 23:09:24 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/07/16 23:13:10 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.hpp"
 
-// Do we really need that interface? Why not just create a trucate function
+// 16/07: BRUV, WTH? Use an initializer for f sakes... 
+void	Contact::set_contact(const String &name, const String &surname,
+			const String &nickname, const String &phone, const String &secret)
+{
+	_first_name = name;
+	_last_name = surname;
+	_nickname = nickname;
+	_phone_number = phone;
+	_darkest_secret = secret;
+}
+
+// 15/07: Do we really need that interface? Why not just create a trucate function
 // and just pass the attribute directly?
 String	Contact::get_field(const String &field, bool trncate) const
 {
@@ -33,41 +44,25 @@ String	Contact::get_field(const String &field, bool trncate) const
 	return (trncate && fdata.length() > 10? (fdata.substr(0, 9) + "."): fdata);
 }
 
-int	Contact::set_contact(const String &name, const String &surname,
-			const String &nickname, const String &phone, const String &secret)
-{
-	this->_first_name = name;
-	this->_last_name = surname;
-	this->_nickname = nickname;
-	this->_phone_number = phone;
-	this->_darkest_secret = secret;
-	return (0);
-}
 
-int	Contact::display_summary(int index) const
+// 15/07: Why get_field... Why not use the member attributes directly instead of a
+// getter... 
+void	Contact::display_summary(int index) const
 {
 	std::cout	<< "|"
 				<< std::setw(10) << index << "|"
-				<< std::setw(10) << this->get_field("first_name", true) << "|"
-				<< std::setw(10) << this->get_field("last_name", true) << "|"
-				<< std::setw(10) << this->get_field("nickname", true) << "|"
-				<< std::endl;
-	return (0);
+				<< std::setw(10) << get_field("first_name", true) << "|"
+				<< std::setw(10) << get_field("last_name", true) << "|"
+				<< std::setw(10) << get_field("nickname", true) << "|"
+				<< std::endl;	
 }
 
-// Why get_field... Why not use the member attributes directly instead of a
-// getter... 
-int	Contact::display_contact(void) const
+void	Contact::display_contact(void) const
 {
-	std::cout	<< "First name: "
-				<< this->get_field("first_name", false) << "\n"
-				<< "Last name: "
-				<< this->get_field("last_name", false) << "\n"
-				<< "Nickname: "
-				<< this->get_field("nickname", false) << "\n"
-				<< "Phone number: "
-				<< this->get_field("phone_number", false) << "\n"
-				<< "Darkest secret: "
-				<< this->get_field("darkest_secret", false) << "\n";
-	return (0);
+	std::cout	<< "First name: " << _first_name << '\n'
+				<< "Last name: " << _last_name << '\n'
+				<< "Nickname: " << _nickname << '\n'
+				<< "Phone number: " << _phone_number << '\n'
+				<< "Darkest secret: " << _darkest_secret << '\n'
+				<< std::flush;
 }

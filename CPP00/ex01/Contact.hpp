@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 13:46:38 by jegerman          #+#    #+#             */
-/*   Updated: 2026/07/15 23:04:02 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/07/16 23:15:07 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,14 @@ class Contact
 {
 	public:
 
-	// String or const String &... Why do we need to even That's the kind of things I had to
-	// relearn 
-	int		set_contact(const String &name, const String &surname,
+	// 16/07: Can't we use initializers in that assignment?
+	void	set_contact(const String &name, const String &surname,
 			const String &nickname, const String &phone, const String &secret);
-	int		display_summary(int index) const;
-	int		display_contact(void) const;
+
+
+			
+	void	display_summary(int index) const;
+	void	display_contact(void) const;
 
 	private:
 
@@ -37,6 +39,7 @@ class Contact
 	String	_phone_number;
 	String	_darkest_secret;
 
+	// 16/07: No no no no... 
 	String	get_field(const String &field, bool trucate) const;
 };
 
