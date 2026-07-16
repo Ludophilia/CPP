@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 17:27:30 by jegerman          #+#    #+#             */
-/*   Updated: 2026/07/16 20:47:39 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/07/16 21:37:17 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,24 +25,22 @@ ignore the 128-255 part...
 
 - [Man toupper] If c is neither an unsigned char value nor EOF,
 the behavior of these functions is undefined. */
-int	capitalize(const char *str)
+void	capitalize(const char *str)
 {
 	for (int j = 0; str[j]; j++)
 	{
 		char c = std::toupper(static_cast<unsigned char>(str[j]));
 		std::cout << c;
 	}
-	return (0);
 }
 
-int	megaphone(char **strs, int len)
+void	megaphone(char **strs, int len)
 {
 	if (len == 1)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";	
 	for (int i = 1; i < len; i++)
 		capitalize(strs[i]);
 	std::cout << std::endl;
-	return (0);
 }
 
 /*
