@@ -6,63 +6,62 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 17:58:49 by jegerman          #+#    #+#             */
-/*   Updated: 2026/07/16 23:13:10 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/07/17 22:49:53 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.hpp"
 
-// 16/07: BRUV, WTH? Use an initializer for f sakes... 
+// 17/07: Please consider using an initializer... But I have to review what I
+// know first. Because Contact	_contacts[CONTACT_MAX] in PhoneBook triggers
+// one initializer...
 void	Contact::set_contact(const String &name, const String &surname,
-			const String &nickname, const String &phone, const String &secret)
+			const String &nickname, const String &number, const String &secret)
 {
-	_first_name = name;
-	_last_name = surname;
+	_name = name;
+	_surname = surname;
 	_nickname = nickname;
-	_phone_number = phone;
-	_darkest_secret = secret;
+	_number = number;
+	_secret = secret;
 }
 
-// 15/07: Do we really need that interface? Why not just create a trucate function
-// and just pass the attribute directly?
-String	Contact::get_field(const String &field, bool trncate) const
+Contact::Contact(void)
 {
-	String	fdata;
-
-	if (field == "first_name")
-		fdata = this->_first_name;
-	else if (field == "last_name")
-		fdata = this->_last_name;
-	else if (field == "nickname")
-		fdata = this->_nickname;
-	else if (field == "phone_number")
-		fdata = this->_phone_number;
-	else if (field == "darkest_secret")
-		fdata = this->_darkest_secret;
-	else
-		return (NULL);
-	return (trncate && fdata.length() > 10? (fdata.substr(0, 9) + "."): fdata);
+	std::cout << "Default initializer for testing purposes bla bla bla" << std::endl;
 }
 
+Contact::Contact(const String &name, const String &surname,
+		const String &nickname, const String &number, const String &secret)
+{
+	std::cout << "Not default initializer bla bla bla" << std::endl;
+	_name = name;
+	_surname = surname;
+	_nickname = nickname;
+	_number = number;
+	_secret = secret;
+}
 
-// 15/07: Why get_field... Why not use the member attributes directly instead of a
-// getter... 
+String	Contact::truncate_field(const String &fld, const unsigned len) const
+{
+	return (len > 0 && fld.size() > len ? fld.substr(0, len - 1) + "." : fld);
+}
+
 void	Contact::display_summary(int index) const
 {
-	std::cout	<< "|"
-				<< std::setw(10) << index << "|"
-				<< std::setw(10) << get_field("first_name", true) << "|"
-				<< std::setw(10) << get_field("last_name", true) << "|"
-				<< std::setw(10) << get_field("nickname", true) << "|"
-				<< std::endl;	
+	std::cout	<< '|'
+				<< std::setw(10) << index << '|'
+				<< std::setw(10) << truncate_field(_name, 10) << '|'
+				<< std::setw(10) << truncate_field(_surname, 10) << '|'
+				<< std::setw(10) << truncate_field(_nickname, 10) << '|'
+				<< std::endl;
 }
 
 void	Contact::display_contact(void) const
 {
-	std::cout	<< "First name: " << _first_name << '\n'
-				<< "Last name: " << _last_name << '\n'
+	std::cout	<< "First name: " << _name << '\n'
+				<< "Last name: " << _surname << '\n'
 				<< "Nickname: " << _nickname << '\n'
-				<< "Phone number: " << _phone_number << '\n'
-				<< "Darkest secret: " << _darkest_secret << '\n'
+				<< "Phone number: " << _number << '\n'
+				<< "Darkest secret: " << _secret << '\n'
 				<< std::flush;
 }

@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 13:46:38 by jegerman          #+#    #+#             */
-/*   Updated: 2026/07/16 23:15:07 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/07/17 22:47:13 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,25 +22,27 @@ class Contact
 {
 	public:
 
-	// 16/07: Can't we use initializers in that assignment?
+	// 17/07: Please consider using an initializer... But I have to review 
+	// what I already know first.
+	Contact();
+	Contact(const String &name, const String &surname, const String &nickname,
+			const String &phone, const String &secret);
+
 	void	set_contact(const String &name, const String &surname,
 			const String &nickname, const String &phone, const String &secret);
 
-
-			
 	void	display_summary(int index) const;
 	void	display_contact(void) const;
 
 	private:
 
-	String	_first_name;
-	String	_last_name;
+	String	_name;
+	String	_surname;
 	String	_nickname;
-	String	_phone_number;
-	String	_darkest_secret;
+	String	_number;
+	String	_secret;
 
-	// 16/07: No no no no... 
-	String	get_field(const String &field, bool trucate) const;
+	String	truncate_field(const String &field, const unsigned len) const;
 };
 
 #endif
