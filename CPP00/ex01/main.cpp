@@ -6,12 +6,14 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 15:54:51 by jegerman          #+#    #+#             */
-/*   Updated: 2026/02/13 19:14:11 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/07/17 22:30:20 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <main.hpp>
 
+// 17/07: Please learn how to manage errors in C++. Didn't I already?
+// Why should that be put in main?
 static int	process_choice(String &uin, PhoneBook &phonebook)
 {
 	if (uin == "ADD")
