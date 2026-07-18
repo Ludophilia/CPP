@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 15:54:51 by jegerman          #+#    #+#             */
-/*   Updated: 2026/07/17 22:30:20 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/07/18 17:01:06 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,18 @@ static int	process_choice(String &uin, PhoneBook &phonebook)
 		if (phonebook.add_contact() == -1)
 			return (-1);
 	}
-	else if (uin == "SEARCH")
-	{
-		if (phonebook.search_contact() == -1)
-			return (-1);
-	}
+	// else if (uin == "SEARCH")
+	// {
+	// 	if (phonebook.search_contact() == -1)
+	// 		return (-1);
+	// }
 	else
 		std::cout << "usage: (ADD | SEARCH) a contact or EXIT phonebook\n";
 	return (0);
 }
 
+
+// 18/07: Why is logic in main? Why not?
 int	main(void)
 {
 	PhoneBook	phonebook;
