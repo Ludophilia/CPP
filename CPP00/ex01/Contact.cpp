@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 17:58:49 by jegerman          #+#    #+#             */
-/*   Updated: 2026/07/18 17:44:01 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/07/20 21:30:37 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ String	Contact::truncate(const String &fld, const unsigned len) const
 {
 	if (len > 0 && fld.size() > len)
 		return (fld.substr(0, len - 1) + ".");
-	else
-		return (fld);
+	return (fld);
 }
 
 void	Contact::summarize(int index) const

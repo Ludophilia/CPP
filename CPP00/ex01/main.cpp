@@ -6,52 +6,18 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 15:54:51 by jegerman          #+#    #+#             */
-/*   Updated: 2026/07/18 17:01:06 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/07/20 20:04:36 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <main.hpp>
 
-// 17/07: Please learn how to manage errors in C++. Didn't I already?
-// Why should that be put in main?
-static int	process_choice(String &uin, PhoneBook &phonebook)
-{
-	if (uin == "ADD")
-	{
-		if (phonebook.add_contact() == -1)
-			return (-1);
-	}
-	// else if (uin == "SEARCH")
-	// {
-	// 	if (phonebook.search_contact() == -1)
-	// 		return (-1);
-	// }
-	else
-		std::cout << "usage: (ADD | SEARCH) a contact or EXIT phonebook\n";
-	return (0);
-}
-
-
-// 18/07: Why is logic in main? Why not?
 int	main(void)
 {
 	PhoneBook	phonebook;
-	String		uin;
+	int			exv;
 
-	while (1)
-	{
-		std::cout << "phonebook> ";
-		std::getline(std::cin, uin);
-		if (std::cin.fail())
-		{
-			std::cout << "\nSomething wrong occured :/\n";
-			return (1);
-		}
-		if (uin == "EXIT" || std::cin.eof())
-			return (0);
-		if (process_choice(uin, phonebook) == -1)
-			return (2);
-		uin.clear();
-	}
+	if ((exv = phonebook.run()) > 0)
+		return (exv);
 	return (0);
 }
