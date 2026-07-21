@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 15:54:51 by jegerman          #+#    #+#             */
-/*   Updated: 2026/07/20 20:04:36 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/07/21 21:41:15 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@ int	main(void)
 	int			exv;
 
 	if ((exv = phonebook.run()) > 0)
+	{
+		std::cout << "\nSomething wrong occurred." << std::endl;
 		return (exv);
+	}
 	return (0);
 }

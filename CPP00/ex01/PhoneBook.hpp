@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 13:08:25 by jegerman          #+#    #+#             */
-/*   Updated: 2026/07/20 22:42:21 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/07/21 22:18:08 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,12 @@ class PhoneBook
 	Contact	_contacts[CONTACT_MAX];
 	int		_size;
 	int		_pos;
-
-	int		process_choice(const String &uin);
 	
 	int		add_contact();
-	int		process_field(String uprompt, String &field) const;
 
 	int		search_contact() const;
-	void	display_summary() const;
-	int		validate_input(String &uin) const;
-
+	void	summarize() const;
+	int		validate_input(const String &uin) const;
 };
 
 #endif
