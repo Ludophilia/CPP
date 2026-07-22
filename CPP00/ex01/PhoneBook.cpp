@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 17:08:57 by jegerman          #+#    #+#             */
-/*   Updated: 2026/07/21 22:54:41 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/07/22 22:39:08 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,52 @@
 // -1 is not proper C++... Consider exceptions, booleans, empty objects instead
 
 // 20/07: Check return types. That's not C, again...
+
+
+/* 22/07
+
+void c()
+{
+    throw std::runtime_error("Something went wrong");
+}
+
+void b()
+{
+    c();
+}
+
+void a()
+{
+    b();
+}
+
+int main()
+{
+    try
+    {
+        a();
+    }
+    catch (const std::exception &e)
+    {
+        std::cout << e.what() << '\n';
+    }
+}
+
+###################################################
+
+try
+{
+    throw (std::exception);
+}
+catch (const std::exception &e)
+{
+    std::cerr << e.what() << '\n';
+}
+
+
+
+
+*/
 
 PhoneBook::PhoneBook(): _size(0), _pos(0) {}
 
@@ -28,11 +74,14 @@ int	PhoneBook::run()
 		std::cout << "phonebook> ";
 		std::getline(std::cin, uin);
 		if (std::cin.fail())
-			return (1);
+			throw (1); // 22/07: Just the beginning...
 		if (uin == "EXIT" || std::cin.eof())
 			return (0);
 		if (uin == "ADD")
 		{
+			// 22/07: Let the thrown exit code propagate to main? 
+			// Use a try catch block there and throw again?
+			// I don't have any idea.
 			if (add_contact() == -1)
 				return (2);
 		}
@@ -47,16 +96,12 @@ int	PhoneBook::run()
 	}
 }
 
-// Removed int		PhoneBook::process_choice(const String &uin)
-
 // ################################################################
-
-// 	Removed int		process_field(String uprompt, String &field) const;
 
 int	PhoneBook::add_contact()
 {
 	String					fields[5];
-	const char *const		prompts[5] = {"First name: ", "Last name: ",
+	const String			prompts[5] = {"First name: ", "Last name: ",
 							"Nickname: ", "Phone: ", "Darkest secret: "};
 
 	for (int i = 0; i < 5; i++)
@@ -80,29 +125,17 @@ int	PhoneBook::add_contact()
 
 // ################################################################
 
-void	PhoneBook::summarize() const
-{
-	std::cout	<< '|'
-				<< std::setw(10) << "Index" << '|'
-				<< std::setw(10) << "First name" << '|'
-				<< std::setw(10) << "Last name" << '|'
-				<< std::setw(10) << "Nickname" << '|'
-				<< std::endl;
-	for (int i = 0; i < _size; i++)
-		_contacts[i].summarize(i);
-}
-
 int PhoneBook::search_contact() const
 {
-	int		entry;
-	String	uin;
+	int					entry;
+	String				uin;
 
 	if (_size == 0)
 	{
 		std::cout << "No entries :(" << std::endl;
 		return (0);
 	}
-	summarize();
+	display_summary();
 	entry = -1;
 	while (entry < 0 || entry > _size - 1)
 	{
@@ -118,24 +151,38 @@ int PhoneBook::search_contact() const
 	return (0);
 }
 
+// ################################################################
+
+
+void	PhoneBook::display_summary() const
+{
+	std::cout	<< '|' << std::setw(10) << "Index"
+				<< '|' << std::setw(10) << "First name"
+				<< '|' << std::setw(10) << "Last name"
+				<< '|' << std::setw(10) << "Nickname"
+				<< '|' << std::endl;
+	for (int i = 0; i < _size; i++)
+		_contacts[i].summarize(i);
+}
+
 int	PhoneBook::validate_input(const String &uin) const
 {
-	int		i, sign, res;
+	int		i, sign, entry;
 
 	i = 0;
 	sign = 0;
 	if (uin[i] == '+' || uin[i] == '-')
 	{
-		i++;
 		sign++;
+		i++;
 	}
 	while (uin[i] >= '0' && uin[i] <= '9')
 		i++;
 	if (i == uin.size() 
 		&& ((sign && i >= 2) || (!sign && i >= 1)))
 	{
-		res = std::atoi(uin.c_str());
-		return (res);
+		entry = std::atoi(uin.c_str());
+		return (entry);
 	}
 	return (-1);
 }

@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 13:46:38 by jegerman          #+#    #+#             */
-/*   Updated: 2026/07/21 20:39:53 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/07/22 20:13:18 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Contact
 {
 	public:
 
-	void	set(const String *const fields);
+	void	set(const String fields[5]);
 	void	summarize(int index) const;
 	void	display() const;
 

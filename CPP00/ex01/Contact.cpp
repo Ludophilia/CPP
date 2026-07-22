@@ -6,13 +6,13 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 17:58:49 by jegerman          #+#    #+#             */
-/*   Updated: 2026/07/21 20:40:03 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/07/22 20:13:31 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.hpp"
 
-void	Contact::set(const String *const fields)
+void	Contact::set(const String fields[5])
 {
 	_name = fields[0];
 	_surname = fields[1];
