@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 17:08:57 by jegerman          #+#    #+#             */
-/*   Updated: 2026/07/23 22:05:06 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/07/24 20:57:25 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,66 +16,6 @@
 // -1 is not proper C++... Consider exceptions, booleans, empty objects instead
 
 // 20/07: Check return types. That's not C, again...
-
-/* 22/07, 23/07
-
-#include <iostream>
-#include <exception>
-#include <string>
-
-// An exception propagates up to the main caller
-void d()
-{
-    throw std::runtime_error("Bro wtf?");  
-    // throw std::exception(); 
-    // throw std::bad_alloc();
-    // throw "I AM ERROR.";
-    // throw 42;
-    // throw std::string("NAN MAIS SERIEUX QUOI");
-    std::cout << "This will never be printed(3)\n";
-}
-
-void c()
-{
-    d();
-    std::cout << "This will never be printed (2)\n";
-}
-
-void b()
-{
-    c();
-}
-
-void a()
-{
-    b();
-    std::cout << "This will never be printed (1)\n";
-}
-
-int main()
-{
-    try
-    {
-        a();
-    }
-    catch (const char* msg) {
-        std::cout << "Error (char *): " << msg;
-    }
-    catch (const int nb) {
-        std::cout << "Error (nb): " << nb; 
-    }
-    catch (const std::string &str) {
-        std::cout << "Error (string): " << str;
-    }
-    catch (const std::exception &e) {
-        std::cout << "Error (exception): " << e.what(); 
-    }
-    std::cout << std::endl;
-}
-
-
-
-*/
 
 PhoneBook::PhoneBook(): _size(0), _pos(0) {}
 
@@ -94,7 +34,7 @@ int	PhoneBook::run()
 		if (uin == "ADD")
 		{
 			// 22/07: Let the thrown exit code propagate to main? 
-			// Use a try catch block there and throw again?
+			// Use a try catch block there and throw again? 
 			// I don't have any idea.
 			if (add_contact() == -1)
 				return (2);
