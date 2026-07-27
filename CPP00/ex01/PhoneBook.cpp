@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 17:08:57 by jegerman          #+#    #+#             */
-/*   Updated: 2026/07/24 20:57:25 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/07/27 21:55:03 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,42 +17,47 @@
 
 // 20/07: Check return types. That's not C, again...
 
+
+// ################################################################
+// ################################################################
+
+// 27/07: run(), search_contact(), add_contact()
+//		   Those are the member functions to adapt to the C++ way of handling errors
+
+			
 PhoneBook::PhoneBook(): _size(0), _pos(0) {}
 
 int	PhoneBook::run()
 {
 	String	uin;
 
+	std::cin.exceptions(std::cin.failbit | std::cin.badbit);
 	while (1)
 	{
 		std::cout << "phonebook> ";
 		std::getline(std::cin, uin);
-		if (std::cin.fail())
-			throw (1); // 22/07: Just the beginning...
+		// if (std::cin.fail())
+		// 	throw (1); // Exception
 		if (uin == "EXIT" || std::cin.eof())
 			return (0);
 		if (uin == "ADD")
 		{
-			// 22/07: Let the thrown exit code propagate to main? 
-			// Use a try catch block there and throw again? 
-			// I don't have any idea.
-			if (add_contact() == -1)
-				return (2);
+			add_contact(); // == -1)
+			// throw (2); // Exception
 		}
 		else if (uin == "SEARCH")
 		{
-			if (search_contact() == -1)
-				return (2);
+			search_contact(); // == -1)
+			// throw (2); // Exception
 		}
 		else
 			std::cout << "usage: (ADD | SEARCH) a contact or EXIT phonebook\n";
 		uin.clear();
 	}
+	return (0);
 }
 
-// ################################################################
-
-int	PhoneBook::add_contact()
+void	PhoneBook::add_contact()
 {
 	String					fields[5];
 	const String			prompts[5] = {"First name: ", "Last name: ",
@@ -64,22 +69,22 @@ int	PhoneBook::add_contact()
 		while (fields[i].empty())
 		{
 			std::getline(std::cin, fields[i]);
-			if (std::cin.eof() || std::cin.fail())
+			if (std::cin.eof()) // || std::cin.fail())
 			{
 				std::cout << std::endl;
-				return (-1);
+				return ;
+				// return (-1); // Exception
 			}
 		}
 	}
 	_contacts[_pos].set(fields);
 	_pos = (_pos == 7) ? 0 : _pos++;
 	if (_size < CONTACT_MAX) _size++;
-	return (0);
+	// return (0);
 }
 
-// ################################################################
 
-int PhoneBook::search_contact() const
+void	PhoneBook::search_contact() const
 {
 	int					entry;
 	String				uin;
@@ -87,7 +92,7 @@ int PhoneBook::search_contact() const
 	if (_size == 0)
 	{
 		std::cout << "No entries :(" << std::endl;
-		return (0);
+		return ; //(0);
 	}
 	display_summary();
 	entry = -1;
@@ -95,16 +100,20 @@ int PhoneBook::search_contact() const
 	{
 		std::cout << "Which entry do you want details on? ";
 		std::getline(std::cin, uin);
-		if (std::cin.eof() || std::cin.fail())
-			return (-1);
+		if (std::cin.eof()) //|| std::cin.fail())
+		{
+			std::cout << std::endl;
+			return ; //(-1); // Exception
+		}
 		entry = validate_input(uin);
 		if (entry < 0 || entry > _size - 1)
 			std::cout << "Invalid input :(\n";
 	};
 	_contacts[entry].display();
-	return (0);
+	// return (0);
 }
 
+// ################################################################
 // ################################################################
 
 

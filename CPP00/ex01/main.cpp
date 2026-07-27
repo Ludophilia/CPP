@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 15:54:51 by jegerman          #+#    #+#             */
-/*   Updated: 2026/07/22 22:38:32 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/07/27 22:00:04 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,24 @@ int	main(void)
 	PhoneBook	phonebook;
 	// int			exv;
 
-	// 22/07: Is that really a good idea...
 	try
 	{
 		phonebook.run();
 	}
-	catch (int exv)
+	// 27/07: What the hell? EVEN EOF IS CAUGHT!? I can't use this...
+	catch (const std::ios_base::failure &e)
 	{
-		std::cout << "\nSomething wrong occurred." << std::endl;
+		std::cerr << "\nSomething wrong occurred: " << e.what()
+				  << std::endl;
+	}
+	// 27/07: 0 is caught as well. Bad design.
+	catch (const int &exv)
+	{
+		std::cerr << "\nSomething wrong occurred. Code: " <<  exv
+			      << std::endl;
 		return (exv);	
 	}
+	// catch exception
 	
 	// if ((exv = phonebook.run()) > 0)
 	// {

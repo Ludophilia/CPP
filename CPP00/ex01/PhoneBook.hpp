@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 13:08:25 by jegerman          #+#    #+#             */
-/*   Updated: 2026/07/22 22:08:14 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/07/27 21:35:46 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ class PhoneBook
 	int		_size;
 	int		_pos;
 	
-	int		add_contact();
+	void	add_contact();
 
-	int		search_contact() const;
+	void	search_contact() const;
 
 	void	display_summary() const;
 	int		validate_input(const String &uin) const;
