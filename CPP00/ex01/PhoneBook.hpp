@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 13:08:25 by jegerman          #+#    #+#             */
-/*   Updated: 2026/07/27 21:35:46 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/07/28 22:42:36 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class PhoneBook
 
 	PhoneBook();
 
-	int		run();
+	void	run();
 
 	private:
 	
