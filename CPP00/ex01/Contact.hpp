@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 13:46:38 by jegerman          #+#    #+#             */
-/*   Updated: 2026/07/22 20:13:18 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/07/29 22:06:51 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,29 @@
 
 # define CONTACT_HPP
 
+# include <iostream>
+# include <iomanip>
 # include <string>
 
-typedef std::string String;
+using std::string;
 
 class Contact
 {
 	public:
 
-	void	set(const String fields[5]);
+	void	set(const string fields[5]);
 	void	summarize(int index) const;
 	void	display() const;
 
 	private:
 
-	String	_name;
-	String	_surname;
-	String	_nickname;
-	String	_number;
-	String	_secret;
+	string	_name;
+	string	_surname;
+	string	_nickname;
+	string	_number;
+	string	_secret;
 
-	String	truncate(const String &field, const unsigned len) const;
+	string	truncate(const string &field, const unsigned len) const;
 };
 
 #endif

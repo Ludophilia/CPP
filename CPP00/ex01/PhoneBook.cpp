@@ -6,63 +6,47 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 17:08:57 by jegerman          #+#    #+#             */
-/*   Updated: 2026/07/28 22:43:38 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/07/29 22:33:34 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.hpp"
-
-// 17/07, 18/07, 20/07: Please learn how to manage errors in C++. Returning
-// -1 is not proper C++... Consider exceptions, booleans, empty objects instead
-
-// 27/07: run(), search_contact(), add_contact()
-//		   Those are the member functions to adapt to the C++ way of handling errors
+#include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook(): _size(0), _pos(0) {}
 
-// 28/07: No more int return types ???
 void	PhoneBook::run()
 {
-	String	uin;
+	string	uin;
 
-	// std::cin.exceptions(std::cin.failbit | std::cin.badbit);
 	while (1)
 	{
 		std::cout << "phonebook> ";
-		// if (std::getline(std::cin, uin) == 0) // using operator void*() const
-		// 	return (0);
-
-
 		std::getline(std::cin, uin);
 		if (uin == "EXIT" || std::cin.eof())
 		{
 			std::cout << std::endl;
 			return ;
 		}
-
-
-		// 28/07" Find a better way to manage this
 		if (std::cin.fail())
-			throw (std::ios_base::failure("TEST")); 
-
-
+			throw (std::istream::failure("cin failure"));
 		if (uin == "ADD")
 			add_contact();
 		else if (uin == "SEARCH")
 			search_contact();
 		else
-			std::cout << "usage: (ADD | SEARCH) a contact or EXIT phonebook\n";
+			std::cout << "usage: (ADD | SEARCH) a contact"
+				" or EXIT phonebook\n";
 		uin.clear();
 	}
 }
 
 void	PhoneBook::add_contact()
 {
-	String					fields[5];
-	const String			prompts[5] = {"First name: ", "Last name: ",
-							"Nickname: ", "Phone: ", "Darkest secret: "};
+	string			fields[FIELDS_NB];
+	const string	prompts[FIELDS_NB] = {"First name: ", "Last name: ",
+					"Nickname: ", "Phone: ", "Darkest secret: "};
 
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < FIELDS_NB; i++)
 	{
 		std::cout << prompts[i];
 		while (fields[i].empty())
@@ -74,21 +58,19 @@ void	PhoneBook::add_contact()
 				return ;
 			}
 			if (std::cin.fail())
-			{
-				throw 1; // Temp
-			}
+				throw (std::istream::failure("cin failure")); 
 		}
 	}
 	_contacts[_pos].set(fields);
-	_pos = (_pos == 7) ? 0 : _pos++;
+	_pos = (_pos == CONTACT_MAX - 1) ? 0 : _pos++;
 	if (_size < CONTACT_MAX) _size++;
 }
 
 
 void	PhoneBook::search_contact() const
 {
-	int					entry;
-	String				uin;
+	int			entry;
+	string		uin;
 
 	if (_size == 0)
 	{
@@ -107,19 +89,13 @@ void	PhoneBook::search_contact() const
 			return ;
 		}
 		if (std::cin.fail())
-		{
-			throw 2; // Temp
-		}
+			throw (std::istream::failure("cin failure")); 
 		entry = validate_input(uin);
 		if (entry < 0 || entry > _size - 1)
 			std::cout << "Invalid input :(\n";
 	};
 	_contacts[entry].display();
 }
-
-// ################################################################
-// ################################################################
-
 
 void	PhoneBook::display_summary() const
 {
@@ -132,7 +108,7 @@ void	PhoneBook::display_summary() const
 		_contacts[i].summarize(i);
 }
 
-int	PhoneBook::validate_input(const String &uin) const
+int	PhoneBook::validate_input(const string &uin) const
 {
 	int		i, sign, entry;
 

@@ -6,13 +6,13 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 17:58:49 by jegerman          #+#    #+#             */
-/*   Updated: 2026/07/22 20:13:31 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/07/29 22:27:59 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.hpp"
+#include "Contact.hpp"
 
-void	Contact::set(const String fields[5])
+void	Contact::set(const string fields[5])
 {
 	_name = fields[0];
 	_surname = fields[1];
@@ -21,7 +21,7 @@ void	Contact::set(const String fields[5])
 	_secret = fields[4];
 }
 
-String	Contact::truncate(const String &fld, const unsigned len) const
+string	Contact::truncate(const string &fld, const unsigned len) const
 {
 	if (len > 0 && fld.size() > len)
 		return (fld.substr(0, len - 1) + ".");
