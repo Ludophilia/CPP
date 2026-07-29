@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 17:08:57 by jegerman          #+#    #+#             */
-/*   Updated: 2026/07/29 22:33:34 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/07/29 22:56:04 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,10 @@ void	PhoneBook::run()
 		else
 			std::cout << "usage: (ADD | SEARCH) a contact"
 				" or EXIT phonebook\n";
-		uin.clear();
+		if (!std::cin)
+			break ;
+		else
+			uin.clear();
 	}
 }
 
