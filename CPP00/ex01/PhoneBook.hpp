@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 13:08:25 by jegerman          #+#    #+#             */
-/*   Updated: 2026/07/30 22:45:22 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/07/31 00:40:40 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,6 @@
 # include <string>
 
 # include "Contact.hpp"
-
-// # define CONTACT_NB 8
-// # define FIELDS_NB 5
 
 using std::string;
 

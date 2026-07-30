@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 17:08:57 by jegerman          #+#    #+#             */
-/*   Updated: 2026/07/30 23:43:50 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/07/31 00:36:15 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,32 +64,14 @@ void	PhoneBook::add_contact()
 				throw (std::istream::failure("cin failure")); 
 		}
 	}
-
-	using std::cout; using std::endl;
-
-	// cout << "== RESULTS: ==" << '\n';
-	// cout << "First: " << fields[0] << '\n';
-	// cout << "Last: " << fields[1] << '\n';
-	// cout << "Nickname: " << fields[2] << '\n';
-	// cout << "Phone: " << fields[3] << '\n';
-	// cout << "Secret: " << fields[4] << '\n';
-	
-
-	
 	_contacts[_pos].set(fields);
-	
-	_pos = (_pos == _contact_nb - 1) ? 0 : _pos++;
-	
-	if (_size < _contact_nb) _size++;
-	
-	cout << "_pos: " << _pos << '\n';
-	cout << "_size: " << _size << '\n';
-	
+	_pos = (_pos == _contact_nb - 1) ? 0 : (_pos + 1);
+	_size += (_size < _contact_nb) ? 1 : 0;
 }
 
 void	PhoneBook::search_contact() const
 {
-	int			entry;
+	int			entry = -1;
 	string		uin;
 
 	if (_size == 0)
@@ -98,7 +80,6 @@ void	PhoneBook::search_contact() const
 		return ;
 	}
 	display_summary();
-	entry = -1;
 	while (entry < 0 || entry > _size - 1)
 	{
 		std::cout << "Which entry do you want details on? ";
@@ -133,10 +114,8 @@ void	PhoneBook::display_summary() const
 
 int	PhoneBook::validate_input(const string &uin) const
 {
-	int		i, sign, entry;
+	int		i = 0, sign = 0, entry = -1;
 
-	i = 0;
-	sign = 0;
 	if (uin[i] == '+' || uin[i] == '-')
 	{
 		sign++;
