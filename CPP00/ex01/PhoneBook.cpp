@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 17:08:57 by jegerman          #+#    #+#             */
-/*   Updated: 2026/07/29 22:56:04 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/07/30 23:43:50 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	PhoneBook::run()
 		std::getline(std::cin, uin);
 		if (uin == "EXIT" || std::cin.eof())
 		{
-			std::cout << std::endl;
+			if (!std::cin) std::cout << std::endl;
 			return ;
 		}
 		if (std::cin.fail())
@@ -45,11 +45,11 @@ void	PhoneBook::run()
 
 void	PhoneBook::add_contact()
 {
-	string			fields[FIELDS_NB];
-	const string	prompts[FIELDS_NB] = {"First name: ", "Last name: ",
+	string			fields[_field_nb];
+	const string	prompts[_field_nb] = {"First name: ", "Last name: ",
 					"Nickname: ", "Phone: ", "Darkest secret: "};
 
-	for (int i = 0; i < FIELDS_NB; i++)
+	for (int i = 0; i < _field_nb; i++)
 	{
 		std::cout << prompts[i];
 		while (fields[i].empty())
@@ -64,11 +64,28 @@ void	PhoneBook::add_contact()
 				throw (std::istream::failure("cin failure")); 
 		}
 	}
-	_contacts[_pos].set(fields);
-	_pos = (_pos == CONTACT_MAX - 1) ? 0 : _pos++;
-	if (_size < CONTACT_MAX) _size++;
-}
 
+	using std::cout; using std::endl;
+
+	// cout << "== RESULTS: ==" << '\n';
+	// cout << "First: " << fields[0] << '\n';
+	// cout << "Last: " << fields[1] << '\n';
+	// cout << "Nickname: " << fields[2] << '\n';
+	// cout << "Phone: " << fields[3] << '\n';
+	// cout << "Secret: " << fields[4] << '\n';
+	
+
+	
+	_contacts[_pos].set(fields);
+	
+	_pos = (_pos == _contact_nb - 1) ? 0 : _pos++;
+	
+	if (_size < _contact_nb) _size++;
+	
+	cout << "_pos: " << _pos << '\n';
+	cout << "_size: " << _size << '\n';
+	
+}
 
 void	PhoneBook::search_contact() const
 {
@@ -95,7 +112,10 @@ void	PhoneBook::search_contact() const
 			throw (std::istream::failure("cin failure")); 
 		entry = validate_input(uin);
 		if (entry < 0 || entry > _size - 1)
+		{
 			std::cout << "Invalid input :(\n";
+			return ;
+		}
 	};
 	_contacts[entry].display();
 }
@@ -124,7 +144,7 @@ int	PhoneBook::validate_input(const string &uin) const
 	}
 	while (uin[i] >= '0' && uin[i] <= '9')
 		i++;
-	if (i == uin.size() 
+	if (i == uin.size()
 		&& ((sign && i >= 2) || (!sign && i >= 1)))
 	{
 		entry = std::atoi(uin.c_str());
