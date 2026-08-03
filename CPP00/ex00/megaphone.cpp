@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 17:27:30 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/03 16:08:28 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/03 17:29:25 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	capitalize(const char *str)
 	}
 }
 
-void	megaphone(const char **strs, int len)
+void	megaphone(const char * const *strs, const int len)
 {
 	if (len == 1)
 		cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";	
@@ -34,7 +34,7 @@ void	megaphone(const char **strs, int len)
 	cout << endl;
 }
 
-int	main(const int argc, const char **argv)
+int	main(const int argc, const char * const *argv)
 {
 	megaphone(argv, argc);
 	return (0);
