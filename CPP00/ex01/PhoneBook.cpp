@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 17:08:57 by jegerman          #+#    #+#             */
-/*   Updated: 2026/07/31 00:36:15 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/03 15:54:21 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,12 @@ void	PhoneBook::add_contact()
 				return ;
 			}
 			if (std::cin.fail())
-				throw (std::istream::failure("cin failure")); 
+				throw (std::istream::failure("cin failure"));
 		}
 	}
 	_contacts[_pos].set(fields);
 	_pos = (_pos == _contact_nb - 1) ? 0 : (_pos + 1);
-	_size += (_size < _contact_nb) ? 1 : 0;
+	if (_size < _contact_nb) _size += 1;
 }
 
 void	PhoneBook::search_contact() const
@@ -114,7 +114,8 @@ void	PhoneBook::display_summary() const
 
 int	PhoneBook::validate_input(const string &uin) const
 {
-	int		i = 0, sign = 0, entry = -1;
+	int		sign = 0, entry = -1;
+	size_t	i = 0;
 
 	if (uin[i] == '+' || uin[i] == '-')
 	{

@@ -6,15 +6,15 @@
 #    By: jegerman <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/27 16:55:45 by jegerman          #+#    #+#              #
-#    Updated: 2026/07/18 13:19:52 by jegerman         ###   ########.fr        #
+#    Updated: 2026/08/03 15:58:01 by jegerman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := phonebook
 
 CXX := c++
-# CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -I.
-CXXFLAGS := -std=c++98 -I.
+CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -I.
+# CXXFLAGS += -g -fsanitize=address
 
 SRCS := main.cpp
 SRCS += Contact.cpp
