@@ -6,14 +6,15 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/14 15:22:52 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/03 16:22:23 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/04 22:50:00 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Account.hpp>
 #include <ctime>
 #include <cstdio>
 #include <iostream>
+
+#include <Account.hpp>
 
 int	Account::_nbAccounts = 0;
 
@@ -72,22 +73,6 @@ void	Account::displayAccountsInfos(void)
 			  << std::endl;
 }
 
-void	Account::_initAccount(int initial_deposit)
-{
-	this->_accountIndex = Account::_nbAccounts;
-	this->_amount = initial_deposit;
-	if (initial_deposit)
-		Account::_totalAmount += initial_deposit;
-	this->_nbWithdrawals = 0;
-	this->_nbDeposits = 0;
-	Account::_nbAccounts += 1;
-	Account::_displayTimestamp();
-	std::cout << "index:" << this->_accountIndex << ";"
-			  << "amount:" << this->checkAmount() << ";"
-			  << "created"
-			  << std::endl;
-}
-
 Account::Account(void)
 {
 	this->_initAccount(0);
@@ -102,12 +87,28 @@ Account::Account(int initial_deposit)
 // [19920104_091532] index:0;amount:47;closed
 Account::~Account(void)
 {
+	// Account::_displayTimestamp();
+	// std::cout << "index:" << this->_accountIndex << ";"
+	// 		  << "amount:" << this->checkAmount() << ";"
+	// 		  << "closed"
+	// 		  << std::endl;
+	// Account::_nbAccounts--;
+}
+
+void	Account::_initAccount(int initial_deposit)
+{
+	this->_accountIndex = Account::_nbAccounts;
+	this->_amount = initial_deposit;
+	if (initial_deposit)
+		Account::_totalAmount += initial_deposit;
+	this->_nbWithdrawals = 0;
+	this->_nbDeposits = 0;
+	Account::_nbAccounts += 1;
 	Account::_displayTimestamp();
 	std::cout << "index:" << this->_accountIndex << ";"
 			  << "amount:" << this->checkAmount() << ";"
-			  << "closed"
+			  << "created"
 			  << std::endl;
-	Account::_nbAccounts--;
 }
 
 int	Account::checkAmount(void) const
