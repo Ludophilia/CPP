@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 17:27:30 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/03 17:29:25 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/05 19:30:42 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@
 using std::cout;
 using std::endl;
 
-void	capitalize(const char *str)
+/* const TIP: const applies to whatever is on its left, or its right if there's 
+nothing. */
+void	capitalize(const char * const str)
 {
 	for (int j = 0; str[j]; j++)
 	{
@@ -25,7 +27,7 @@ void	capitalize(const char *str)
 	}
 }
 
-void	megaphone(const char * const *strs, const int len)
+void	megaphone(const char * const * const strs, const int len)
 {
 	if (len == 1)
 		cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";	
@@ -34,7 +36,7 @@ void	megaphone(const char * const *strs, const int len)
 	cout << endl;
 }
 
-int	main(const int argc, const char * const *argv)
+int	main(const int argc, const char * const * const argv)
 {
 	megaphone(argv, argc);
 	return (0);
