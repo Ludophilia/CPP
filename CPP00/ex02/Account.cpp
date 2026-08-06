@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/14 15:22:52 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/06 22:27:18 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/06 22:45:45 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int	Account::getNbWithdrawals(void)
 	return (Account::_totalNbWithdrawals);
 }
 
+// Could have used https://cplusplus.com/reference/ctime/strftime/...
 void Account::_displayTimestamp(void)
 {
 	const time_t		now = std::time(NULL);
