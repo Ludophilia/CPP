@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/14 15:22:52 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/05 21:52:38 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/06 20:44:25 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,28 +72,6 @@ void	Account::displayAccountsInfos(void)
 			  << std::endl;
 }
 
-Account::Account(void)
-{
-	_initAccount(0);
-}
-
-// [19920104_091532] index:0;amount:42;created
-Account::Account(int initial_deposit)
-{
-	_initAccount(initial_deposit);
-}
-
-// [19920104_091532] index:0;amount:47;closed
-Account::~Account(void)
-{
-	// Account::_displayTimestamp();
-	// std::cout << "index:" << _accountIndex << ";"
-	// 		  << "amount:" << checkAmount() << ";"
-	// 		  << "closed"
-	// 		  << std::endl;
-	// Account::_nbAccounts--;
-}
-
 void	Account::_initAccount(int initial_deposit)
 {
 	_accountIndex = Account::_nbAccounts;
@@ -108,6 +86,28 @@ void	Account::_initAccount(int initial_deposit)
 			  << "amount:" << checkAmount() << ";"
 			  << "created"
 			  << std::endl;
+}
+
+Account::Account(void)
+{
+	_initAccount(0);
+}
+
+// [19920104_091532] index:0;amount:42;created
+Account::Account(int initial_deposit)
+{
+	_initAccount(initial_deposit);
+}
+
+// [19920104_091532] index:0;amount:47;closed
+Account::~Account(void)
+{
+	Account::_displayTimestamp();
+	std::cout << "index:" << _accountIndex << ";"
+			  << "amount:" << checkAmount() << ";"
+			  << "closed"
+			  << std::endl;
+	Account::_nbAccounts--;
 }
 
 int	Account::checkAmount(void) const
@@ -158,8 +158,8 @@ bool	Account::makeWithdrawal(int withdrawal)
 		return (std::cout << "refused\n", false);
 	_nbWithdrawals++;
 	_amount -= withdrawal;
-	Account::_totalNbWithdrawals++;
 	Account::_totalAmount -= withdrawal;
+	Account::_totalNbWithdrawals++;
 	std::cout << withdrawal << ";"
 			  << "amount:" << checkAmount() << ";"
 			  << "nb_withdrawals:" << _nbWithdrawals
