@@ -6,7 +6,7 @@
 #    By: jegerman <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/27 16:55:45 by jegerman          #+#    #+#              #
-#    Updated: 2026/03/12 00:20:08 by jegerman         ###   ########.fr        #
+#    Updated: 2026/08/06 21:47:02 by jegerman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME := harl
 
 CXX := c++
 CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -I.
+# CXXFLAGS += -g -fsanitize=address
 
 SRCS := main.cpp
 SRCS += Harl.cpp

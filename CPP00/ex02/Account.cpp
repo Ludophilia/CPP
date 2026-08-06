@@ -6,14 +6,13 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/14 15:22:52 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/06 20:44:25 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/06 22:27:18 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ctime>
-#include <cstdio>
 #include <iostream>
-
+#include <iomanip>
 #include <Account.hpp>
 
 int	Account::_nbAccounts = 0;
@@ -46,19 +45,18 @@ int	Account::getNbWithdrawals(void)
 
 void Account::_displayTimestamp(void)
 {
-	char				timestamp[32];
-	const time_t		now = std::time(NULL);;
+	const time_t		now = std::time(NULL);
 	const struct tm		* const tm = std::localtime(&now);
 
-	std::sprintf(timestamp,
-				"[%4i%02i%02i_%02i%02i%02i]",
-				tm->tm_year + 1900,
-				tm->tm_mon + 1,
-				tm->tm_mday,
-				tm->tm_hour,
-				tm->tm_min,
-				tm->tm_sec);
-	std::cout << timestamp << " ";
+	std::cout << '[' << std::setfill('0')
+			  << std::setw(4) << tm->tm_year + 1900
+			  << std::setw(2) << tm->tm_mon + 1
+			  << std::setw(2) << tm->tm_mday
+			  << '_'
+			  << std::setw(2) << tm->tm_hour
+			  << std::setw(2) << tm->tm_min
+			  << std::setw(2) << tm->tm_sec
+			  << ']' << ' ';
 }
 
 // [19920104_091532] accounts:8;total:20049;deposits:0;withdrawals:0
@@ -155,7 +153,10 @@ bool	Account::makeWithdrawal(int withdrawal)
 			  << "p_amount:" << p_amount << ";"
 			  << "withdrawal:";
 	if (withdrawal > p_amount)
-		return (std::cout << "refused\n", false);
+	{
+		std::cout << "refused" << std::endl;
+		return (false);
+	}
 	_nbWithdrawals++;
 	_amount -= withdrawal;
 	Account::_totalAmount -= withdrawal;

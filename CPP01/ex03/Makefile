@@ -6,7 +6,7 @@
 #    By: jegerman <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/27 16:55:45 by jegerman          #+#    #+#              #
-#    Updated: 2026/03/09 14:49:29 by jegerman         ###   ########.fr        #
+#    Updated: 2026/08/06 21:46:52 by jegerman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME := violence
 
 CXX := c++
 CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -I.
+# CXXFLAGS += -g -fsanitize=address
 
 SRCS := main.cpp
 SRCS += Weapon.cpp
