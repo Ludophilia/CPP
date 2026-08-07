@@ -6,13 +6,13 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 18:09:55 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/04 15:56:40 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/07 21:18:27 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie	*newZombie(String name)
+Zombie	*newZombie(string name)
 {
 	return (new Zombie(name));
 }

@@ -6,27 +6,22 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 17:29:57 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/03 19:00:20 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/07 21:34:44 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(String name)
+Zombie::Zombie(const string &name): _name(name)
 {
-	this->_name = name;
+}
+
+Zombie::~Zombie()
+{
+	cout << _name << " the Zombie fainted." << endl;
 }
 
 void	Zombie::annouce(void) const
 {
-	std::cout << this->_name << ":"
-			  << " BraiiiiiiinnnzzzZ..."
-			  << std::endl;
-}
-
-Zombie::~Zombie(void)
-{
-	std::cout << "zombie '" << this->_name << "'"
-			  << " destroyed."
-			  << std::endl;
+	cout << _name << ":" << " BraiiiiiiinnnzzzZ..." << endl;
 }

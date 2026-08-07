@@ -6,13 +6,13 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 18:38:11 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/04 14:41:57 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/07 21:18:25 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-void	randomChump(String name)
+void	randomChump(string name)
 {
-	Zombie(name).annouce();	
+	Zombie(name).annouce();
 }

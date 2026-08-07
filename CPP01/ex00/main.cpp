@@ -6,21 +6,31 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 18:57:39 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/04 14:24:36 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/07 21:32:23 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-int	main(void)
+static void brainz()
 {
-	Zombie	*ralph;
+	const Zombie	*ralph = new Zombie("Ralph");
 
 	randomChump("James");
-	ralph = newZombie("Ralph");
-	if (ralph == NULL)
-		return (1);
 	ralph->annouce();
 	delete ralph;
+}
+
+int	main()
+{
+	try
+	{
+		brainz();
+	}
+	catch (const std::bad_alloc& e)
+	{
+		cerr << e.what() << endl;
+		return (1);
+	}
 	return (0);
 }

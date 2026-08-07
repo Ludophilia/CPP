@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 16:58:48 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/03 19:05:20 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/07 21:34:39 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,26 @@
 # include <iostream>
 # include <string>
 
-typedef std::string String;
+using std::string;
+using std::cout;
+using std::cerr;
+using std::endl;
 
 class Zombie
 {
 	public:
 
-	Zombie(String name);
-	~Zombie(void);
+	Zombie(const string &name);
+	~Zombie();
 
 	void	annouce(void) const;
 
 	private:
 
-	String	_name;
+	string	_name;
 };
 
-void	randomChump(String name);
-Zombie	*newZombie(String name);
+void	randomChump(string);
+Zombie	*newZombie(string);
 
 #endif
