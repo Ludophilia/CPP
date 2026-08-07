@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 17:27:30 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/05 19:30:42 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/07 20:41:44 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ using std::endl;
 
 /* const TIP: const applies to whatever is on its left, or its right if there's 
 nothing. */
-void	capitalize(const char * const str)
+static void	capitalize(const char * const str)
 {
 	for (int j = 0; str[j]; j++)
 	{
@@ -27,7 +27,7 @@ void	capitalize(const char * const str)
 	}
 }
 
-void	megaphone(const char * const * const strs, const int len)
+static void	megaphone(const char * const * const strs, const int len)
 {
 	if (len == 1)
 		cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";	
@@ -44,7 +44,7 @@ int	main(const int argc, const char * const * const argv)
 
 /*
 - ./megaphone
-- ./megaphone "il " "a " "reef" ", " "il n'a rien compris..."
+- ./megaphone "il " "a " "reef" ", " "il a rien compris..."
 - ./megaphone Damnit " ! " "Sorry students, I thought this thing was off."
 - ./megaphone "élegant comme toujours Mr. simmons"
 	- [Man toupper] if c is a lowercase letter, toupper() returns its uppercase
