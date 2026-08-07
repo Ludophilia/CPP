@@ -6,13 +6,13 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 14:44:22 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/09 15:07:46 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/07 18:50:35 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
 
-HumanB::HumanB(const String &name): _name(name)
+HumanB::HumanB(const string &name): _name(name)
 {
 	this->_weapon = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 14:34:47 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/09 14:53:27 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/07 21:45:33 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 # define HUMANB_HPP
 
 # include "Weapon.hpp"
+// NOTE = INCLUDES MUST BE INDEPENDENT FROM EACH OTHER
 
 class HumanB
 {
 	public:
 
-	HumanB(const String &name);
+	HumanB(const string &name);
 
 	void	attack(void);
 
@@ -29,7 +30,7 @@ class HumanB
 	private:
 	
 	Weapon	*_weapon;
-	String	_name;
+	string	_name;
 };
 
 #endif

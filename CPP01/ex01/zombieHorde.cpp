@@ -6,13 +6,13 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 18:09:55 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/04 16:33:27 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/07 18:50:35 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie	*zombieHorde(int N, String name)
+Zombie	*zombieHorde(int N, string name)
 {
 	Zombie	*zombies;
 

@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 19:07:09 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/09 14:16:26 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/07 21:45:26 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,18 @@
 # include <string> 
 # include <iostream> 
 
-typedef std::string String;
+using std::string;
 
 class Weapon
 {
 	public:
-		Weapon(const String &type);
+		Weapon(const string &type);
 
-		const String	&getType(void) const;
-		void			setType(String newType);
+		const string	&getType(void) const;
+		void			setType(string newType);
 	
 	private:
-		String	_type;
+		string	_type;
 };
 
 #endif

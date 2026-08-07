@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 19:03:35 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/12 01:11:43 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/07 18:50:35 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@
 " I’ve been coming for years, whereas you started working here just last month."
 # define ERROR_MSG "This is unacceptable! I want to speak to the manager now."
 
-typedef std::string String;
+typedef std::string string;
 
 class Harl
 {
 	public:
 
-	void	complain(String level);
+	void	complain(string level);
 
 	private:
 

@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 19:37:49 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/09 14:26:21 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/07 21:45:19 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,20 @@
 # define HUMANA_HPP
 
 # include "Weapon.hpp"
+// NOTE = INCLUDES MUST BE INDEPENDENT FROM EACH OTHER
 
 class HumanA
 {
 	public:
 
-	HumanA(const String &name, Weapon &weapon);
+	HumanA(const string &name, Weapon &weapon);
 
 	void	attack(void);
 
 	private:
 	
 	Weapon	&_weapon;
-	String	_name;
+	string	_name;
 };
 
 #endif

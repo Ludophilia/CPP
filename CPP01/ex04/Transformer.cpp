@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 23:31:26 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/11 01:12:50 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/07 18:50:35 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ Transformer::~Transformer(void)
 	this->_out.close();
 }
 
-void	Transformer::transform(const String &find, const String &repl)
+void	Transformer::transform(const string &find, const string &repl)
 {
 	while (1)
 	{
-		String	line;
+		string	line;
 		size_t	pos;
 
 		std::getline(this->_in, line);

@@ -6,13 +6,13 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 17:29:57 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/04 16:47:51 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/07 18:50:35 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-void	Zombie::setName(String name)
+void	Zombie::setName(string name)
 {
 	this->_name = name;
 }

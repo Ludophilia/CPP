@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 22:42:07 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/11 00:39:45 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/07 21:45:53 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <fstream>
 # include <stdexcept>
 
-typedef std::string String;
+using std::string;
 
 class Transformer
 {
@@ -27,11 +27,11 @@ class Transformer
 	Transformer(char *filename);
 	~Transformer(void);
 
-	void	transform(const String &find, const String &repl);
+	void	transform(const string &find, const string &repl);
 
 	private:
-	String			_in_name;
-	String			_out_name;
+	string			_in_name;
+	string			_out_name;
 	std::ifstream	_in;
 	std::ofstream	_out;
 };

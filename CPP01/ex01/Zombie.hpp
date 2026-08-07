@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 16:58:48 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/04 16:38:05 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/07 21:43:50 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,21 @@
 # include <iostream>
 # include <string>
 
-typedef std::string String;
+using std::string;
 
 class Zombie
 {
 	public:
 
 	void	annouce(void) const;
-	void	setName(String name);
+	void	setName(string name);
 
 	private:
 
-	String	_name;
+	string	_name;
 };
 
-Zombie	*zombieHorde(int N, String name);
+Zombie	*zombieHorde(int N, string name);
 
 
 #endif

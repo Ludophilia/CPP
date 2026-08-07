@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 23:52:16 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/12 01:13:07 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/07 18:50:35 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	Harl::error(void)
 	std::cout << ERROR_MSG << std::endl;
 }
 
-void	Harl::complain(String level)
+void	Harl::complain(string level)
 {
 	void	(Harl::*loggers[])(void) = {&Harl::debug, &Harl::info,
 			&Harl::warning, &Harl::error};
