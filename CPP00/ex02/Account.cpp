@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/14 15:22:52 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/06 22:45:45 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/07 18:17:41 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@ void Account::_displayTimestamp(void)
 			  << std::setw(2) << tm->tm_hour
 			  << std::setw(2) << tm->tm_min
 			  << std::setw(2) << tm->tm_sec
-			  << ']' << ' ';
+			  << ']' << std::setfill(' ')
+			  << ' ';
 }
 
 // [19920104_091532] accounts:8;total:20049;deposits:0;withdrawals:0
