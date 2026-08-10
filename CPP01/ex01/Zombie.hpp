@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 16:58:48 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/07 21:43:50 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/10 20:02:04 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,16 @@
 # include <string>
 
 using std::string;
+using std::cout;
+using std::cerr;
+using std::endl;
 
 class Zombie
 {
 	public:
-
+	
 	void	annouce(void) const;
-	void	setName(string name);
+	void	setName(const string &name);
 
 	private:
 
@@ -32,6 +35,5 @@ class Zombie
 };
 
 Zombie	*zombieHorde(int N, string name);
-
 
 #endif
