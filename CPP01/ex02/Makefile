@@ -6,11 +6,11 @@
 #    By: jegerman <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/27 16:55:45 by jegerman          #+#    #+#              #
-#    Updated: 2026/08/06 21:46:46 by jegerman         ###   ########.fr        #
+#    Updated: 2026/08/10 22:14:39 by jegerman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME := str
+NAME := hi
 
 CXX := c++
 CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -I.
