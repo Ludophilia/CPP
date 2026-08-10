@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 18:57:39 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/10 20:10:07 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/10 20:55:12 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void		unleashHorde(const string &name, const int nbr)
 {
-	Zombie * const	horde = zombieHorde(nbr, name);
+	const Zombie * const	horde = zombieHorde(nbr, name);
 
 	for (int i = 0; i < nbr; i++)
 		horde[i].annouce();
