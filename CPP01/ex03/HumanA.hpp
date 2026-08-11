@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 19:37:49 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/07 21:45:19 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/11 21:45:13 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,26 @@
 
 # define HUMANA_HPP
 
+# include <string>
+# include <iostream>
 # include "Weapon.hpp"
-// NOTE = INCLUDES MUST BE INDEPENDENT FROM EACH OTHER
+
+using std::string;
+using std::cout;
+using std::endl;
 
 class HumanA
 {
 	public:
 
-	HumanA(const string &name, Weapon &weapon);
+	HumanA(const string &name, const Weapon &weapon);
 
-	void	attack(void);
+	void	attack() const;
 
 	private:
-	
-	Weapon	&_weapon;
-	string	_name;
+
+	const Weapon	&_weapon;
+	const string	_name;
 };
 
 #endif

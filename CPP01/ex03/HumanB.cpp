@@ -6,28 +6,24 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 14:44:22 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/07 18:50:35 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/11 21:48:28 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
 
-HumanB::HumanB(const string &name): _name(name)
-{
-	this->_weapon = NULL;
-}
+HumanB::HumanB(const string &name): _weapon(NULL), _name(name) {}
 
-void	HumanB::attack(void)
+void	HumanB::attack() const
 {
-	std::cout << this->_name;
-	if (this->_weapon == NULL)
-		std::cout << " can't attack without a weapon!";
+	if (_weapon)
+		cout << _name << " attacks with their " << _weapon->getType();
 	else
-		std::cout << " attacks with their " << (this->_weapon)->getType();
-	std::cout << std::endl;
+		cout << _name << " can't attack without a weapon!";
+	cout << endl;
 }
 
-void	HumanB::setWeapon(Weapon &weapon)
+void	HumanB::setWeapon(const Weapon &weapon)
 {
-	this->_weapon = &weapon;
+	_weapon = &weapon;
 }

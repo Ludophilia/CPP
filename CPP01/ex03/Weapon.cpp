@@ -6,23 +6,20 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 19:07:03 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/07 18:50:35 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/11 18:53:42 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
 
-const string	&Weapon::getType(void) const
+Weapon::Weapon(const string &type): _type(type) {}
+
+const string	&Weapon::getType() const
 {
-	return (this->_type);
+	return (_type);
 }
 
-void	Weapon::setType(string newType)
+void	Weapon::setType(const string &newType)
 {
-	this->_type = newType;
-}
-
-Weapon::Weapon(const string &type)
-{
-	this->_type = type;
+	_type = newType;
 }

@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 14:34:47 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/07 21:45:33 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/11 22:03:32 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,13 @@
 
 # define HUMANB_HPP
 
+# include <iostream>
+# include <string>
 # include "Weapon.hpp"
-// NOTE = INCLUDES MUST BE INDEPENDENT FROM EACH OTHER
+
+using std::string;
+using std::cout;
+using std::endl;
 
 class HumanB
 {
@@ -23,14 +28,13 @@ class HumanB
 
 	HumanB(const string &name);
 
-	void	attack(void);
-
-	void	setWeapon(Weapon &weapon);
+	void	attack() const;
+	void	setWeapon(const Weapon &weapon);
 
 	private:
 	
-	Weapon	*_weapon;
-	string	_name;
+	const Weapon	*_weapon;
+	const string	_name;
 };
 
 #endif
