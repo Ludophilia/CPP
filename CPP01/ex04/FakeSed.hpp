@@ -1,39 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Transformer.h                                      :+:      :+:    :+:   */
+/*   FakeSed.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 22:42:07 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/07 21:45:53 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/12 22:13:55 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TRANSFORMER_H
+#ifndef FAKESED_H
 
-# define TRANSFORMER_H
+# define FAKESED_H
 
 # include <iostream>
-# include <string>
 # include <fstream>
-# include <stdexcept>
+# include <string>
 
 using std::string;
 
-class Transformer
+using std::cout;
+using std::cerr;
+using std::endl;
+
+using std::ios;
+using std::ofstream;
+using std::ifstream;
+
+class FakeSed
 {
 	public:
-	Transformer(char *filename);
-	~Transformer(void);
 
-	void	transform(const string &find, const string &repl);
+	FakeSed(const string &filename);
+	~FakeSed();
+
+	void	replace(const string &find, const string &repl);
 
 	private:
-	string			_in_name;
-	string			_out_name;
-	std::ifstream	_in;
-	std::ofstream	_out;
+
+	const string	_inm;
+	const string	_onm;
+	ifstream		_ifs;
+	ofstream		_ofs;
 };
 
 #endif

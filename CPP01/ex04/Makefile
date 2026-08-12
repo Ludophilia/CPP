@@ -6,18 +6,18 @@
 #    By: jegerman <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/27 16:55:45 by jegerman          #+#    #+#              #
-#    Updated: 2026/08/06 21:46:55 by jegerman         ###   ########.fr        #
+#    Updated: 2026/08/12 19:52:20 by jegerman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME := transformer
+NAME := fakesed
 
 CXX := c++
 CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -I.
 # CXXFLAGS += -g -fsanitize=address
 
 SRCS := main.cpp
-SRCS += Transformer.cpp
+SRCS += FakeSed.cpp
 
 OBJS := $(SRCS:.cpp=.o)
 
