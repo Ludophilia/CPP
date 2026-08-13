@@ -15,11 +15,11 @@
 FakeSed::FakeSed(const string &filename):
 	_inm(filename),
 	_onm(_inm + ".replace"),
-	_ifs(_inm.c_str()),
-	_ofs(_onm.c_str())
+	_ifs(_inm.c_str())
 {
 	if (!_ifs)
 		throw ifstream::failure("'" + _inm + "' cannot be opened");
+	_ofs.open(_onm.c_str());
 	if (!_ofs)
 		throw ofstream::failure("'" + _onm + "' cannot be created");
 }
@@ -34,18 +34,18 @@ void	FakeSed::replace(const string &find, const string &repl)
 {
 	string	line;
 	size_t	pos;
+	int count = 0;
 
-	while (1)
+	while (getline(_ifs, line))
 	{
-		line.clear();
-		if (!std::getline(_ifs, line))
-			break ;
-
-		// Yeah... Let's see how much I can improve the two following lines next...
-		while ((pos = line.find(find.data())) != string::npos)
-			line.erase(pos, find.size()).insert(pos, repl.data());
-
-
+		while ((pos = line.find(find.c_str())) != string::npos)
+		{
+			line
+				.erase(pos, find.size())
+				.insert(pos, repl.c_str());
+			cout << count++ << ": sub'd " << find << " by " << repl << endl;
+		}
 		_ofs << line << endl;
+		line.clear();
 	}
 }

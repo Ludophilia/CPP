@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 22:42:07 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/12 22:13:55 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/13 22:04:42 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ using std::endl;
 using std::ios;
 using std::ofstream;
 using std::ifstream;
+
+using std::getline;
 
 class FakeSed
 {
