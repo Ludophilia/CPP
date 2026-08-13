@@ -32,18 +32,23 @@ FakeSed::~FakeSed()
 
 void	FakeSed::replace(const string &find, const string &repl)
 {
-	string	line;
-	size_t	pos;
-	int count = 0;
+	string		line;
+	size_t		pos, lpos;
 
 	while (getline(_ifs, line))
 	{
-		while ((pos = line.find(find.c_str())) != string::npos)
+		lpos = 0;
+		while ((pos = line.find(find.c_str(), lpos)) != string::npos)
 		{
+
 			line
 				.erase(pos, find.size())
 				.insert(pos, repl.c_str());
-			cout << count++ << ": sub'd " << find << " by " << repl << endl;
+
+			lpos = pos + repl.size();
+			// cout << "lpos: " << lpos << endl;
+			// cout << "pos: " << pos << endl;
+			// cout << count++ << ": sub'd " << find << " by " << repl << endl;
 		}
 		_ofs << line << endl;
 		line.clear();
