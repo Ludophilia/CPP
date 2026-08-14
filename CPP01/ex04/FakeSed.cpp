@@ -39,10 +39,10 @@ void	FakeSed::replace(const string &find, const string &repl)
 	{
 		lpos = 0;
 		while (find.empty() == false
-				&& (pos = line.find(find.c_str(), lpos)) != string::npos)
+				&& (pos = line.find(find, lpos)) != string::npos)
 		{
 			line.erase(pos, find.size())
-				.insert(pos, repl.c_str());
+				.insert(pos, repl);
 			lpos = pos + repl.size();
 		}
 		_ofs << line << endl;

@@ -6,14 +6,14 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 18:57:39 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/14 21:03:11 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/14 22:22:47 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <FakeSed.hpp>
 
 // ./fakesed Makefil jegerman jgermany
-// ./fakesed Makefile jegerman jgermany
+// ./fakesed Makefile jegerman jefgerma
 // ./fakesed Makefile something nothing
 // ./fakesed Makefile "" nothing
 // ./fakesed Makefile "FakeSed" ""
