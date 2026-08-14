@@ -12,7 +12,7 @@
 
 #include <FakeSed.hpp>
 
-FakeSed::FakeSed(const string &filename):
+FakeSed::FakeSed(const char *filename):
 	_inm(filename),
 	_onm(_inm + ".replace"),
 	_ifs(_inm.c_str())
@@ -38,17 +38,12 @@ void	FakeSed::replace(const string &find, const string &repl)
 	while (getline(_ifs, line))
 	{
 		lpos = 0;
-		while ((pos = line.find(find.c_str(), lpos)) != string::npos)
+		while (find.empty() == false
+				&& (pos = line.find(find.c_str(), lpos)) != string::npos)
 		{
-
-			line
-				.erase(pos, find.size())
+			line.erase(pos, find.size())
 				.insert(pos, repl.c_str());
-
 			lpos = pos + repl.size();
-			// cout << "lpos: " << lpos << endl;
-			// cout << "pos: " << pos << endl;
-			// cout << count++ << ": sub'd " << find << " by " << repl << endl;
 		}
 		_ofs << line << endl;
 		line.clear();

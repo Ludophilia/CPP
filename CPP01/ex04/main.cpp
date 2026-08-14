@@ -6,11 +6,19 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 18:57:39 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/13 21:25:44 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/14 21:03:11 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <FakeSed.hpp>
+
+// ./fakesed Makefil jegerman jgermany
+// ./fakesed Makefile jegerman jgermany
+// ./fakesed Makefile something nothing
+// ./fakesed Makefile "" nothing
+// ./fakesed Makefile "FakeSed" ""
+// ./fakesed Makefile NAME NAME
+// ./fakesed Makefile NAME altNAME
 
 int	main(int argc, char **argv)
 {
