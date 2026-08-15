@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 22:42:07 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/14 20:58:34 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/15 19:23:58 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class FakeSed
 	public:
 
 	FakeSed(const char *filename);
-	~FakeSed();
+	// ~FakeSed();
 
 	void	replace(const string &find, const string &repl);
 

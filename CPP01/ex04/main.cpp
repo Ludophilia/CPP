@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 18:57:39 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/14 22:22:47 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/15 19:47:42 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 // ./fakesed Makefile "FakeSed" ""
 // ./fakesed Makefile NAME NAME
 // ./fakesed Makefile NAME altNAME
-
 int	main(int argc, char **argv)
 {
 	if (++argv, --argc != 3)

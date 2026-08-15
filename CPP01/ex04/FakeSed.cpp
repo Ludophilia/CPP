@@ -24,11 +24,15 @@ FakeSed::FakeSed(const char *filename):
 		throw ofstream::failure("'" + _onm + "' cannot be created");
 }
 
+/* Tip: RAII. It seems that the fstream objects are automatically destroyed
+at the end of their lifecycle... No need for close() then in that context...
 FakeSed::~FakeSed()
 {
-	_ifs.close();
-	_ofs.close();
-}
+	if (_ifs.is_open())
+		_ifs.close();
+	if (_ofs.is_open())fil
+		_ofs.close();
+}*/
 
 void	FakeSed::replace(const string &find, const string &repl)
 {
