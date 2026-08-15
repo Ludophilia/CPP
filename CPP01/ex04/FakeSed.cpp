@@ -30,7 +30,7 @@ FakeSed::~FakeSed()
 {
 	if (_ifs.is_open())
 		_ifs.close();
-	if (_ofs.is_open())fil
+	if (_ofs.is_open())
 		_ofs.close();
 }*/
 
