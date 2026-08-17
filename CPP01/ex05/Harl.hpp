@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 19:03:35 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/07 18:50:35 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/17 21:55:04 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,11 @@
 # include <iostream>
 # include <string>
 
-# define DEBUG_MSG "I love having extra bacon for my 7XL-double-cheese-triple"\
-"-pickle-special-ketchup burger. I really do!"
-# define INFO_MSG "I cannot believe adding extra bacon costs more money. " \
-"You didn’t put enough bacon in my burger! If you did, I wouldn’t " \
-"be asking for more!"
-# define WARNING_MSG "I think I deserve to have some extra bacon for free." \
-" I’ve been coming for years, whereas you started working here just last month."
-# define ERROR_MSG "This is unacceptable! I want to speak to the manager now."
+using	std::string;
+using	std::cout;
+using	std::endl;
 
-typedef std::string string;
+typedef void	(Harl::*logf_t[])(void); // ..... No. Can't `using` help here?
 
 class Harl
 {
@@ -36,7 +31,11 @@ class Harl
 
 	private:
 
-	static const char	*levels[];
+	static const int		LEVELS;
+	static const string		DEBUG_MSG;
+	static const string		INFO_MSG;
+	static const string 	WARNING_MSG;
+	static const string 	ERROR_MSG;
 
 	void	debug(void);
 	void	info(void);

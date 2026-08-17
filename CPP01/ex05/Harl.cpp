@@ -6,44 +6,59 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 23:52:16 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/07 18:50:35 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/17 21:56:50 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
-const char	*Harl::levels[] = {"DEBUG", "INFO", "WARNING", "ERROR", 0};
+const int		Harl::LEVELS = 4;
+
+const string	Harl::DEBUG_MSG =
+	"I love having extra bacon for my 7XL-double-cheese-triple-pickle-special"
+	"-ketchup burger. I really do!";
+
+const string	Harl::INFO_MSG =
+	"I cannot believe adding extra bacon costs more money. You didn’t put"
+	"enough bacon in my burger! If you did, I wouldn’t be asking for more!";
+	
+const string	Harl::WARNING_MSG =
+	"I think I deserve to have some extra bacon for free. I’ve been coming for"
+	" years, whereas you started working here just last month.";
+
+const string	Harl::ERROR_MSG =
+	"This is unacceptable! I want to speak to the manager now.";
 
 void	Harl::debug(void)
 {
-	std::cout << DEBUG_MSG << std::endl;
+	cout << Harl::DEBUG_MSG << endl;
 }
 
 void	Harl::info(void)
 {
-	std::cout << INFO_MSG << std::endl;
-}				
+	cout << Harl::INFO_MSG << endl;
+}
 
 void	Harl::warning(void)
 {
-	std::cout << WARNING_MSG << std::endl;
+	cout << Harl::WARNING_MSG << endl;
 }
-
 void	Harl::error(void)
 {
-	std::cout << ERROR_MSG << std::endl;
+	cout << Harl::ERROR_MSG << endl;
 }
 
 void	Harl::complain(string level)
 {
-	void	(Harl::*loggers[])(void) = {&Harl::debug, &Harl::info,
-			&Harl::warning, &Harl::error};
-
-	for (int i = 0; Harl::levels[i]; i++)
+	const string	levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	const logf_t	logs = {Harl::debug, Harl::info, Harl::warning, Harl::error}; // ???
+	
+	// ........ We're not done yet.
+	for (int i = 0; i < Harl::LEVELS; i++)
 	{
 		if (Harl::levels[i] == level)
 		{
-			(this->*loggers[i])();
+			(this->*loggers[i])(); 
 			return ;
 		}
 	}
