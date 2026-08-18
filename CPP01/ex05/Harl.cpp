@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 23:52:16 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/17 21:56:50 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/18 22:53:08 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ const string	Harl::DEBUG_MSG =
 	"-ketchup burger. I really do!";
 
 const string	Harl::INFO_MSG =
-	"I cannot believe adding extra bacon costs more money. You didn’t put"
-	"enough bacon in my burger! If you did, I wouldn’t be asking for more!";
+	"I cannot believe adding extra bacon costs more money. You didn't put "
+	"enough bacon in my burger! If you did, I wouldn't be asking for more!";
 	
 const string	Harl::WARNING_MSG =
-	"I think I deserve to have some extra bacon for free. I’ve been coming for"
+	"I think I deserve to have some extra bacon for free. I've been coming for"
 	" years, whereas you started working here just last month.";
 
 const string	Harl::ERROR_MSG =
@@ -50,16 +50,21 @@ void	Harl::error(void)
 
 void	Harl::complain(string level)
 {
-	const string	levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	const logf_t	logs = {Harl::debug, Harl::info, Harl::warning, Harl::error}; // ???
+	const string	levels[] =
+		{"DEBUG", "INFO", "WARNING", "ERROR"};
+	// const Logger	logs[] =
+	// 	{&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 	
+	const Logger	logs[] =
+		{&debug, &info, &warning, &error};
+		
 	// ........ We're not done yet.
-	for (int i = 0; i < Harl::LEVELS; i++)
-	{
-		if (Harl::levels[i] == level)
-		{
-			(this->*loggers[i])(); 
-			return ;
-		}
-	}
+	// for (int i = 0; i < Harl::LEVELS; i++)
+	// {
+	// 	if (Harl::levels[i] == level)
+	// 	{
+	// 		(this->*loggers[i])(); 
+	// 		return ;
+	// 	}
+	// }
 }
