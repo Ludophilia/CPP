@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 23:52:16 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/19 18:59:43 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/19 19:56:29 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	Harl::warning(void)
 {
 	cout << Harl::WARNING_MSG << endl;
 }
+
 void	Harl::error(void)
 {
 	cout << Harl::ERROR_MSG << endl;
