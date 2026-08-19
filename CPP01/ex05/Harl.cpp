@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 23:52:16 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/18 23:02:13 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/19 18:59:43 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,21 +50,17 @@ void	Harl::error(void)
 
 void	Harl::complain(string level)
 {
-	const string	levels[] =
+	const string	levels[Harl::LEVELS] =
 		{"DEBUG", "INFO", "WARNING", "ERROR"};
-	const Logger	logs[] =
+	const Logger	loggers[Harl::LEVELS] =
 		{&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-	
-	// const Logger	logs[] =
-	// 	{&debug, &info, &warning, &error};
-		
-	// ........ We're not done yet.
-	// for (int i = 0; i < Harl::LEVELS; i++)
-	// {
-	// 	if (Harl::levels[i] == level)
-	// 	{
-	// 		(this->*loggers[i])(); 
-	// 		return ;
-	// 	}
-	// }
+
+	for (int i = 0; i < Harl::LEVELS; i++)
+	{
+		if (levels[i] == level)
+		{
+			(this->*loggers[i])(); 
+			return ;
+		}
+	}
 }
