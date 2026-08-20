@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 19:03:35 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/19 18:23:13 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/20 21:33:14 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ class Harl
 {
 	public:
 
-	typedef void	(Harl::*Logger)(void);
-
 	void	complain(string level);
 
 	private:
 
+	typedef void	(Harl::*Logger)(void);
+	
 	static const int		LEVELS;
 	static const string		DEBUG_MSG;
 	static const string		INFO_MSG;
