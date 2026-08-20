@@ -6,13 +6,13 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 23:52:16 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/19 21:59:20 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/20 23:07:50 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
-const int		Harl::LEVELS = 4;
+const int		Harl::LEVELS = 5;
 
 const string	Harl::DEBUG_MSG =
 	"I love having extra bacon for my 7XL-double-cheese-triple-pickle-special"
@@ -28,6 +28,9 @@ const string	Harl::WARNING_MSG =
 
 const string	Harl::ERROR_MSG =
 	"This is unacceptable! I want to speak to the manager now.";
+
+const string	Harl::DEFAULT_MSG =
+	"Probably complaining about insignificant problems";
 
 void	Harl::debug(void) const
 {
@@ -53,23 +56,37 @@ void	Harl::error(void) const
 		 << Harl::ERROR_MSG << endl;
 }
 
-// Mod
-void	Harl::complain(string level) const
+void	Harl::defaultf(void) const
 {
-	const string	levels[Harl::LEVELS] =
-		{"DEBUG", "INFO", "WARNING", "ERROR"};
-
-	// Use getLevel???? After all, most of the logic is already here.
-		
-	const Logger	loggers[Harl::LEVELS] =
-		{&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-
-	for (int i = 0; i < Harl::LEVELS; i++)
-	{
-		if (levels[i] == level)
-		{
-			(this->*loggers[i])(); 
-			return ;
-		}
-	}
+	cout << "[ " << Harl::DEFAULT_MSG
+		 << " ]" << endl;
 }
+
+void	Harl::complain(const string &level) const
+{
+	const Logger	loggers[Harl::LEVELS] =
+		{&Harl::debug, &Harl::info, &Harl::warning, &Harl::error,
+		 &Harl::defaultf};
+	const Level		level_nb =
+		Harl::getLevel(level);
+
+	if (level_nb != Harl::NONE)
+		(this->*loggers[level_nb])();
+}
+
+// void	Harl::complain(const string &level) const
+// {
+// 	const string	levels[Harl::LEVELS] =
+// 		{"DEBUG", "INFO", "WARNING", "ERROR"};
+// 	const Logger	loggers[Harl::LEVELS] =
+// 		{&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+
+// 	for (int i = 0; i < Harl::LEVELS; i++)
+// 	{
+// 		if (levels[i] == level)
+// 		{
+// 			(this->*loggers[i])();
+// 			return ;
+// 		}
+// 	}
+// }
