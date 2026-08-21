@@ -6,13 +6,13 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 23:52:16 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/20 23:07:50 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/21 22:12:01 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
-const int		Harl::LEVELS = 5;
+const int		Harl::LEVELS = 4;
 
 const string	Harl::DEBUG_MSG =
 	"I love having extra bacon for my 7XL-double-cheese-triple-pickle-special"
@@ -32,28 +32,45 @@ const string	Harl::ERROR_MSG =
 const string	Harl::DEFAULT_MSG =
 	"Probably complaining about insignificant problems";
 
+Harl::Level	Harl::getLevel(const string &level)
+{
+	const string		keys[Harl::LEVELS] =
+		{"DEBUG", "INFO", "WARNING", "ERROR"};
+	const Harl::Level 	vals[Harl::LEVELS] =
+		{DEBUG, INFO, WARNING, ERROR};
+
+	for (int i = 0; i < Harl::LEVELS; i++)
+		if (keys[i] == level)
+			return (vals[i]);
+	return (DEFAULT);
+}
+
 void	Harl::debug(void) const
 {
 	cout << "[ DEBUG ]" << '\n'
-		 << Harl::DEBUG_MSG << endl;
+		 << Harl::DEBUG_MSG << '\n'
+		 << endl;
 }
 
 void	Harl::info(void) const
 {
 	cout << "[ INFO ]" << '\n'
-		 << Harl::INFO_MSG << endl;
+		 << Harl::INFO_MSG << '\n'
+		 << endl;
 }
 
 void	Harl::warning(void) const
 {
 	cout << "[ WARNING ]" << '\n'
-		 << Harl::WARNING_MSG << endl;
+		 << Harl::WARNING_MSG << '\n'
+		 << endl;
 }
 
 void	Harl::error(void) const
 {
 	cout << "[ ERROR ]" << '\n' 
-		 << Harl::ERROR_MSG << endl;
+		 << Harl::ERROR_MSG << '\n'
+		 << endl;
 }
 
 void	Harl::defaultf(void) const
@@ -64,29 +81,11 @@ void	Harl::defaultf(void) const
 
 void	Harl::complain(const string &level) const
 {
-	const Logger	loggers[Harl::LEVELS] =
+	const Logger	loggers[Harl::LEVELS + 1] =
 		{&Harl::debug, &Harl::info, &Harl::warning, &Harl::error,
 		 &Harl::defaultf};
 	const Level		level_nb =
 		Harl::getLevel(level);
 
-	if (level_nb != Harl::NONE)
-		(this->*loggers[level_nb])();
+	(this->*loggers[level_nb])();
 }
-
-// void	Harl::complain(const string &level) const
-// {
-// 	const string	levels[Harl::LEVELS] =
-// 		{"DEBUG", "INFO", "WARNING", "ERROR"};
-// 	const Logger	loggers[Harl::LEVELS] =
-// 		{&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-
-// 	for (int i = 0; i < Harl::LEVELS; i++)
-// 	{
-// 		if (levels[i] == level)
-// 		{
-// 			(this->*loggers[i])();
-// 			return ;
-// 		}
-// 	}
-// }

@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 19:03:35 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/20 23:55:17 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/21 22:15:41 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,8 @@ class Harl
 {
 	public:
 
-	enum Level { NONE = -1, DEBUG, INFO, WARNING, ERROR, DEFAULT };
+	enum Level { DEBUG = 0, INFO, WARNING, ERROR, DEFAULT };
 	
-	static const int		LEVELS;
 	static Level			getLevel(const string &level);
 
 	void					complain(const string &level) const;
@@ -37,6 +36,7 @@ class Harl
 
 	typedef void	(Harl::*Logger)(void) const;
 
+	static const int		LEVELS;
 	static const string		DEBUG_MSG;
 	static const string		INFO_MSG;
 	static const string 	WARNING_MSG;
