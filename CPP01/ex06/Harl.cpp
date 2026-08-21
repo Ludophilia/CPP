@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 23:52:16 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/21 22:12:01 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/21 22:38:54 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,9 @@ void	Harl::error(void) const
 
 void	Harl::defaultf(void) const
 {
-	cout << "[ " << Harl::DEFAULT_MSG
-		 << " ]" << endl;
+	cout << "[ "
+		 << Harl::DEFAULT_MSG << " ]"
+		 << endl;
 }
 
 void	Harl::complain(const string &level) const
