@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 19:03:35 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/21 22:15:41 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/24 18:54:00 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,26 +28,26 @@ class Harl
 
 	enum Level { DEBUG = 0, INFO, WARNING, ERROR, DEFAULT };
 	
-	static Level			getLevel(const string &level);
-
+	void					filter(const string &level) const;
 	void					complain(const string &level) const;
 
 	private:
 
-	typedef void	(Harl::*Logger)(void) const;
+	typedef void			(Harl::*Logger)(void) const;
 
 	static const int		LEVELS;
 	static const string		DEBUG_MSG;
 	static const string		INFO_MSG;
-	static const string 	WARNING_MSG;
-	static const string 	ERROR_MSG;
-	static const string 	DEFAULT_MSG;
+	static const string		WARNING_MSG;
+	static const string		ERROR_MSG;
+	static const string		DEFAULT_MSG;
 
-	void	debug(void) const;
-	void	info(void) const;
-	void	warning(void) const;
-	void	error(void) const;
-	void	defaultf(void) const;
+	Level					getLevel(const string &level) const;
+	void					debug(void) const;
+	void					info(void) const;
+	void					warning(void) const;
+	void					error(void) const;
+	void					defaultf(void) const;
 };
 
 #endif
