@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 00:13:18 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/13 01:39:46 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/24 19:45:24 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,15 @@
 
 # include <iostream>
 
+using std::cout;
+using std::endl;
+
 class Fixed
 {
 	public:
 
-	Fixed(void);
-	~Fixed(void);
+	Fixed();
+	~Fixed();
 	Fixed(const Fixed &src);
 	Fixed &operator=(const Fixed &rhs);
 	
