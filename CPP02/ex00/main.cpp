@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 00:15:50 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/24 22:16:22 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/25 23:11:30 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 int	main()
 {
-	const Fixed a;
-	const Fixed b(a);
+	Fixed		a;
+	Fixed		b(a); // Copy constructor. Eq to Fixed b = a;
 	Fixed 		c;
 
-	c = b;
+	c = b; // Copy assignment operator. Think of it as c.operator=(b)...
 	cout << a.getRawBits() << endl;
 	cout << b.getRawBits() << endl;
 	cout << c.getRawBits() << endl;

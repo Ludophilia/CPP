@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 00:13:18 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/24 19:45:24 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/25 22:27:17 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class Fixed
 	private:
 	
 	static const int	_fbits = 8;
-	int					_value;
+	int					_rvalue;
 };
 
 #endif
