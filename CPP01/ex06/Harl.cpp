@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 23:52:16 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/25 18:57:26 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/25 19:42:15 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,16 +96,16 @@ void	Harl::filter(const string &level) const
 
 	switch (levelID)
 	{
-		case Harl::DEBUG:
+		case DEBUG:
 			complain("DEBUG");
 			/* fallthrough */ // C++ 17 has [[fallthrough]]; built-in !!
-		case Harl::INFO:
+		case INFO:
 			complain("INFO");
 			/* fallthrough */
-		case Harl::WARNING:
+		case WARNING:
 			complain("WARNING");
 			/* fallthrough */
-		case Harl::ERROR:
+		case ERROR:
 			complain("ERROR");
 			break ;
 		default:

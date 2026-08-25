@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 19:03:35 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/25 18:57:48 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/25 19:48:27 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ class Harl
 {
 	public:
 
-	enum LevelID { DEBUG = 0, INFO, WARNING, ERROR, DEFAULT };
-	
 	void					filter(const string &level) const;
 	void					complain(const string &level) const;
 
 	private:
+
+	enum LevelID			{ DEBUG = 0, INFO, WARNING, ERROR, DEFAULT };
 
 	typedef void			(Harl::*Logger)(void) const;
 
