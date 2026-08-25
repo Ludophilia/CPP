@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 23:52:16 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/24 19:21:02 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/25 18:57:26 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,46 +32,46 @@ const string	Harl::ERROR_MSG =
 const string	Harl::DEFAULT_MSG =
 	"Probably complaining about insignificant problems";
 
-void	Harl::debug(void) const
+void	Harl::debug() const
 {
 	cout << "[ DEBUG ]" << '\n'
 		 << Harl::DEBUG_MSG << '\n'
 		 << endl;
 }
 
-void	Harl::info(void) const
+void	Harl::info() const
 {
 	cout << "[ INFO ]" << '\n'
 		 << Harl::INFO_MSG << '\n'
 		 << endl;
 }
 
-void	Harl::warning(void) const
+void	Harl::warning() const
 {
 	cout << "[ WARNING ]" << '\n'
 		 << Harl::WARNING_MSG << '\n'
 		 << endl;
 }
 
-void	Harl::error(void) const
+void	Harl::error() const
 {
 	cout << "[ ERROR ]" << '\n' 
 		 << Harl::ERROR_MSG << '\n'
 		 << endl;
 }
 
-void	Harl::defaultf(void) const
+void	Harl::defaultf() const
 {
 	cout << "[ "
 		 << Harl::DEFAULT_MSG << " ]"
 		 << endl;
 }
 
-Harl::Level	Harl::getLevel(const string &level) const
+Harl::LevelID	Harl::getLevelID(const string &level) const
 {
 	const string		keys[Harl::LEVELS] =
 		{"DEBUG", "INFO", "WARNING", "ERROR"};
-	const Harl::Level 	vals[Harl::LEVELS] =
+	const LevelID 	vals[Harl::LEVELS] =
 		{DEBUG, INFO, WARNING, ERROR};
 
 	for (int i = 0; i < Harl::LEVELS; i++)
@@ -85,32 +85,31 @@ void	Harl::complain(const string &level) const
 	const Logger	loggers[Harl::LEVELS + 1] =
 		{&Harl::debug, &Harl::info, &Harl::warning, &Harl::error,
 		 &Harl::defaultf};
-	const Level		level_nb = getLevel(level);
+	const LevelID	levelID = getLevelID(level);
 
-	(this->*loggers[level_nb])();
+	(this->*loggers[levelID])();
 }
 
 void	Harl::filter(const string &level) const
 {
-	Harl				harl;
-	const Harl::Level 	level_nb = getLevel(level);
+	const LevelID 	levelID = getLevelID(level);
 
-	switch (level_nb)
+	switch (levelID)
 	{
 		case Harl::DEBUG:
-			harl.complain("DEBUG");
+			complain("DEBUG");
 			/* fallthrough */ // C++ 17 has [[fallthrough]]; built-in !!
 		case Harl::INFO:
-			harl.complain("INFO");
+			complain("INFO");
 			/* fallthrough */
 		case Harl::WARNING:
-			harl.complain("WARNING");
+			complain("WARNING");
 			/* fallthrough */
 		case Harl::ERROR:
-			harl.complain("ERROR");
+			complain("ERROR");
 			break ;
 		default:
-			harl.complain("DEFAULT");
+			complain("DEFAULT");
 			break ;
 	}
 }
