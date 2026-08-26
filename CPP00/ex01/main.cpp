@@ -6,11 +6,11 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 15:54:51 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/07 21:32:38 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/27 00:07:07 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <main.hpp>
+# include "PhoneBook.hpp"
 
 int	main()
 {
@@ -20,11 +20,11 @@ int	main()
 
 		phonebook.run();
 	}
-	catch (const std::istream::failure &e)
+	catch (const istream::failure &e)
 	{
-		std::cerr << "Something wrong occurred: " 
+		cerr	  << "Something wrong occurred: " 
 				  << e.what()
-				  << std::endl;
+				  << endl;
 		return (1);
 	}
 	return (0);

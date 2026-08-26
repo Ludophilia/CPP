@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 17:58:49 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/03 15:48:01 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/27 00:03:44 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,20 +30,20 @@ string	Contact::truncate(const string &fld, const unsigned len) const
 
 void	Contact::summarize(int index) const
 {
-	std::cout	<< '|'
-				<< std::setw(10) << index << '|'
-				<< std::setw(10) << truncate(_name, 10) << '|'
-				<< std::setw(10) << truncate(_surname, 10) << '|'
-				<< std::setw(10) << truncate(_nickname, 10) << '|'
-				<< std::endl;
+	cout	<< '|'
+			<< setw(10) << index << '|'
+			<< setw(10) << truncate(_name, 10) << '|'
+			<< setw(10) << truncate(_surname, 10) << '|'
+			<< setw(10) << truncate(_nickname, 10) << '|'
+			<< endl;
 }
 
 void	Contact::display() const
 {
-	std::cout	<< "First name: " << _name << '\n'
-				<< "Last name: " << _surname << '\n'
-				<< "Nickname: " << _nickname << '\n'
-				<< "Phone number: " << _number << '\n'
-				<< "Darkest secret: " << _secret << '\n'
-				<< std::flush;
+	cout	<< "First name: " << _name << '\n'
+			<< "Last name: " << _surname << '\n'
+			<< "Nickname: " << _nickname << '\n'
+			<< "Phone number: " << _number << '\n'
+			<< "Darkest secret: " << _secret << '\n'
+			<< flush;
 }

@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 13:08:25 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/03 14:38:59 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/27 00:11:30 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,19 @@
 
 # include "Contact.hpp"
 
+using std::atoi;
+
 using std::string;
+
+using std::istream;
+
+using std::cout;
+using std::cerr;
+using std::cin;
+using std::endl;
+
+using std::getline;
+using std::setw;
 
 class PhoneBook
 {
@@ -33,18 +45,16 @@ class PhoneBook
 
 	private:
 
-	static const int	_contact_nb = 8;
-	static const int	_field_nb = 5;
-	Contact				_contacts[_contact_nb];
+	static const int	_contactNb = 8;
+	static const int	_fieldNb = 5;
+	Contact				_contacts[_contactNb];
 	int					_size;
 	int					_pos;
 	
-	void	add_contact();
-
-	void	search_contact() const;
-
-	void	display_summary() const;
-	int		validate_input(const string &uin) const;
+	void				add();
+	void				search() const;
+	void				summarize() const;
+	int					validate(const string &uin) const;
 };
 
 #endif

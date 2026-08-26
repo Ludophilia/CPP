@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 13:46:38 by jegerman          #+#    #+#             */
-/*   Updated: 2026/07/29 22:06:51 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/27 00:03:04 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@
 # include <string>
 
 using std::string;
+
+using std::cout;
+using std::endl;
+using std::flush;
+
+using std::setw;
 
 class Contact
 {
