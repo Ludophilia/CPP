@@ -6,15 +6,21 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 01:04:51 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/25 22:27:47 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/26 23:34:38 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed(): _rvalue(0)
+Fixed::Fixed(): _rawValue(0)
 {
 	cout << "Default constructor called" << endl;
+}
+
+Fixed::Fixed(const Fixed &src)//: _rawValue(src.getRawBits())
+{
+	cout << "Copy constructor called" << endl;
+	_rawValue = src.getRawBits();
 }
 
 Fixed::~Fixed()
@@ -22,13 +28,7 @@ Fixed::~Fixed()
 	cout << "Destructor called" << endl;
 }
 
-Fixed::Fixed(const Fixed &src)
-{
-	cout << "Copy constructor called" << endl;
-	*this = src;
-}
-
-Fixed &Fixed::operator=(const Fixed &rhs)
+Fixed	&Fixed::operator=(const Fixed &rhs)
 {
 	cout << "Copy assignment operator called" << endl;
 	if (this != &rhs)
@@ -39,10 +39,10 @@ Fixed &Fixed::operator=(const Fixed &rhs)
 int		Fixed::getRawBits(void) const
 {
 	cout << "getRawBits member function called" << endl;
-	return (_rvalue);
+	return (_rawValue);
 }
 
 void	Fixed::setRawBits(const int raw)
 {
-	_rvalue = raw;
+	_rawValue = raw;
 }
