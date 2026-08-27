@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 01:04:51 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/26 23:34:38 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/27 19:41:28 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Fixed	&Fixed::operator=(const Fixed &rhs)
 {
 	cout << "Copy assignment operator called" << endl;
 	if (this != &rhs)
-		setRawBits(rhs.getRawBits());
+		_rawValue = rhs.getRawBits();
 	return (*this);
 }
 
