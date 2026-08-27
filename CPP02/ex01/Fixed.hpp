@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 00:13:18 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/14 23:39:32 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/27 19:27:31 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,20 @@
 # include <iostream>
 # include <cmath>
 
+using std::ostream;
+
+using std::cout;
+using std::endl;
+
 class Fixed
 {
 	public:
 
-	Fixed(void);
-	~Fixed(void);
+	Fixed();
+	Fixed(const Fixed &src);
 	Fixed(const int intVal);
 	Fixed(const float floatVal);
-	Fixed(const Fixed &src);
+	~Fixed();
 
 	Fixed	&operator=(const Fixed &rhs);
 
@@ -36,10 +41,10 @@ class Fixed
  
 	private:
 	
-	static const int	_fbits = 8;
-	int					_value;
+	static const int	_fractBits = 8;
+	int					_rawValue;
 };
 
-std::ostream	&operator<<(std::ostream &out, const Fixed &rhs);
+ostream	&operator<<(ostream &out, const Fixed &rhs);
 
 #endif

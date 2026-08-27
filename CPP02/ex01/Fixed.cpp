@@ -6,67 +6,71 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 01:04:51 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/14 23:39:52 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/27 21:35:57 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed(void): _value(0)
+Fixed::Fixed():
+	_rawValue(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+	cout << "Default constructor called" << endl;
 }
 
-Fixed::Fixed(const int intVal): _value(intVal << _fbits)
+Fixed::Fixed(const Fixed &src)//:
+//	_rawValue(src.getRawBits())
 {
-	std::cout << "Int constructor called" << std::endl;
+	cout << "Copy constructor called" << endl;
+	_rawValue = src.getRawBits();
 }
 
-Fixed::Fixed(const float floatVal): _value(roundf(floatVal * (1 << _fbits)))
+Fixed::Fixed(const int intVal):
+	_rawValue(intVal << _fractBits)
 {
-	std::cout << "Float constructor called" << std::endl;
+	cout << "Int constructor called" << endl;
 }
 
-Fixed::Fixed(const Fixed &src)
+Fixed::Fixed(const float floatVal):
+	_rawValue(roundf(floatVal * (1 << _fractBits)))
 {
-	std::cout << "Copy constructor called" << std::endl;
-	*this = src;
+	cout << "Float constructor called" << endl;
 }
 
-Fixed::~Fixed(void)
+Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
-}
-
-int		Fixed::toInt(void) const
-{
-	return (this->_value >> _fbits);
-}
-
-float	Fixed::toFloat(void) const
-{
-	return (this->_value / static_cast<float>(1 << _fbits));
-}
-
-int		Fixed::getRawBits(void) const
-{
-	return (this->_value);
-}
-
-void	Fixed::setRawBits(const int raw)
-{
-	this->_value = raw;
+	cout << "Destructor called" << endl;
 }
 
 Fixed &Fixed::operator=(const Fixed &rhs)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	cout << "Copy assignment operator called" << endl;
 	if (this != &rhs)
-		this->_value = rhs.getRawBits();
+		_rawValue = rhs.getRawBits();
 	return (*this);
 }
 
-std::ostream	&operator<<(std::ostream &out, const Fixed &rhs)
+int		Fixed::toInt(void) const
+{
+	return (_rawValue >> _fractBits);
+}
+
+float	Fixed::toFloat(void) const
+{
+	return (_rawValue / static_cast<float>(1 << _fractBits));
+}
+
+int		Fixed::getRawBits(void) const
+{
+	return (_rawValue);
+}
+
+void	Fixed::setRawBits(const int raw)
+{
+	_rawValue = raw;
+}
+
+ostream		&operator<<(ostream &out, const Fixed &rhs)
 {
 	return (out << rhs.toFloat());
 }
