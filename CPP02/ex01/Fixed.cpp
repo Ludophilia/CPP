@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 01:04:51 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/27 21:35:57 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/28 23:49:04 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int		Fixed::toInt(void) const
 
 float	Fixed::toFloat(void) const
 {
+	 // Why did you cast float the power of two?
 	return (_rawValue / static_cast<float>(1 << _fractBits));
 }
 

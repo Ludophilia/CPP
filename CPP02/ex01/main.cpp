@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 19:21:30 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/27 21:26:52 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/28 20:13:49 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	main(void)
 {
-	Fixed		a;
-	Fixed const	b(10);
-	Fixed const	c(42.42f);
-	Fixed const	d(b);
+	Fixed			a;
+	Fixed const		b(10);
+	Fixed const		c(42.42f);
+	Fixed const		d(b);
 
 	a = Fixed(1234.4321f);
 
