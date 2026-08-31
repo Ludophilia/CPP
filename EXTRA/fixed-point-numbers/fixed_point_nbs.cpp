@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 22:57:30 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/29 23:42:39 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/08/31 21:53:49 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,17 @@
 using	std::cout;
 using	std::endl;
 
+#define ALT false
+
 // https://web.archive.org/web/20231224143018/https://inst.eecs.berkeley.edu/~cs61c/sp06/handout/fixedpt.html
 int	main()
 {
-	// 27/08/26: What's that mess ?
-
-	// What's a fixed point number to begin with?
+	// 27/08/26: What's a fixed point number to begin with?
 
 	// A fixed point number is:
 
 	// 	- A whole part
 	// 	- A fractional part
-
-	//  - Usually stored in integers
 
 	// 	- the point is always at the same spot, meaning there's
 	// 		- a fixed number of digits for the whole part
@@ -45,90 +43,112 @@ int	main()
 
 	// The problem NOW is how we express that in code...
 
+	// == An integer... to the fixed point number.
+	// == A coefficient to "dilate" the fractional part of the original value
+	// on the first N bits and express it as precisely as possible with the 
+	// lower bits of that integer (a bit shaky as an explanation no?).
+	// That way:
+	//		# 0.125 will be 32 (0.125 * 256) if we choose to 'encode' the fractional part
+	// 		on the first 8 bits (2**8 => 256)...
+	//      # 0 will stay 0 (0 * 256)... 
+	//		# 0.5 will be 128 (0.5 * 256)...
+
 	// ########################################################################
 
 	// Here's some examples of fixed point numbers.
 
 	// A 32 bits integer with 28 spot for the whole part.
 
-	const int		_fractBits = 4; // 4 default
-	int				_rawValue;
-	int				_oriValue;
+	const int		_fractBits = 8; // 8 default
+	int				_oriValueInt;
+	float			_oriValueFloat;
+	int				_rawValueInt;
 
-	cout << std::showbase;
-	cout << "fractBits: (1<<" << _fractBits << ") => " 
+	cout << std::showbase
+	     << "fractBits: (1<<" << _fractBits << ") => " 
 		 << "(2^" << _fractBits << ") => "
-	     << (1 << _fractBits)
-		 << "."
-		 << endl;
-	// ########################################################################
-	cout << "Integer or Float as rawValue:" 
+		 << (1 << _fractBits)
+		 << '\n'
 		 << endl;
 
-	_oriValue = 42;
-	cout << "\t* original (dec): " << _oriValue << '\n'
-		 << "\t* original (bits): " << std::bitset<16>(_oriValue)
+	cout << "Integer and Float as rawValue:" << endl;
+
+	_oriValueInt = 42;
+	cout << "\t* original (dec): " << _oriValueInt << '\n'
+		 << "\t* original (bits): "
+		 << std::bitset<16>(_oriValueInt).to_string().insert(_fractBits, ".")
 		 << endl;
-	_rawValue = (_oriValue << _fractBits); // <=
-	cout << "\t* " << _oriValue << " as rawValue (dec): " << _rawValue << '\n' // -> 672
-	     << "\t* " << _oriValue << " as rawValue (bin): " <<  std::bitset<16>(_rawValue) // -> 672
+	_rawValueInt = ALT? (42 * (1 << _fractBits)) : (_oriValueInt << _fractBits); 
+	cout << "\t* " << _oriValueInt << " as rawValue (dec): "
+				   << _rawValueInt << '\n' // -> 10752 = 42 * 256
+		 << "\t* " << _oriValueInt << " as rawValue (bits): "
+		 		   <<  std::bitset<16>(_rawValueInt).to_string().insert(_fractBits, ".")
+				   // -> 00101010.00000000 so 42.00
 		 << '\n' << endl;
 
-	_oriValue = 42.42; // ❌ Lost in translation :/ Hence the Float...
-	cout << "\t* original (dec): " << _oriValue << '\n'
-		 << "\t* original (bits): " << std::bitset<16>(_oriValue)
+	// _oriValueInt = 42.5; // ❌ will lose fractional part
+	_oriValueFloat = 42.5;
+	cout << "\t* original (dec): " << _oriValueFloat << '\n'
+		 << "\t* original (bits, casted): "
+		 << std::bitset<16>(_oriValueFloat).to_string().insert(_fractBits, ".") // ❌
 		 << endl;
-	_rawValue = (_oriValue << _fractBits); // <= ✅
-	// _rawValue = (42.42 << _fractBits); // <= ❌ expression must have integral or enum type
-	_rawValue = (_oriValue << _fractBits); // <=
-	cout << "\t* " << _oriValue << " as rawValue (dec): " << _rawValue << '\n' // -> 672
-	     << "\t* " << _oriValue << " as rawValue (bin): " <<  std::bitset<16>(_rawValue) // -> 672
-		 << endl;
+	 // _rawValueInt = (_oriValueFloat << _fractBits); // <= ❌ expression must have integral or enum type
+	 _rawValueInt = (_oriValueFloat * (1 << _fractBits));
+	cout << "\t* " << _oriValueFloat << " as rawValue (dec): "
+				   << _rawValueInt << '\n' // -> 10880 = 42.5 * 256 
+	     << "\t* " << _oriValueFloat << " as rawValue (bits): "
+		 		   <<  std::bitset<16>(_rawValueInt).to_string().insert(_fractBits, ".")
+				   // -> 00101010.10000000, so 42.128? 
+				   // Not really: .10000000 here represents 2**-1 => 1/2 or 0.5 OR 128 / 256 👌
+		 << '\n' << endl;
 
-	// ###############
-	// cout << "Integer or Float as rawValue (alt, ✅ both int / float):" 
-	// 	 << endl;
-	// _rawValue = (42 * (1 << _fractBits)); // <=
-	// cout << "\t* 42 (int) as rawValue (alt): "
-	// 	 << _rawValue
-	// 	 << endl; // -> 672
-	// _rawValue = (42.42 * (1 << _fractBits)); // <=
-	// cout << "\t* 42.42 (float) as rawValue (alt): "
-	// 	 << _rawValue
-	// 	 << endl; // -> 678
+	_oriValueFloat = 42.25;
+	cout << "\t* original (dec): " << _oriValueFloat << '\n'
+		 << "\t* original (bits, casted): "
+		 << std::bitset<16>(_oriValueFloat).to_string().insert(_fractBits, ".") // ❌
+		 << endl;
+	_rawValueInt = (_oriValueFloat * (1 << _fractBits)); // 10816 = 42.25 * 256
+	cout << "\t* " << _oriValueFloat << " as rawValue (dec): "
+				   << _rawValueInt << '\n' // -> 10816 
+	     << "\t* " << _oriValueFloat << " as rawValue (bits): "
+		 		   <<  std::bitset<16>(_rawValueInt).to_string().insert(_fractBits, ".")
+				   // -> 00101010.01000000, so 42.64?
+				   // -> .01000000 represents 2**-2 => 1/4 or 0.25 OR 64 / 256 👌
+		 << '\n' << endl;
+		 
 	// // ########################################################################
 	// cout << "Integer or Float rawValue TO an Integer: (✅ both int / float)" 
 	// 	 << endl;
-	// _rawValue = (42 * (1 << _fractBits));
+	// _rawValueInt = (42 * (1 << _fractBits));
 	// cout << "\t* 42 (int) rawValue TO an int: "
-	// 	 << (_rawValue >> _fractBits) // <=
+	// 	 << (_rawValueInt >> _fractBits) // <=
 	// 	 << endl; // -> 42
-	// _rawValue = (42.42 * (1 << _fractBits));
+	// _rawValueInt = (42.42 * (1 << _fractBits));
 	// cout << "\t* 42.42 (float) rawValue TO an int: "
-	// 	 << (_rawValue >> _fractBits) // <=
+	// 	 << (_rawValueInt >> _fractBits) // <=
 	// 	 << endl; // -> 42
-	// _rawValue = (42.99 * (1 << _fractBits));
+	// _rawValueInt = (42.99 * (1 << _fractBits));
 	// cout << "\t* 42.99 (float) rawValue TO an int: "
-	// 	 << (_rawValue >> _fractBits) // <=
+	// 	 << (_rawValueInt >> _fractBits) // <=
 	// 	 << endl; // -> 42
-	// _rawValue = (42.999999999999999 * (1 << _fractBits));
+	// _rawValueInt = (42.999999999999999 * (1 << _fractBits));
 	// cout << "\t* 42.999999999999999 (float) rawValue TO an int: "
-	// 	 << (_rawValue >> _fractBits) // <=
+	// 	 << (_rawValueInt >> _fractBits) // <=
 	// 	 << endl; // -> 43!?
 	// // ###############
 	// cout << "Integer or Float rawValue TO an Integer (alt, ✅ both int / float):" 
 	// 	 << endl;
-	// _rawValue = (42 << _fractBits);
+	// _rawValueInt = (42 << _fractBits);
 	// cout << "\t* 42 (int) rawValue TO an int (alt): "
-	// 	 << (_rawValue / (1 << _fractBits)) // <=
+	// 	 << (_rawValueInt / (1 << _fractBits)) // <=
 	// 	 << endl; // -> 42
-	// _rawValue = (42.99 * (1 << _fractBits));
+	// _rawValueInt = (42.99 * (1 << _fractBits));
 	// cout << "\t* 42.99 (float) rawValue TO an int: (alt) "
-	// 	 << (_rawValue / (1 << _fractBits)) // <=
+	// 	 << (_rawValueInt / (1 << _fractBits)) // <=
 	// 	 << endl; // -> 42
-	// _rawValue = (42.999999999999999 * (1 << _fractBits));
+	// _rawValueInt = (42.999999999999999 * (1 << _fractBits));
 	// cout << "\t* 42.999999999999999 (float) rawValue TO an int: "
-	// 	 << (_rawValue / (1 << _fractBits)) // <=
+	// 	 << (_rawValueInt / (1 << _fractBits)) // <=
 	// 	 << endl; // -> 43!?
 	// // ########################################################################
 		
@@ -137,17 +157,17 @@ int	main()
 
 
 	
-	// _rawValue = (42.42 * (1 << _fractBits));
+	// _rawValueInt = (42.42 * (1 << _fractBits));
 	// cout << "\t* 42.42 (float) rawValue TO a float (alt): "
-	// 	 << static_cast<float>(_rawValue) / (1 << _fractBits) // <=
+	// 	 << static_cast<float>(_rawValueInt) / (1 << _fractBits) // <=
 	// 	 << endl; // -> 42.375
-	// _rawValue = (42.99 * (1 << _fractBits));
+	// _rawValueInt = (42.99 * (1 << _fractBits));
 	// cout << "\t* 42.99 (float) rawValue TO a float (alt): "
-	// 	 << static_cast<float>(_rawValue) / (1 << _fractBits) // <=
+	// 	 << static_cast<float>(_rawValueInt) / (1 << _fractBits) // <=
 	// 	 << endl; // -> 42.875
-	// _rawValue = (42.999999999999999 * (1 << _fractBits));
+	// _rawValueInt = (42.999999999999999 * (1 << _fractBits));
 	// cout << "\t* 42.999999999999999 (float) rawValue TO a float (alt): "
-	// 	 << static_cast<float>(_rawValue) / (1 << _fractBits) // <=
+	// 	 << static_cast<float>(_rawValueInt) / (1 << _fractBits) // <=
 	// 	 << endl; // -> 42.375
 
 		 
