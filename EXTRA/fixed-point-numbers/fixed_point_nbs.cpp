@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 22:57:30 by jegerman          #+#    #+#             */
-/*   Updated: 2026/09/02 22:33:35 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/09/02 23:03:32 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ int	main()
 	// 		- In a number in base 2 but it works for any base for that matter, 
 	//		the bit b0 at the left of the point has a value of b0 * 2^0.
 	//			- After the point to the right, the bit b-1 has a value of  b-1 * 2^-1
-	//			- After the point to the left, the bit b1 has a value of  b1 * 2^1
-	//      	- The further we go to the left, the higher the power of two (1, 2...), and
+	//			- After the point to the left, the bit b0 has a value of  b0 * 2^0
+	//      	- The further we go to the left, the higher the power of two (0, 1, 2...), and
 	//      	conversely to the right (-1, -2)...
 
 	// The problem NOW is how we express that in code...
@@ -75,7 +75,7 @@ int	main()
 	//		   - 0010101000000000 is (2^9 + 2^11 + 2^13) or 10752
 	//		   - OR 00101010.00000000 (2^1 + 2^3 + 2^5) as a fixed with 8 bits 
 	//         for the fractional part. Note that 9 = 1 + 8, 11 = 3 + 8, 13 = 5 + 8.
-	//         Yeah, that 8 bits left shift or * 256 coefficient again...
+	//         Yeah, that 8 bits left shift or * 256 or * 2^8 again...
 	//      # 0 will stay 0 (0 * 256)... 
 
 	// ########################################################################
