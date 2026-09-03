@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 00:13:18 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/27 19:27:31 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/09/03 20:22:14 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,6 @@ class Fixed
 	int					_rawValue;
 };
 
-ostream	&operator<<(ostream &out, const Fixed &rhs);
+ostream	&operator<<(ostream &lhs, const Fixed &rhs);
 
 #endif

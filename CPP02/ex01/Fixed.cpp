@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 01:04:51 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/29 21:57:57 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/09/03 19:38:00 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	Fixed::setRawBits(const int raw)
 	_rawValue = raw;
 }
 
-ostream		&operator<<(ostream &out, const Fixed &rhs)
+ostream		&operator<<(ostream &lhs, const Fixed &rhs)
 {
-	return (out << rhs.toFloat());
+	return (lhs << rhs.toFloat());
 }
