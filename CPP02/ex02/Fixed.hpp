@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 00:13:18 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/16 01:08:34 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/09/03 22:01:44 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,29 @@
 # include <iostream>
 # include <cmath>
 
+using std::cout;
+using std::endl;
+using std::ostream;
+
 class Fixed
 {
 	public:
 
-	Fixed(void);
-	~Fixed(void);
+	static Fixed		&min(Fixed &lhs, Fixed &rhs);
+	static const Fixed	&min(const Fixed &lhs, const Fixed &rhs);
+	static Fixed		&max(Fixed &lhs, Fixed &rhs);
+	static const Fixed	&max(const Fixed &lhs, const Fixed &rhs);	
+
+	Fixed();
 	Fixed(const int intVal);
 	Fixed(const float floatVal);
 	Fixed(const Fixed &src);
-	
+	~Fixed();
+
 	int		getRawBits(void) const;
+	void	setRawBits(const int raw);
 	float	toFloat(void) const;
 	int		toInt(void) const;
-	void	setRawBits(const int raw);
 
 	Fixed	&operator=(const Fixed &rhs);
 
@@ -50,18 +59,13 @@ class Fixed
 	Fixed	operator++(int);
 	Fixed	&operator--();
 	Fixed	operator--(int);
-
-	static Fixed		&min(Fixed &lhs, Fixed &rhs);
-	static const Fixed	&min(const Fixed &lhs, const Fixed &rhs);
-	static Fixed		&max(Fixed &lhs, Fixed &rhs);
-	static const Fixed	&max(const Fixed &lhs, const Fixed &rhs);	
 	
 	private:
 	
-	static const int	_fbits = 8;
-	int					_value;
+	static const int	_fractBits = 8;
+	int					_rawValue;
 };
 
-std::ostream	&operator<<(std::ostream &out, const Fixed &rhs);
+ostream		&operator<<(ostream &lhs, const Fixed &rhs);
 
 #endif
