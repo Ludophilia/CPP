@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 01:04:51 by jegerman          #+#    #+#             */
-/*   Updated: 2026/09/03 22:12:52 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/09/04 19:39:45 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,10 @@ Fixed::Fixed(const float floatVal):
 	cout << "Float constructor called" << endl;
 }
 
-Fixed::Fixed(const Fixed &src)//:
-//	_rawValue(src.getRawBits())
+Fixed::Fixed(const Fixed &src):
+	_rawValue(src.getRawBits())
 {
 	cout << "Copy constructor called" << endl;
-	_rawValue = src.getRawBits();
 }
 
 Fixed::~Fixed()

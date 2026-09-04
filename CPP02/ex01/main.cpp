@@ -6,13 +6,13 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 19:21:30 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/28 20:13:49 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/09/04 19:42:27 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-int	main(void)
+int	main()
 {
 	Fixed			a;
 	Fixed const		b(10);

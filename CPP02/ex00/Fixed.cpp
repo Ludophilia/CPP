@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 01:04:51 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/27 19:41:28 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/09/04 19:40:05 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Fixed::Fixed(): _rawValue(0)
 	cout << "Default constructor called" << endl;
 }
 
-Fixed::Fixed(const Fixed &src)//: _rawValue(src.getRawBits())
+Fixed::Fixed(const Fixed &src)
 {
 	cout << "Copy constructor called" << endl;
 	_rawValue = src.getRawBits();
