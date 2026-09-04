@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 01:04:51 by jegerman          #+#    #+#             */
-/*   Updated: 2026/09/04 19:39:45 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/09/04 21:58:27 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,30 +15,30 @@
 Fixed::Fixed():
 	_rawValue(0)
 {
-	cout << "Default constructor called" << endl;
+	// cout << "Default constructor called" << endl;
 }
 
 Fixed::Fixed(const int intVal):
 	_rawValue(intVal << _fractBits)
 {
-	cout << "Int constructor called" << endl;
+	// cout << "Int constructor called" << endl;
 }
 
 Fixed::Fixed(const float floatVal):
 	_rawValue(roundf(floatVal * (1 << _fractBits)))
 {
-	cout << "Float constructor called" << endl;
+	// cout << "Float constructor called" << endl;
 }
 
 Fixed::Fixed(const Fixed &src):
 	_rawValue(src.getRawBits())
 {
-	cout << "Copy constructor called" << endl;
+	// cout << "Copy constructor called" << endl;
 }
 
 Fixed::~Fixed()
 {
-	cout << "Destructor called" << endl;
+	// cout << "Destructor called" << endl;
 }
 
 int		Fixed::getRawBits(void) const
@@ -68,99 +68,108 @@ Fixed &Fixed::operator=(const Fixed &rhs)
 	return (*this);
 }
 
-bool	Fixed::operator>(const Fixed &rhs) const
-{
-	return (_rawValue > rhs.getRawBits());
-}
+// Maybe not...
+// Fixed::operator float() const
+// {
+// 	return (this->toFloat());
+// }
 
-bool	Fixed::operator<(const Fixed &rhs) const
-{
-	return (_rawValue < rhs.getRawBits());
-}
+// bool	Fixed::operator>(const Fixed &rhs) const
+// {
+// 	return (_rawValue > rhs.getRawBits());
+// }
 
-bool	Fixed::operator>=(const Fixed &rhs) const
-{
-	return (_rawValue >= rhs.getRawBits());
-}
+// bool	Fixed::operator<(const Fixed &rhs) const
+// {
+// 	return (_rawValue < rhs.getRawBits());
+// }
 
-bool	Fixed::operator<=(const Fixed &rhs) const
-{
-	return (_rawValue <= rhs.getRawBits());
-}
+// bool	Fixed::operator>=(const Fixed &rhs) const
+// {
+// 	return (_rawValue >= rhs.getRawBits());
+// }
 
-bool	Fixed::operator==(const Fixed &rhs) const
-{
-	return (_rawValue == rhs.getRawBits());
-}
+// bool	Fixed::operator<=(const Fixed &rhs) const
+// {
+// 	return (_rawValue <= rhs.getRawBits());
+// }
 
-bool	Fixed::operator!=(const Fixed &rhs) const
-{
-	return (_rawValue != rhs.getRawBits());
-}
+// bool	Fixed::operator==(const Fixed &rhs) const
+// {
+// 	return (_rawValue == rhs.getRawBits());
+// }
 
+// bool	Fixed::operator!=(const Fixed &rhs) const
+// {
+// 	return (_rawValue != rhs.getRawBits());
+// }
+
+// Remember: returning by Value (Fixed) instead of Reference ((const)Fixed &) 
+// means the temporary Fixed object used inside the function definition will 
+// be copied by the caller...
 Fixed	Fixed::operator+(const Fixed &rhs) const
 {
-	return (Fixed(toFloat() + rhs.toFloat()));
+	return (this->toFloat() + rhs.toFloat());
 }
 
 Fixed	Fixed::operator-(const Fixed &rhs) const
 {
-	return (Fixed(toFloat() - rhs.toFloat()));
+	return (this->toFloat() - rhs.toFloat());
 }
 
 Fixed	Fixed::operator*(const Fixed &rhs) const
 {
-	return (Fixed(toFloat() * rhs.toFloat()));
+	return (this->toFloat() * rhs.toFloat());
 }
 
 Fixed	Fixed::operator/(const Fixed &rhs) const
 {
-	return (Fixed(toFloat() / rhs.toFloat()));
+	return (this->toFloat() / rhs.toFloat());
 }
 
-Fixed	&Fixed::operator++()
-{
-	return (_rawValue += 1, *this);
-}
+// Fixed	&Fixed::operator++()
+// {
+// 	return (_rawValue += 1, *this);
+// }
 
-Fixed	Fixed::operator++(int)
-{
-	Fixed	prev = *this;
+// Fixed	Fixed::operator++(int)
+// {
+// 	Fixed	prev = *this;
 
-	return (_rawValue += 1, prev);
-}
+// 	return (_rawValue += 1, prev);
+// }
 
-Fixed	&Fixed::operator--()
-{
-	return (_rawValue -= 1, *this);
-}
+// Fixed	&Fixed::operator--()
+// {
+// 	return (_rawValue -= 1, *this);
+// }
 
-Fixed	Fixed::operator--(int)
-{
-	Fixed	prev = *this;
+// Fixed	Fixed::operator--(int)
+// {
+// 	Fixed	prev = *this;
 
-	return (_rawValue -= 1, prev);
-}
+// 	return (_rawValue -= 1, prev);
+// }
 
-Fixed	&Fixed::min(Fixed &lhs, Fixed &rhs)
-{
-	return (lhs <= rhs ? lhs : rhs);
-}
+// Fixed	&Fixed::min(Fixed &lhs, Fixed &rhs)
+// {
+// 	return (lhs <= rhs ? lhs : rhs);
+// }
 
-const Fixed	&Fixed::min(const Fixed &lhs, const Fixed &rhs)
-{
-	return (lhs <= rhs ? lhs : rhs);
-}
+// const Fixed	&Fixed::min(const Fixed &lhs, const Fixed &rhs)
+// {
+// 	return (lhs <= rhs ? lhs : rhs);
+// }
 
-Fixed	&Fixed::max(Fixed &lhs, Fixed &rhs)
-{
-	return (lhs >= rhs ? lhs : rhs);
-}
+// Fixed	&Fixed::max(Fixed &lhs, Fixed &rhs)
+// {
+// 	return (lhs >= rhs ? lhs : rhs);
+// }
 
-const Fixed	&Fixed::max(const Fixed &lhs, const Fixed &rhs)
-{
-	return (lhs >= rhs ? lhs : rhs);
-}
+// const Fixed	&Fixed::max(const Fixed &lhs, const Fixed &rhs)
+// {
+// 	return (lhs >= rhs ? lhs : rhs);
+// }
 
 ostream	&operator<<(ostream &lhs, const Fixed &rhs)
 {
