@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 01:04:51 by jegerman          #+#    #+#             */
-/*   Updated: 2026/09/07 22:40:38 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/09/07 22:54:30 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,7 +146,7 @@ Fixed	&Fixed::operator++()
 
 Fixed	Fixed::operator++(int)
 {
-	const Fixed	prev = *this;
+	Fixed	prev = *this;
 
 	return (_rawValue++, prev);
 }
@@ -158,7 +158,7 @@ Fixed	&Fixed::operator--()
 
 Fixed	Fixed::operator--(int)
 {
-	const Fixed	prev = *this;
+	Fixed	prev = *this;
 
 	return (_rawValue--, prev);
 }
