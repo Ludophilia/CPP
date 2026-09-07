@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 01:04:24 by jegerman          #+#    #+#             */
-/*   Updated: 2026/09/04 22:02:11 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/09/07 22:42:14 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,6 @@
 
 int	main(void)
 {
-	// Fixed			a;
-	// Fixed const		b(Fixed(5.05f) * Fixed(2));
-
-	// cout << (Fixed(42) < Fixed(100)) << endl;
-	// cout << (Fixed(42) > Fixed(100)) << endl;
-
 	cout << "Addition:" << endl;
 	cout << "\t" << (Fixed(0) + Fixed(0)) << endl;
 	cout << "\t" << (Fixed(100) + Fixed(100)) << endl;
@@ -42,21 +36,61 @@ int	main(void)
 	cout << "\t" << (Fixed(42.0f) / Fixed(0)) << endl; // !? -8.38861e+06? WTF?
 	cout << "\t" << (Fixed(42.0f) / Fixed(2)) << endl;
 
-	// cout << (Fixed(42) + Fixed(1)).toInt() << endl;
+	cout << "Superior and Inferior to (>, <):" << endl;
 
-	// cout << a << endl;
-	// cout << ++a << endl;
-	// cout << a << endl;
-	// a.setRawBits(0);
-	// cout << a++ << endl;
-	// cout << a << endl;
+	cout << "\t" << "0 > 0 -> " << (Fixed(0) > Fixed(0)) << endl;
+	cout << "\t" << "42 > 100 -> " << (Fixed(42.1f) > Fixed(100)) << endl;
+	cout << "\t" << "42.1 > 100 -> " << (Fixed(42.1f) > Fixed(100)) << endl;
+	cout << "\t" << "99.9 > 100 -> " << (Fixed(99.9f) > Fixed(100)) << endl;
+
+	cout << "Superior and Inferior to (>, <):" << endl;
+
+	cout << "\t" << "0 < 0 -> " << (Fixed(0) < Fixed(0)) << endl;
+	cout << "\t" << "42 < 100 -> " << (Fixed(42.1f) < Fixed(100)) << endl;
+	cout << "\t" << "42.1 < 100 -> " << (Fixed(42.1f) < Fixed(100)) << endl;
+	cout << "\t" << "99.9 < 100 -> " << (Fixed(99.9f) < Fixed(100)) << endl;
+
+	cout << "Superior or equal and Inferior or equal to (>=, <=):" << endl;
+
+	cout << "\t" << "0 >= 0 -> " << (Fixed(0) >= Fixed(0)) << endl;
+	cout << "\t" << "42 >= 100 -> " << (Fixed(42.1f) >= Fixed(100)) << endl;
+	cout << "\t" << "42.1 >= 100 -> " << (Fixed(42.1f) >= Fixed(100)) << endl;
+	cout << "\t" << "99.9 >= 100 -> " << (Fixed(99.9f) >= Fixed(100)) << endl;
+
+	cout << "Superior or equal and Inferior or equal to (>=, <=):" << endl;
+
+	cout << "\t" << "0 <= 0 -> " << (Fixed(0) <= Fixed(0)) << endl;
+	cout << "\t" << "42 <= 100 -> " << (Fixed(42.1f) <= Fixed(100)) << endl;
+	cout << "\t" << "42.1 <= 100 -> " << (Fixed(42.1f) <= Fixed(100)) << endl;
+	cout << "\t" << "99.9 <= 100 -> " << (Fixed(99.9f) <= Fixed(100)) << endl;
+
+	cout << "Equal and different to (==, !=):" << endl;
+
+	cout << "\t" << "0 == 0 -> " << (Fixed(0) == Fixed(0)) << endl;
+	cout << "\t" << "42 == 100 -> " << (Fixed(42.1f) == Fixed(100)) << endl;
+	cout << "\t" << "42.1 == 100 -> " << (Fixed(42.1f) == Fixed(100)) << endl;
+	cout << "\t" << "99.9 == 100 -> " << (Fixed(99.9f) == Fixed(100)) << endl;
+
+	cout << "Equal and different to (==, !=):" << endl;
+
+	cout << "\t" << "0 != 0 -> " << (Fixed(0) != Fixed(0)) << endl;
+	cout << "\t" << "42 != 100 -> " << (Fixed(42.1f) != Fixed(100)) << endl;
+	cout << "\t" << "42.1 != 100 -> " << (Fixed(42.1f) != Fixed(100)) << endl;
+	cout << "\t" << "99.9 != 100 -> " << (Fixed(99.9f) != Fixed(100)) << endl;
 	
-	// a.setRawBits(0);
-	// cout << a << endl;
-	// cout << --a << endl;
-	// cout << a << endl;
-	// a.setRawBits(0);
-	// cout << a-- << endl;
+	Fixed	a = 42;
+	cout << "Postfix Increment and decrement (var++, var--):" << endl;
+
+	cout << "\tbefore: " << a << ", \"during\" var++: " << a++ << ", after: " << a << endl;
+	cout << "\tbefore: " << a << ", \"during\" var--: " << a-- << ", after: " << a << endl;
+
+	cout << "Prefix Increment (++var):" << endl;
+
+	cout << "\tbefore: " << a << ", \"during\" ++var: " << ++a << ", after: " << a << endl;
+	cout << "\tbefore: " << a << ", \"during\" --var: " << --a << ", after: " << a << endl;
+
+	// Fixed const		b(Fixed(5.05f) * Fixed(2));
+
 	// cout << a << endl;
 
 	// cout << b << endl;
