@@ -6,60 +6,86 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 01:04:51 by jegerman          #+#    #+#             */
-/*   Updated: 2026/09/07 22:54:30 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/09/08 20:49:37 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
 /*
-Why returning by Value (Fixed) instead of Reference ((const)Fixed &)?
+Why returning by Value (Fixed) instead of Reference (Fixed &)?
 	Operators *+/-: 
-		- Had we had to return by Reference, a reference to a temporary object 
-		that would die as soon as the function has done executing would have  
-		been returned instead...
-		- Returning by Value means the temporary Fixed object used inside the  
-		function definition will be copied by the caller... 
+		- Had we had to return by Reference, a reference to the temporary object 
+		created inside the function to return the result of the operation 
+		would die as soon as the function has done executing...
+		- Returning by Value means that temporary Fixed object will be copied
+		by the caller... 
 
 	Prefix (++a, -arr):
 		- In the case of a prefix incrementation, there's no need to return
 		a new copy of anything, just the original object as it is for further
 		modification. Returning by Reference instead of by Value therefore
 		is totally justified.
+		- As a proof, for an int variable nb: doing ++nb = 42; is totally legal
+		and working, BECAUSE the prefix operator returns a reference.
 
 	Postfix (a++): 
 		- Similarly to the operators *+/-, returning by Value (Fixed)
-		instead of Reference ((const)Fixed &) means the temporary Fixed object
+		instead of Reference (Fixed &) means the temporary Fixed object
 		used inside the function definition will be copied by the caller.
+		- On the other hand, for the same int variable nb: doing nb++ = 42;
+		does nothing BUT returning an "error: lvalue required as left operand 
+		of assignment", confirming that the postfix operator returns rvalues
+		or by Value instead of Reference.
 */
 
 Fixed::Fixed():
 	_rawValue(0)
 {
-	// cout << "Default constructor called" << endl;
+	cout << "Default constructor called" << endl;
 }
 
 Fixed::Fixed(const int intVal):
 	_rawValue(intVal << _fractBits)
 {
-	// cout << "Int constructor called" << endl;
+	cout << "Int constructor called" << endl;
 }
 
 Fixed::Fixed(const float floatVal):
 	_rawValue(roundf(floatVal * (1 << _fractBits)))
 {
-	// cout << "Float constructor called" << endl;
+	cout << "Float constructor called" << endl;
 }
 
 Fixed::Fixed(const Fixed &src):
 	_rawValue(src.getRawBits())
 {
-	// cout << "Copy constructor called" << endl;
+	cout << "Copy constructor called" << endl;
 }
 
 Fixed::~Fixed()
 {
-	// cout << "Destructor called" << endl;
+	cout << "Destructor called" << endl;
+}
+
+Fixed	&Fixed::min(Fixed &lhs, Fixed &rhs)
+{
+	return (lhs <= rhs ? lhs : rhs);
+}
+
+const Fixed	&Fixed::min(const Fixed &lhs, const Fixed &rhs)
+{
+	return (lhs <= rhs ? lhs : rhs);
+}
+
+Fixed	&Fixed::max(Fixed &lhs, Fixed &rhs)
+{
+	return (lhs >= rhs ? lhs : rhs);
+}
+
+const Fixed	&Fixed::max(const Fixed &lhs, const Fixed &rhs)
+{
+	return (lhs >= rhs ? lhs : rhs);
 }
 
 int		Fixed::getRawBits() const
@@ -162,26 +188,6 @@ Fixed	Fixed::operator--(int)
 
 	return (_rawValue--, prev);
 }
-
-// Fixed	&Fixed::min(Fixed &lhs, Fixed &rhs)
-// {
-// 	return (lhs <= rhs ? lhs : rhs);
-// }
-
-// const Fixed	&Fixed::min(const Fixed &lhs, const Fixed &rhs)
-// {
-// 	return (lhs <= rhs ? lhs : rhs);
-// }
-
-// Fixed	&Fixed::max(Fixed &lhs, Fixed &rhs)
-// {
-// 	return (lhs >= rhs ? lhs : rhs);
-// }
-
-// const Fixed	&Fixed::max(const Fixed &lhs, const Fixed &rhs)
-// {
-// 	return (lhs >= rhs ? lhs : rhs);
-// }
 
 ostream	&operator<<(ostream &lhs, const Fixed &rhs)
 {
