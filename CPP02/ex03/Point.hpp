@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 22:32:59 by jegerman          #+#    #+#             */
-/*   Updated: 2026/09/10 22:30:12 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/09/10 22:40:46 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class Point
 	Point();
 	Point(const Point &src);
 	Point(const float x, const float y);
-	Point &operator=(const Point &rhs); // = delete is C++ 11 and above.
+	Point &operator=(const Point &rhs); // = delete is C++ 11 and above. Can't put it private as
 	~Point();
 
 	class NotImplementedOperator: std::exception 
@@ -45,6 +45,9 @@ class Point
 
 	const Fixed		_x;
 	const Fixed		_y;
+
+	// Point &operator=(const Point &rhs); // Can't set it private as 
+	// the assignment require it to be public
 
 	// anything else useful
 };
