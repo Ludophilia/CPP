@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 22:32:55 by jegerman          #+#    #+#             */
-/*   Updated: 2026/09/10 22:00:46 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/09/11 20:14:55 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ Point::Point(const Point &src): _x(src._x), _y(src._y) {}
 
 Point::~Point() {}
 
-const char *Point::NotImplementedOperator::what() const throw()
+const char *Point::InvalidOperation::what() const throw()
 {
 	return ("Operator not implemented");
 }
 
 Point	&Point::operator=(const Point &rhs)
 { 
-	throw NotImplementedOperator();
+	throw InvalidOperation();
 	return ((void)rhs, *this);
 }
