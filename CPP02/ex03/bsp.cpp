@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 22:32:38 by jegerman          #+#    #+#             */
-/*   Updated: 2026/09/14 23:05:02 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/09/21 22:34:16 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,20 +43,15 @@ bool bsp(Point const a, Point const b, Point const c, Point const point)
 	
 	- What does bsp have to do with our triangle problem ?
 
-		- To be honest, I don't really know... And actually, the use of BSP here
-		may be initially seen as bizarre or overkill, at least from my point of view...
+		- Turns out I was completely off tracks with this one.
 
-			- To test if a Point P(x, y) is in a triangle T{A, B, C}, I've come 
-			to figure that a simple test of intervals might help to understand:
-				- if x is in [min_x(T); max_x(T)]
-				- and if y is in [min_y(T); max_y(T)]
-				- the Point is in the triangle
+		- We don't really use BSP but something that gets conceptually close
+		to it.
 
-			- The problem is that this test also works when the Point is one
-			of the vertices A B C, and I suspect on the EDGES as well...
+		Testing the cross product of different vectors formed by the vertices
+		A B C and the Point.
 
-				- THat might be HERE that the BSP technique show its strength,
-				But I'm not sure...
+		- Now I have to dwelve deeper on that...
 
 	*/
 	
