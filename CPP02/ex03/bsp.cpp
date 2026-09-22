@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 22:32:38 by jegerman          #+#    #+#             */
-/*   Updated: 2026/09/21 22:34:16 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/09/22 19:28:45 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ bool bsp(Point const a, Point const b, Point const c, Point const point)
 		A B C and the Point.
 
 		- Now I have to dwelve deeper on that...
+
+		// -
 
 	*/
 	
