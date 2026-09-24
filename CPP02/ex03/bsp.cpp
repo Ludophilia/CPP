@@ -51,9 +51,8 @@ bool bsp(Point const a, Point const b, Point const c, Point const point)
 		Testing the cross product of different vectors formed by the vertices
 		A B C and the Point.
 
-		- Now I have to dwelve deeper on that...
-
-		// -
+		- Now I have to dwelve deeper on that... 
+		- ... starting from there: https://brilliant.org/courses/vectors/?from_llp=advanced-math
 
 	*/
 	
