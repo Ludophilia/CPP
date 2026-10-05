@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 22:32:38 by jegerman          #+#    #+#             */
-/*   Updated: 2026/09/22 19:28:45 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/05 23:47:26 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,38 @@ bool bsp(Point const a, Point const b, Point const c, Point const point)
 		A B C and the Point.
 
 		- Now I have to dwelve deeper on that... 
-		- ... starting from there: https://brilliant.org/courses/vectors/?from_llp=advanced-math
+
+	// (5/10) [I think i get it better now. I have some notes somewhere else
+		about this but to summarize:
+		
+			- The cross product (a x b) is an operation on 3d vectors, that is vectors
+			which have a x y z component on the vector space.
+			- A cross product (a x b) "compute" a new vector from its two original
+			a and b vectors operands. 
+			- That vector is ORTHOGONAL / PERPENDICULAR to both a and b.
+
+			- Adapting that 3d operation on a 2d plane is as simple as setting
+			the z component of those a and b vectors to 0.
+			- So a = (xa, ya, 0) and b = (xb, yb, 0).
+
+			- In that case, the cross product a x b or the vector a x b  would have
+			as x, y and z component:
+				- (ya*0 - 0*yb,  0*xb - xa*0, xa*yb - ya*xb)
+				- => (0, 0, xa*yb - ya*xb)
+				
+			- In a 2d space, everything amount to that z component and especially
+			its sign:
+			
+				- That sign varies according to the angle θ (theta) formed by a and b, from a
+				to b.
+				- z = 0 means that the polar angle is either pi or 0 (a and b are identical ; a and b are opposites )
+				- z > 0 means that the polar angle is ]0; pi[
+				- z < 0 means that the polar angle is ]pi; 2pi[
+
+		
+			- That's all for now. Now I have to adapt it to the problem.
+					- https://brilliant.org/courses/vectors/?from_llp=advanced-math
+		// 			- https://www.mathsisfun.com/algebra/vectors-cross-product.html	
 
 	*/
 	
