@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 22:32:38 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/05 23:47:26 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/06 23:56:11 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,14 +76,37 @@ bool bsp(Point const a, Point const b, Point const c, Point const point)
 			
 				- That sign varies according to the angle θ (theta) formed by a and b, from a
 				to b.
-				- z = 0 means that the polar angle is either pi or 0 (a and b are identical ; a and b are opposites )
+				- z = 0 means that the polar angle is either 0 (a and b are identical) or pi (a and b are opposites )
 				- z > 0 means that the polar angle is ]0; pi[
 				- z < 0 means that the polar angle is ]pi; 2pi[
 
+	// 6/10 
+	
+		- What does that z component has to do with our in triangle test?
 		
-			- That's all for now. Now I have to adapt it to the problem.
-					- https://brilliant.org/courses/vectors/?from_llp=advanced-math
-		// 			- https://www.mathsisfun.com/algebra/vectors-cross-product.html	
+		- It SEEMS (I will do some research on that BUT will NOT try to prove it myself)
+		that if a point P is in the triangle ABC, the angles APB, BPC, CPA will
+		all a polar angle between ]0; pi[ and THUS a POSITIVE cross product
+		or z component.
+		
+		- One of the angles APB, BPC, CPA will have an angle of pi radians and
+		one of the cross product will be 0 if P is on the edges of the triangle
+		ABC
+		
+		- One of the angles APB, BPC, CPA will have an angle of ]pi; 2pi[ radians and
+		one of the cross product will be NEGATIVE if P is OUTSIDE the triangle
+		ABC		
+
+		- One of the angles APB, BPC, CPA will have an angle of 0 radians and
+		one of the cross product will be 0 again if P is on A, B or C.
+
+		- SO:
+			- The problem amount to testing if every cross product is stricly
+			superior to zero.
+	
+		- Reference
+				- https://brilliant.org/courses/vectors/?from_llp=advanced-math
+	// 			- https://www.mathsisfun.com/algebra/vectors-cross-product.html	
 
 	*/
 	
