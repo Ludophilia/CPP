@@ -6,11 +6,11 @@
 #    By: jegerman <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/27 16:55:45 by jegerman          #+#    #+#              #
-#    Updated: 2026/09/10 22:00:15 by jegerman         ###   ########.fr        #
+#    Updated: 2026/10/07 23:20:37 by jegerman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME := fixed
+NAME := bsp
 
 CXX := c++
 CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -I.
