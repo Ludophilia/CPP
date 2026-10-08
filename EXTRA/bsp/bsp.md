@@ -54,7 +54,8 @@ its sign:
 	- z < 0 means that the polar angle is ]pi; 2pi[
 	
 - Reference
-	- https://brilliant.org/courses/vectors/?from_llp=advanced-math 			- - https://www.mathsisfun.com/algebra/vectors-cross-product.html	
+	- https://brilliant.org/courses/vectors/?from_llp=advanced-math 
+	- https://www.mathsisfun.com/algebra/vectors-cross-product.html	
 
 
 ## The Cross Product and the In triangle Point Problem

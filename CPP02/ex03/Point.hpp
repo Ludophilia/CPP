@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 22:32:59 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/07 23:19:46 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/08 21:09:56 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class Point
 	Point();
 	Point(const Point &src);
 	Point(const float x, const float y);
+	Point(const Fixed &x, const Fixed &y);
 	~Point();
 
 	Point &operator=(const Point &rhs); // = delete is C++ 11 and above.
@@ -35,6 +36,8 @@ class Point
 
 	float fgetX() const;
 	float fgetY() const;
+	const Fixed &getX() const;
+	const Fixed &getY() const;
 
 	private:
 

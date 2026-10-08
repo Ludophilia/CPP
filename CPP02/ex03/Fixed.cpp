@@ -6,40 +6,25 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 01:04:51 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/07 23:28:41 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/08 21:55:02 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
 Fixed::Fixed():
-	_rawValue(0)
-{
-	// cout << "Default constructor called" << endl;
-}
+	_rawValue(0) {}
 
 Fixed::Fixed(const int intVal):
-	_rawValue(intVal << _fractBits)
-{
-	// cout << "Int constructor called" << endl;
-}
+	_rawValue(intVal << _fractBits) {}
 
 Fixed::Fixed(const float floatVal):
-	_rawValue(roundf(floatVal * (1 << _fractBits)))
-{
-	// cout << "Float constructor called" << endl;
-}
+	_rawValue(roundf(floatVal * (1 << _fractBits))) {}
 
 Fixed::Fixed(const Fixed &src):
-	_rawValue(src.getRawBits())
-{
-	// cout << "Copy constructor called" << endl;
-}
+	_rawValue(src.getRawBits()) {}
 
-Fixed::~Fixed()
-{
-	// cout << "Destructor called" << endl;
-}
+Fixed::~Fixed() {}
 
 Fixed	&Fixed::min(Fixed &lhs, Fixed &rhs)
 {
