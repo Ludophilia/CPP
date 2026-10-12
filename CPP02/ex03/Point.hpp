@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 22:32:59 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/08 21:09:56 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/12 21:28:22 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,5 @@ class Point
 	// Point &operator=(const Point &rhs); // Can't set the copy assignment 
 	// operator as private as the assignment requires it to be public...
 };
-
-typedef Point Vector;
 
 #endif
