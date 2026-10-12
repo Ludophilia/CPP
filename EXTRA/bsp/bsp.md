@@ -49,16 +49,32 @@ as x, y and z component:
 its sign:
 	- That sign varies according to the angle θ (theta) formed by a and b, from a
 	to b.
-	- z = 0 means that the polar angle is either 0 (a and b are identical) or pi (a and b are opposites )
-	- z > 0 means that the polar angle is ]0; pi[
-	- z < 0 means that the polar angle is ]pi; 2pi[
-	
+		- Another formula for the cross product is:
+			- a x b = |a| * |b| * sin(θ) * n
+
+			- |a| and |b| are magnitudes, positive OR zero.
+			- n is a vector, perpendicular to both a and b. YES, the formula
+			essentially describes a scalar multiplication of a vector in the end.
+			- that means that it's sin(θ) and thus the angle that determines
+			the sign
+
+		- z = 0 means that the polar angle is either 0 (a and b are identical) or pi (a and b are opposites )
+			- sin(0) = 0 ; sin(pi) = 0;
+		- z > 0 means that the polar angle is ]0; pi[
+			- sin(0) > 0 when 0 is ]0; pi[
+		- z < 0 means that the polar angle is ]pi; 2pi[
+			- sin(0) < 0 when 0 is ]pi; 2pi[
+
 - Reference
 	- https://brilliant.org/courses/vectors/?from_llp=advanced-math 
 	- https://www.mathsisfun.com/algebra/vectors-cross-product.html	
 
 
 ## The Cross Product and the In triangle Point Problem
+
+<!-- 
+
+BULLSHIT, Please improve that
 
 - What does that z component has to do with our in triangle test?
 
@@ -80,4 +96,7 @@ one of the cross product will be 0 again if P is on A, B or C.
 
 - SO:
 	- The problem amount to testing if every cross product is stricly
-	superior to zero.
+	superior to zero. -->
+
+- Reference:
+	- https://hackmd.io/community/@ChloeIsCoding/r19Mge-fll
