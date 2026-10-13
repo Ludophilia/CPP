@@ -45,58 +45,76 @@ as x, y and z component:
 	- (ya*0 - 0*yb,  0*xb - xa*0, xa*yb - ya*xb)
 	- => (0, 0, xa*yb - ya*xb)
 	
-- In a 2d space, everything amount to that z component and especially
-its sign:
+- In 2d, everything amount to that z component and especially its sign:
 	- That sign varies according to the angle θ (theta) formed by a and b, from a
 	to b.
 		- Another formula for the cross product is:
 			- a x b = |a| * |b| * sin(θ) * n
+				- |a| and |b| are magnitudes, positive OR zero.
+				- n is an unit vector (magnitude 1), perpendicular to both a 
+				and b. In 2d, as we've seen before, its either (0, 0, 1) or
+				(0, 0, -1).
 
-			- |a| and |b| are magnitudes, positive OR zero.
-			- n is a vector, perpendicular to both a and b. YES, the formula
-			essentially describes a scalar multiplication of a vector in the end.
-			- that means that it's sin(θ) and thus the angle that determines
-			the sign
+				- that means that it's that unit vector z component sign and
+				sin(θ) and thus the angle θ that determines the sign of the
+				cross product while the angle θ and the magnitudes 
+				determine if the result will be zero or not.
+					- sin(θ) = 0 OR sin(pi) = 0;
+					- sin(θ) > 0 when θ is ]0; pi[ 
+					- sin(θ) < 0 when θ is ]pi; 2pi[
 
-		- z = 0 means that the polar angle is either 0 (a and b are identical) or pi (a and b are opposites )
-			- sin(0) = 0 ; sin(pi) = 0;
-		- z > 0 means that the polar angle is ]0; pi[
-			- sin(0) > 0 when 0 is ]0; pi[
-		- z < 0 means that the polar angle is ]pi; 2pi[
-			- sin(0) < 0 when 0 is ]pi; 2pi[
+		- z = 0 means:
+			- One or both vectors a and b has length 0. |a|, |b| or both equal 0. 
+			- their polar angle is either 0 (a and b are identical) or pi (a and b are opposites): 
+
+		- z > 0 means:
+			- that the polar angle is ]0; pi[ (+) and the unit vector n is (0, 0, 1) (+) 
+			- or that the polar angle is ]pi; 2pi[ (-) and the unit vector n is (0, 0, -1) (-)
+
+		- z < 0 means:
+			- that the polar angle is ]pi; 2pi[ (-) and the unit vector n is (0, 0, 1) (+)
+			- that the polar angle is ]0; pi[ (+) and the unit vector n is (0, 0, -1) (-)
 
 - Reference
 	- https://brilliant.org/courses/vectors/?from_llp=advanced-math 
 	- https://www.mathsisfun.com/algebra/vectors-cross-product.html	
 
 
-## The Cross Product and the In triangle Point Problem
+## The Cross Product and the Inside triangle Point Problem
 
-<!-- 
+- We need to know if a point P is inside a triangle or not.
 
-BULLSHIT, Please improve that
+- In a 2d plane, for a triangle A B C and a Point P, one of the ways to determine 
+this is to compute the cross product of different vectors and to compare 
+their signs / results.
 
-- What does that z component has to do with our in triangle test?
+- One possible configuration of vectors and cross product is the following:
+	- AB x AP: AB being one edge of the triangle ABC taken as a vector
+	and AP, the vector that goes from A to P.
+	- BC x BP: BC, another edge of ABC and BP, the vector from B to P.
+	- CA x CP: CA: the last uncovered edge of ABC and CP, the vector that
+	from B to P.
 
-- It SEEMS (I will do some research on that BUT will NOT try to prove it myself)
-that if a point P is in the triangle ABC, the angles APB, BPC, CPA will
-all a polar angle between ]0; pi[ and THUS a POSITIVE cross product
-or z component.
+- As seen in the last chapter, on a 2d plane, the cross product amount to a
+scalar, the value of the z component.
 
-- One of the angles APB, BPC, CPA will have an angle of pi radians and
-one of the cross product will be 0 if P is on the edges of the triangle
-ABC.
+	- Any of those cross product will amount to 0 if the Point P being tested
+	is:
+		- on any of the edge AB, BC or CA. In those cases, the angles AB,AP ; 
+		BC,BP or CA,CP will be 0 and, as sin(0) = 0 and 
+		a x b = |a| * |b| * sin(θ) * n, the cross product will be 0.
+		- OR on any vertex A, B, or C. Here, one of the magnitude |AP|, |BP|,
+		or |CP| will be 0, and, as a cross product is proportional to the 
+		product of its magnitudes, the result will be zero. 
 
-- One of the angles APB, BPC, CPA will have an angle of ]pi; 2pi[ radians and
-one of the cross product will be NEGATIVE if P is OUTSIDE the triangle
-ABC.
+	- If the point P is inside the triangle A B C:
+		- The cross product ABxAP; BCxBP or CAxCP always the same sign,
+		negative or positive.
+		- Why? I don't have a proof formal enough for this. 
+			- I know the cross product sign depend on the sine and the unit
+			vecor n.
+				- When 
 
-- One of the angles APB, BPC, CPA will have an angle of 0 radians and
-one of the cross product will be 0 again if P is on A, B or C.
-
-- SO:
-	- The problem amount to testing if every cross product is stricly
-	superior to zero. -->
 
 - Reference:
 	- https://hackmd.io/community/@ChloeIsCoding/r19Mge-fll
