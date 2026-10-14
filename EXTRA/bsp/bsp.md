@@ -52,33 +52,37 @@ as x, y and z component:
 			- a x b = |a| * |b| * sin(θ) * n
 				- |a| and |b| are magnitudes, positive OR zero.
 				- n is an unit vector (magnitude 1), perpendicular to both a 
-				and b. In 2d, as we've seen before, its either (0, 0, 1) or
-				(0, 0, -1).
+				and b.
+					- In 2d, as we've seen before, it must be (0, 0, 1) or
+					(0, 0, -1) depending on how are computed the angles and
+					between the two vectors.
+					- I will use from now on directed angles from a to b with 
+					values [0 ; 2pi] and (0, 0, 1) as unit vector.
 
-				- that means that it's that unit vector z component sign and
-				sin(θ) and thus the angle θ that determines the sign of the
-				cross product while the angle θ and the magnitudes 
-				determine if the result will be zero or not.
-					- sin(θ) = 0 OR sin(pi) = 0;
-					- sin(θ) > 0 when θ is ]0; pi[ 
-					- sin(θ) < 0 when θ is ]pi; 2pi[
+				- In that configuration, it's sin(θ) and thus the angle θ that determines the sign of the cross product while the angle θ and
+				the magnitudes |a| and |b| determine if the result will be zero or not.
 
 		- z = 0 means:
-			- One or both vectors a and b has length 0. |a|, |b| or both equal 0. 
-			- their polar angle is either 0 (a and b are identical) or pi (a and b are opposites): 
+			- One or both vectors a and b has length 0. 
+				- |a| = 0 AND / OR |b| = 0. 
+			- their polar angle is either 0 (a and b are identical) or pi (a 
+			and b are opposites):
+				- sin(θ) = 0 OR sin(pi) = 0;
 
 		- z > 0 means:
-			- that the polar angle is ]0; pi[ (+) and the unit vector n is (0, 0, 1) (+) 
-			- or that the polar angle is ]pi; 2pi[ (-) and the unit vector n is (0, 0, -1) (-)
+			- that the polar angle θ is ]0; pi[ as sin(θ) > 0
 
 		- z < 0 means:
-			- that the polar angle is ]pi; 2pi[ (-) and the unit vector n is (0, 0, 1) (+)
-			- that the polar angle is ]0; pi[ (+) and the unit vector n is (0, 0, -1) (-)
-
-- Reference
-	- https://brilliant.org/courses/vectors/?from_llp=advanced-math 
-	- https://www.mathsisfun.com/algebra/vectors-cross-product.html	
-
+			- that the polar angle θ is ]pi; 2pi[ as sin(θ) < 0
+	
+- References
+	- https://brilliant.org/courses/vectors/?from_llp=advanced-math to learn
+	some basics around vectors
+	- https://www.mathsisfun.com/algebra/vectors-cross-product.html to discover
+	the cross product, some formulas...
+	- https://www.geogebra.org/m/psMTGDgc to see how the cross product according
+	to the angles and the relative position of e
+	- https://www.desmos.com/calculator to visualize sin(x) on [-2pi; 2pi]
 
 ## The Cross Product and the Inside triangle Point Problem
 
@@ -101,20 +105,64 @@ scalar, the value of the z component.
 	- Any of those cross product will amount to 0 if the Point P being tested
 	is:
 		- on any of the edge AB, BC or CA. In those cases, the angles AB,AP ; 
-		BC,BP or CA,CP will be 0 and, as sin(0) = 0 and 
-		a x b = |a| * |b| * sin(θ) * n, the cross product will be 0.
-		- OR on any vertex A, B, or C. Here, one of the magnitude |AP|, |BP|,
-		or |CP| will be 0, and, as a cross product is proportional to the 
-		product of its magnitudes, the result will be zero. 
+		BC,BP or CA,CP will be 0:
+			- sin(0) = 0 and a x b = |a| * |b| * sin(θ) * n.
+
+		- OR on any vertex A, B, or C. 
+			- |AP| = 0 or |BP| = 0 or |CP| will be 0 and again,
+			a x b = |a| * |b| * sin(θ) * n. 
 
 	- If the point P is inside the triangle A B C:
-		- The cross product ABxAP; BCxBP or CAxCP always the same sign,
+		- The cross product ABxAP; BCxBP or CAxCP will always have the same sign,
 		negative or positive.
-		- Why? I don't have a proof formal enough for this. 
-			- I know the cross product sign depend on the sine and the unit
-			vecor n.
-				- When 
 
+		- ABxAP; BCxBP or CAxCP test the position of P relative to the edges
+		of the triangle ABC.
 
-- Reference:
-	- https://hackmd.io/community/@ChloeIsCoding/r19Mge-fll
+		When P is inside ABC:
+
+			- P divide ABC in 3 new triangles APB BPC APC. None of the
+			angles in those triangles have an angle of pi or 0 radians, as
+			they are non-degenerate triangles (their points are not colinear /
+			on the same line) and the sum of each triangle angles will be pi radians.
+
+			- P is above AB, BC and CA when each of those segments are used as
+			references (plan seen alternatively with AB, BC and CA as segments
+			parallel to the frame and close to its lower half).
+				- That guarantees the orientation of the 3 angles (AB, AP) ; 
+				(BC, BP) and (AC, AP) will remain consistent. If P is inside
+				ABC, (AB, AP), (BC, BP) and (AC, AP) will describe the same
+				type of angle:
+					- one formed with one segment of ABC and a point P that 
+					is above that segment when that segment is taken as 
+					reference.
+					- with an angle between ]0; pi[
+
+				- Depending on the relative position of A B C, the angles 
+				(AB, AP) from AB to AP, (BC, BP) from BC to BP and (AC, AP)
+				from AC to AP could be:
+					- between ]0; pi[ counter-clockwise so ]0; pi[ 
+					- or ]0; pi[ clockwise so ]0; -pi[ or ]pi; 2pi[
+					- As explained before:
+						- When the angle is ]0; pi[, sin(θ) > 0 and all
+						of those cross product will be positive.
+						- When the angle is ]pi; 2pi[ sin(θ) < 0 and all
+						of those cross product will be negative.
+
+		When P is outside ABC however, not on edges or any of the vertices:
+			- The angles (AB, AP), (BC, BP) and (AC, AP) will describe two
+			type of angle:
+				- Some angles will retain the same configuration as when P is 
+				inside ABC with P being above the segments AB, BC or AC
+				- While at least one of those angles will describe P as being
+				below one the segments AB, BC or AC.
+	
+			- Some angles will then have a positive polar angle ]0; pi[ while 
+			others will have a negative one ]0; -pi[, OR the opposite, depending
+			on the relative position of the points A B C.
+				- The 3 cross product (ABxAP), (BCxBP) and (ACxAP) will not
+				have the same sign.
+
+- References:
+	- https://hackmd.io/community/@ChloeIsCoding/r19Mge-fll for an implementation
+	of the test with cross products and other explanations.
