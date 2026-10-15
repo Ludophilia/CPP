@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 01:29:19 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/16 21:02:12 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/15 22:41:23 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,29 +17,31 @@
 # include <string>
 # include <iostream>
 
-typedef std::string String;
+using std::string;
+using std::cout;
+using std::endl;
 
 class ClapTrap
 {
 	public:
 
-	ClapTrap(void);
-	ClapTrap(const String &name);
+	ClapTrap();
+	ClapTrap(const string &name);
 	ClapTrap(const ClapTrap &src);
-	~ClapTrap(void);
+	~ClapTrap();
 
 	ClapTrap &operator=(const ClapTrap &rhs);
 
-	void	attack(const std::string& target);
+	void	attack(const string &target);
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
 
 	private:
 
-	std::string _name;
-	int			_hit_pts;
-	int			_energy_pts;
-	int			_attack_dmg;
+	string		_name;
+	int			_hitPts;
+	int			_energyPts;
+	int			_attackDmg;
 };
 
 #endif
