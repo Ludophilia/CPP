@@ -6,13 +6,12 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 01:04:24 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/12 23:06:51 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/15 20:15:35 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include "Point.hpp"
-
 #include <iostream>
 
 using std::cout;
@@ -102,7 +101,6 @@ int main()
 		 << bsp(Point(0, 0), Point(3, 4), Point(6, 0), Point(-42, 42))
 		 << endl << endl;
 	
-
 	cout << "For A(-1, 0), B(0, 0), C(3, 0) (a degenerate triangle):" << endl;
 	cout << "\t* bsp with point(1, 0) (edge) => "
 		 << bsp(Point(-1, 0), Point(0, 0), Point(3, 0), Point(1, 0))
@@ -183,7 +181,6 @@ int main()
 		 << endl;
 	cout << "\t* bsp with point(-42, 42) (outside) => " 
 		 << bsp(Point(-8, -4), Point(-3, -2), Point(-1, 0), Point(-42, 42))
-		 << endl << endl;
-
+		 << endl;
 	return (0);
 }

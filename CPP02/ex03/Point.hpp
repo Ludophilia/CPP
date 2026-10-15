@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 22:32:59 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/12 21:28:22 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/15 19:45:05 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,15 @@ class Point
 
 	Point &operator=(const Point &rhs); // = delete is C++ 11 and above.
 
-	class InvalidOperation: std::exception 
+	class InvalidOperation: std::exception
 	{
-		virtual const char *what() const throw();
+		virtual const char	*what() const throw();
 	};
 
-	float fgetX() const;
-	float fgetY() const;
-	const Fixed &getX() const;
-	const Fixed &getY() const;
+	float			fgetX() const;
+	float			fgetY() const;
+	const Fixed		&getX() const;
+	const Fixed		&getY() const;
 
 	private:
 

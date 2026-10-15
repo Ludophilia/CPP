@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 22:32:55 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/12 21:28:56 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/15 20:05:42 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,33 +22,32 @@ Point::Point(const Point &src): _x(src._x), _y(src._y) {}
 
 Point::~Point() {}
 
-float Point::fgetX() const
+float	Point::fgetX() const
 {
 	return (_x.toFloat());
 }
 
-float Point::fgetY() const
+float	Point::fgetY() const
 {
 	return (_y.toFloat());
 }
 
-const Fixed &Point::getX() const
+const Fixed	&Point::getX() const
 {
 	return (_x);
 }
 
-const Fixed &Point::getY() const
+const Fixed	&Point::getY() const
 {
 	return (_y);
 }
 
 Point	&Point::operator=(const Point &rhs)
 { 
-	throw InvalidOperation();
-	return ((void)rhs, *this);
+	return (throw InvalidOperation(), (void)rhs, *this);
 }
 
-const char *Point::InvalidOperation::what() const throw()
+const char	*Point::InvalidOperation::what() const throw()
 {
 	return ("Operator not implemented");
 }
