@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 01:05:35 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/16 23:12:40 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/17 22:30:22 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ ScavTrap::ScavTrap()
 	cout << "Default ScavTrap constructor called" << endl;
 }
 
+// Why a classname in the member initializer list?
 ScavTrap::ScavTrap(const string &name): ClapTrap(name)
 {
 	_name = name;
@@ -29,11 +30,12 @@ ScavTrap::ScavTrap(const string &name): ClapTrap(name)
 	cout << "String ScavTrap constructor called" << endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &src): ClapTrap()
-{
-	(*this) = src;
-	cout << "ScavTrap copy constructor called" << endl;
-}
+// Rewrite this
+// ScavTrap::ScavTrap(const ScavTrap &src): ClapTrap()
+// {
+// 	(*this) = src;
+// 	cout << "ScavTrap copy constructor called" << endl;
+// }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &rhs)
 {

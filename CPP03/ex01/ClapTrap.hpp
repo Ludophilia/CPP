@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 01:29:19 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/15 22:41:23 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/17 22:32:02 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ class ClapTrap
 	ClapTrap();
 	ClapTrap(const string &name);
 	ClapTrap(const ClapTrap &src);
-	~ClapTrap();
+	~ClapTrap(); // use virtual destructor to ensure the right order
+	// of resource destruction....
 
 	ClapTrap &operator=(const ClapTrap &rhs);
 
@@ -36,7 +37,7 @@ class ClapTrap
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
 
-	private:
+	protected:
 
 	string		_name;
 	int			_hitPts;
