@@ -6,33 +6,33 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 01:29:10 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/17 22:00:36 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/19 23:14:04 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(): _name("Default"), _hitPts(10),
+ClapTrap::ClapTrap(): _name("???"), _hitPts(10),
 	_energyPts(10), _attackDmg(0)
 {
-	cout << "Default constructor called" << endl;
+	cout << "ClapTrap default constructor called" << endl;
 }
 
 ClapTrap::ClapTrap(const string &name): _name(name), _hitPts(10),
 	_energyPts(10), _attackDmg(0)
 {
-	cout << "String constructor called" << endl;
+	cout << "ClapTrap String constructor called" << endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &src): _name(src._name), _hitPts(src._hitPts),
 	_energyPts(src._energyPts), _attackDmg(src._attackDmg)
 {
-	cout << "Copy constructor called" << endl;
+	cout << "ClapTrap copy constructor called" << endl;
 }
 
 ClapTrap::~ClapTrap()
 {
-	cout << "Default destructor called" << endl;
+	cout << "ClapTrap default destructor called (" << this << ")" << endl;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &rhs)
@@ -50,11 +50,10 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &rhs)
 void	ClapTrap::attack(const string &target)
 {
 	if (_hitPts <= 0 || _energyPts <= 0)
-		cout << "ClapTrap " << _name << " cannot attack!\n";
+		cout << "ClapTrap " << _name << " cannot attack!" << endl;
 	else
 	{
 		_energyPts -= 1;
-		// target.takeDamage(_attackDmg); // target is a const string...
 		cout << "ClapTrap " << _name << " attacks " << target
 			 << ", causing " << _attackDmg << " points of damage!"
 			 << endl;

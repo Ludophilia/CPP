@@ -6,13 +6,13 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 01:29:10 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/15 22:29:19 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/19 21:46:10 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(): _name("Default"), _hitPts(10),
+ClapTrap::ClapTrap(): _name(""), _hitPts(10),
 	_energyPts(10), _attackDmg(0)
 {
 	cout << "Default constructor called" << endl;
@@ -54,7 +54,6 @@ void	ClapTrap::attack(const string &target)
 	else
 	{
 		_energyPts -= 1;
-		// target.takeDamage(_attackDmg); // target is a const string...
 		cout << "ClapTrap " << _name << " attacks " << target
 			 << ", causing " << _attackDmg << " points of damage!"
 			 << endl;
