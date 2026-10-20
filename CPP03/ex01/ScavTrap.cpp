@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 01:05:35 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/19 23:08:53 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/20 21:55:08 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ ScavTrap::ScavTrap()
 	_hitPts = 100;
 	_energyPts = 50;
 	_attackDmg = 20;
-	cout << "Default ScavTrap constructor called" << endl;
+	cout << "ScavTrap default constructor called (" << this << ")" << endl;
 }
 
 // For non-default constructors however, they need to be explicitely called
@@ -28,21 +28,24 @@ ScavTrap::ScavTrap(const string &name): ClapTrap(name)
 	_hitPts = 100;
 	_energyPts = 50;
 	_attackDmg = 20;
-	cout << "String ScavTrap constructor called" << endl;
+	cout << "ScavTrap string constructor called (" << this << ")" << endl;
 }
 
 // Surprisingly enough, calling the ClapTrap copy constructor on a ScavTrap
 // instance DOES work.
 ScavTrap::ScavTrap(const ScavTrap &src): ClapTrap(src)
 {
-	cout << "ScavTrap copy constructor called" << endl;
+	cout << "ScavTrap copy constructor called (" << this << ")" << endl;
 }
 
 ScavTrap::~ScavTrap()
 {
-	cout << "Default ScavTrap destructor called (" << this << ")" << endl;
+	cout << "ScavTrap default destructor called (" << this << ")" << endl;
 }
 
+// Following on that realization about the copy constructor, turns out
+// that implementation is also unnecessary. In order to respect the rule of 
+// three / canonical form however, I will keep it as is.
 ScavTrap &ScavTrap::operator=(const ScavTrap &rhs)
 {
 	if (this != &rhs)
