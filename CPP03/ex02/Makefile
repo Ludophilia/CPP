@@ -6,7 +6,7 @@
 #    By: jegerman <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/27 16:55:45 by jegerman          #+#    #+#              #
-#    Updated: 2026/03/18 21:00:46 by jegerman         ###   ########.fr        #
+#    Updated: 2026/10/20 23:06:11 by jegerman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -I.
 
 SRCS := main.cpp
 SRCS += ClapTrap.cpp
+SRCS += ScavTrap.cpp
 SRCS += FragTrap.cpp
 
 OBJS := $(SRCS:.cpp=.o)

@@ -6,12 +6,13 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 19:21:14 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/18 21:21:03 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/20 23:56:03 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
+// 20/10: We're not over yet...
 // So similar to ScavTrap that there should be another way to do that...
 int	main(void)
 {
@@ -39,3 +40,18 @@ int	main(void)
 	frag00.beRepaired(99);
 	delete frag02;
 }
+
+// int	main()
+// {
+// 	ScavTrap	*scav00 = new ScavTrap();
+// 	ScavTrap	scav01("01");
+
+// 	scav00->guardGate();
+// 	*scav00 = scav01;
+// 	scav00->attack("a barrel of explosives");
+// 	scav00->guardGate();
+// 	scav00->takeDamage(42);
+// 	scav00->beRepaired(42);
+
+// 	delete scav00;
+// }

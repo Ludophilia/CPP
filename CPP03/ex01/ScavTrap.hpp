@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 01:05:34 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/20 21:23:38 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/20 23:32:19 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ class ScavTrap: public ClapTrap
 	ScavTrap &operator=(const ScavTrap &rhs);
 
 	void	attack(const string &target);
-
 	void	guardGate();
 };
 

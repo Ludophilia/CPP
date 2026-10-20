@@ -6,70 +6,65 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 01:05:35 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/18 21:21:36 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/20 23:51:17 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(void)
+FragTrap::FragTrap()
 {
- 	this->_hit_pts = 100;
-	this->_energy_pts = 100;
-	this->_attack_dmg = 30;
-	std::cout << "Default FragTrap constructor called" << std::endl;
+	_hitPts = 100;
+	_energyPts = 100;
+	_attackDmg = 30;
+	cout << "FragTrap default constructor called (" << this << ")" << endl;
 }
 
-FragTrap::FragTrap(const String &name): ClapTrap(name)
+FragTrap::FragTrap(const string &name): ClapTrap(name)
 {
-	this->_name = name;
- 	this->_hit_pts = 100;
-	this->_energy_pts = 100;
-	this->_attack_dmg = 30;
-	std::cout << "String FragTrap constructor called" << std::endl;
+	_hitPts = 100;
+	_energyPts = 100;
+	_attackDmg = 30;
+	cout << "FragTrap string constructor called (" << this << ")" << endl;
 }
 
-FragTrap::FragTrap(const FragTrap &src): ClapTrap()
+FragTrap::FragTrap(const FragTrap &src): ClapTrap(src)
 {
-	(*this) = src;
-	std::cout << "FragTrap copy constructor called" << std::endl;
+	cout << "FragTrap copy constructor called (" << this << ")" << endl;
+}
+
+FragTrap::~FragTrap()
+{
+	cout << "FragTrap default destructor called (" << this << ")" << endl;
 }
 
 FragTrap &FragTrap::operator=(const FragTrap &rhs)
 {
 	if (this != &rhs)
 	{
-		this->_name = rhs._name;
-	 	this->_hit_pts = rhs._hit_pts;
-		this->_energy_pts = rhs._energy_pts;
-		this->_attack_dmg = rhs._attack_dmg;
+		_name = rhs._name;
+	 	_hitPts = rhs._hitPts;
+		_energyPts = rhs._energyPts;
+		_attackDmg = rhs._attackDmg;
 	}
 	return (*this);
 }
 
-void	FragTrap::attack(const String &target)
+void	FragTrap::attack(const string &target)
 {
-	if (this->_energy_pts <= 0 || this->_hit_pts <= 0)
+	if (_energyPts <= 0 || _hitPts <= 0)
+		cout << "FragTrap " << _name << " cannot attack!" << endl;
+	else
 	{
-		std::cout << "FragTrap " << this->_name << " cannot attack!\n";
-		return ;
+		_energyPts -= 1;
+		cout << "FragTrap " << _name << " attacks " << target
+			 << ", causing " << _attackDmg << " points of damage!"
+			 << endl;
 	}
-	this->_energy_pts -= 1;
-	std::cout << "FragTrap " << this->_name
-			  << " attacks " << target
-			  << ", causing " << this->_attack_dmg
-			  << " points of damage!"
-			  << std::endl;
-	// target.takeDamage(this->_attack_dmg);
 }
 
-void	FragTrap::highFivesGuys(void)
+void	FragTrap::highFivesGuys()
 {
-	std::cout << "FragTrap " << this->_name << " wants to high five!!!"
-			  << std::endl;
-}
-
-FragTrap::~FragTrap(void)
-{
-	std::cout << "Default FragTrap destructor called" << std::endl;
+	cout << "FragTrap " << _name << " wants to high five!!!"
+		 << endl;
 }

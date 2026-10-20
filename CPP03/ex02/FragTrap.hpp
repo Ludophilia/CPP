@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 01:05:34 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/18 21:15:55 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/20 23:31:59 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,27 @@
 
 # define FRAGTRAP_HPP
 
+# include <iostream>
+# include <string>
 # include "ClapTrap.hpp"
+
+using std::string;
+using std::cout;
+using std::endl;
 
 class FragTrap: public ClapTrap
 {
 	public:
 
-	FragTrap(void);
-	FragTrap(const String &name);
+	FragTrap();
+	FragTrap(const string &name);
 	FragTrap(const FragTrap &src);
-	~FragTrap(void);
+	~FragTrap();
 
 	FragTrap &operator=(const FragTrap &rhs);
 
-	void	attack(const String &target);
-
-	void	highFivesGuys(void);
+	void	attack(const string &target);
+	void	highFivesGuys();
 };
 
 #endif
