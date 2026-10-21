@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 01:29:10 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/20 21:55:18 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/21 21:49:45 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	else
 	{
 		_energyPts -= 1;
-		_hitPts =+ amount;
+		_hitPts += amount;
 		cout << "ClapTrap " << _name << " repairs itself"
 			 << ", recovering " << amount << " hit points!"
 			 << endl;

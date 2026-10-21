@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 01:29:19 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/17 22:32:02 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/21 22:25:05 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ class ClapTrap
 	ClapTrap();
 	ClapTrap(const string &name);
 	ClapTrap(const ClapTrap &src);
-	~ClapTrap(); // use virtual destructor to ensure the right order
-	// of resource destruction....
+	~ClapTrap();
 
 	ClapTrap &operator=(const ClapTrap &rhs);
 
