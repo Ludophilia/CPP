@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 01:05:34 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/20 23:31:59 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/21 22:13:35 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ class FragTrap: public ClapTrap
 
 	FragTrap &operator=(const FragTrap &rhs);
 
-	void	attack(const string &target);
 	void	highFivesGuys();
 };
 

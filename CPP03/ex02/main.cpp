@@ -6,52 +6,26 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 19:21:14 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/20 23:56:03 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/21 22:14:07 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-// 20/10: We're not over yet...
-// So similar to ScavTrap that there should be another way to do that...
-int	main(void)
+int	main()
 {
 	FragTrap	frag00;
-	FragTrap	frag01("frag01");
+	FragTrap	*frag01 = new FragTrap("Naive");
 
-	frag00.attack("g0d");
-	frag00 = frag01;
-	frag00.attack("g0d");
-	frag00.highFivesGuys();
-
-	for (int i = 0; i < 101; i++)
-		frag01.attack("d0g");
-	frag01.highFivesGuys();
-
-	ClapTrap *frag02 = new FragTrap(frag01);
-	frag02->attack("d0g");
-
-	frag00 = FragTrap();
-	frag00.takeDamage(99);
-	frag00.attack("em1");
-	frag00.beRepaired(99);
-	frag00.takeDamage(101);
-	frag00.attack("em1");
-	frag00.beRepaired(99);
-	delete frag02;
+	cout << endl;
+	for (int i = 0 ; i < 4 ; i++)
+	{
+		frag01->highFivesGuys();
+		frag00.attack("Naive");
+		frag01->takeDamage(30);
+		cout << endl;
+	}
+	frag01->beRepaired(100);
+	cout << endl;
+	delete frag01;
 }
-
-// int	main()
-// {
-// 	ScavTrap	*scav00 = new ScavTrap();
-// 	ScavTrap	scav01("01");
-
-// 	scav00->guardGate();
-// 	*scav00 = scav01;
-// 	scav00->attack("a barrel of explosives");
-// 	scav00->guardGate();
-// 	scav00->takeDamage(42);
-// 	scav00->beRepaired(42);
-
-// 	delete scav00;
-// }

@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 01:05:35 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/20 23:51:17 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/21 22:01:37 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ FragTrap::~FragTrap()
 	cout << "FragTrap default destructor called (" << this << ")" << endl;
 }
 
+// That implementation is unnecessary. In order to respect the rule of 
+// three / canonical form however, I will keep it as is.
 FragTrap &FragTrap::operator=(const FragTrap &rhs)
 {
 	if (this != &rhs)
@@ -48,19 +50,6 @@ FragTrap &FragTrap::operator=(const FragTrap &rhs)
 		_attackDmg = rhs._attackDmg;
 	}
 	return (*this);
-}
-
-void	FragTrap::attack(const string &target)
-{
-	if (_energyPts <= 0 || _hitPts <= 0)
-		cout << "FragTrap " << _name << " cannot attack!" << endl;
-	else
-	{
-		_energyPts -= 1;
-		cout << "FragTrap " << _name << " attacks " << target
-			 << ", causing " << _attackDmg << " points of damage!"
-			 << endl;
-	}
 }
 
 void	FragTrap::highFivesGuys()
