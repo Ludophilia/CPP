@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 01:29:10 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/19 21:46:10 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/21 22:33:53 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,24 @@
 ClapTrap::ClapTrap(): _name(""), _hitPts(10),
 	_energyPts(10), _attackDmg(0)
 {
-	cout << "Default constructor called" << endl;
+	cout << "Default constructor called (" << this << ")" << endl;
 }
 
 ClapTrap::ClapTrap(const string &name): _name(name), _hitPts(10),
 	_energyPts(10), _attackDmg(0)
 {
-	cout << "String constructor called" << endl;
+	cout << "String constructor called (" << this << ")" << endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &src): _name(src._name), _hitPts(src._hitPts),
 	_energyPts(src._energyPts), _attackDmg(src._attackDmg)
 {
-	cout << "Copy constructor called" << endl;
+	cout << "Copy constructor called (" << this << ")" << endl;
 }
 
 ClapTrap::~ClapTrap()
 {
-	cout << "Default destructor called" << endl;
+	cout << "Default destructor called (" << this << ")" << endl;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &rhs)
@@ -74,7 +74,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	else
 	{
 		_energyPts -= 1;
-		_hitPts =+ amount;
+		_hitPts += amount;
 		cout << "ClapTrap " << _name << " repairs itself"
 			 << ", recovering " << amount << " hit points!"
 			 << endl;
