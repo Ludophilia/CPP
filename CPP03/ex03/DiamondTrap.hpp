@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 21:21:48 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/22 22:22:47 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/22 23:50:33 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ using std::string;
 using std::cout;
 using std::endl;
 
-class DiamondTrap: public FragTrap, public ScavTrap
+class DiamondTrap: public ScavTrap, public FragTrap // Order matter for the 
+// construction.
 {
 	public:
 
