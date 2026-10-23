@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 01:05:34 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/21 22:13:35 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/23 23:16:01 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ using std::string;
 using std::cout;
 using std::endl;
 
-class FragTrap: public ClapTrap
+class FragTrap: public ClapTrap // virtual
 {
 	public:
 
