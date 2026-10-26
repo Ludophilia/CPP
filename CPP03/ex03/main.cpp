@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 19:21:14 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/23 23:17:21 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/26 22:53:23 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@ int	main()
 
 	cout << endl;
 
+	diamond.attack("Dummy");
+
+
 	// diamond.highFivesGuys(); // in-ambiguous (FragTrap)
 	// diamond.guardGate(); // in-ambiguous (ScavTrap)
 
@@ -26,8 +29,8 @@ int	main()
 	//					  + and another ClapTrap, via FragTrap. So yes, 
 	//					 calling attack on diamond is ambiguous. attack sure,
 	//					but which one?
-	diamond.FragTrap::attack("A");
-	diamond.ScavTrap::attack("B");
+	// diamond.FragTrap::attack("A");
+	// diamond.ScavTrap::attack("B");
 
 	cout << endl;
 }

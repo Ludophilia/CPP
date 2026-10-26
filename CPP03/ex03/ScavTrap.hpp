@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 01:05:34 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/23 23:15:57 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/26 23:42:06 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ using std::string;
 using std::cout;
 using std::endl;
 
-class ScavTrap: public ClapTrap // virtual
+// When virtual inheritance is involved, the most-derived class, DiamondTrap,
+// will be responsible for initializing the virtual base class ClapTrap.
+// class ScavTrap: public ClapTrap
+class ScavTrap: virtual public ClapTrap
 {
 	public:
 
