@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 01:05:34 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/26 23:42:06 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/27 22:58:18 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,12 @@ class ScavTrap: virtual public ClapTrap
 
 	void	attack(const string &target);
 	void	guardGate();
+
+	protected:
+
+	static const int	_HP_DFLT = 100;
+	static const int	_EP_DFLT = 50;
+	static const int	_AD_DFLT = 20;
 };
 
 #endif

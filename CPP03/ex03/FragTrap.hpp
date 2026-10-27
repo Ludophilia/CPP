@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 01:05:34 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/26 23:42:02 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/27 19:29:51 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,12 @@ class FragTrap: virtual public ClapTrap
 	FragTrap &operator=(const FragTrap &rhs);
 
 	void	highFivesGuys();
+
+	protected:
+
+	static const int	_HP_DFLT = 100;
+	static const int	_EP_DFLT = 100;
+	static const int	_AD_DFLT = 30;
 };
 
 #endif

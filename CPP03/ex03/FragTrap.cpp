@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 01:05:35 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/21 22:01:37 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/27 19:40:20 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 FragTrap::FragTrap()
 {
-	_hitPts = 100;
-	_energyPts = 100;
-	_attackDmg = 30;
+	_hitPts = _HP_DFLT;
+	_energyPts = _EP_DFLT;
+	_attackDmg = _AD_DFLT;
 	cout << "FragTrap default constructor called (" << this << ")" << endl;
 }
 
 FragTrap::FragTrap(const string &name): ClapTrap(name)
 {
-	_hitPts = 100;
-	_energyPts = 100;
-	_attackDmg = 30;
+	_hitPts = _HP_DFLT;
+	_energyPts = _EP_DFLT;
+	_attackDmg = _AD_DFLT;
 	cout << "FragTrap string constructor called (" << this << ")" << endl;
 }
 

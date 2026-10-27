@@ -6,83 +6,69 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 21:21:46 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/26 23:40:36 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/27 22:55:11 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap() // ClapTrap(), FragTrap(), ScavTrap() // <== Not needed ???
+// ClapTrap, ScavTrap, FragTrap default constructors are implicitely added 
+// and called here before DiamondTrap construction and _name initialization.
+DiamondTrap::DiamondTrap(): _name("default")
 {
-	cout << endl;
-
-	_name = "???";
 	ClapTrap::_name = _name + "_clap_name";
-	// _hitPts = FragTrap::_hitPts;
-	// _energyPts = ScavTrap::_energyPts;
-	// _attackDmg = FragTrap::_attackDmg;
-	
-
-	// WHAT THE F*?
-	// Eeach initializer is writing the same memory addresses.
-	// ScavTrap is the last one to write in the same three spots, hence 
-	// why those results match ScavTrap default values...
-	
-	cout
-		 << "FragTrap::_hitPts: " << FragTrap::_hitPts << '\n'
-	     << "ScavTrap::_hitPts: " << ScavTrap::_hitPts << '\n'
-	     << "ClapTrap::_hitPts: " << ClapTrap::_hitPts << '\n'
-		 << '\n'
-		 << "FragTrap::_energyPts: " << FragTrap::_energyPts << '\n'
-		 << "ScavTrap::_energyPts: " << ScavTrap::_energyPts << '\n'
-		 << "ClapTrap::_energyPts: " << ClapTrap::_energyPts << '\n'
-		 << '\n'
-		 << "FragTrap::_attackDmg: " << FragTrap::_attackDmg << '\n'
-		 << "ScavTrap::_attackDmg: " << ScavTrap::_attackDmg << '\n'
-		 << "ClapTrap::_attackDmg: " << ClapTrap::_attackDmg << '\n'
-		 << endl;
-
-	cout << endl;
-
-	cout << "name: " << _name << '\n'
-		 << "clap name: " << ClapTrap::_name << '\n'
-		 << "hit points: " << _hitPts << '\n'
-		 << "energy points: " << _energyPts << '\n'
-		 << "attack damage: " << _attackDmg << '\n'
-		 << endl;
-
+	_hitPts = FragTrap::_HP_DFLT;
+	_energyPts = ScavTrap::_EP_DFLT;
+	_attackDmg = FragTrap::_AD_DFLT;
 	cout << "DiamondTrap default constructor called (" << this << ")" << endl;
 }
 
+// For non-default constructors however, they need to be explicitely called
+// in the member initializer list, in the same order as what's been written in
+// the class declaration.
+DiamondTrap::DiamondTrap(const string &name): ClapTrap(name + "_clap_name"),
+	FragTrap(), ScavTrap(), _name(name)
+{
+	_hitPts = FragTrap::_HP_DFLT;
+	_energyPts = ScavTrap::_EP_DFLT;
+	_attackDmg = FragTrap::_AD_DFLT;
+	cout << "DiamondTrap string constructor called (" << this << ")" << endl;
+}
 
-// DiamondTrap::DiamondTrap()
-// {
-// 	_name = "???";
-// 	ClapTrap::_name = _name + "_clap_name";
-// 	_hitPts = _hitPts;
-// 	_energyPts = _energyPts;
-// 	_attackDmg = _attackDmg;
-
-
-// 	cout << "name: " << diamond._name
-// 		 << "clap name: " << diamond.ClapTrap::_name
-
-
-// 		 << endl;
-
-
-// 	cout << "DiamondTrap default constructor called (" << this << ")" << endl;
-
-
-// }
-
-
-// DiamondTrap::DiamondTrap(): ClapTrap("James")
-// {
-// 	cout << "DiamondTrap default constructor called (" << this << ")" << endl;
-// }
+DiamondTrap::DiamondTrap(const DiamondTrap &src): ClapTrap(src), FragTrap(src),
+	ScavTrap(src), _name(src._name)
+{
+	cout << "DiamondTrap copy constructor called (" << this << ")" << endl;
+}
 
 DiamondTrap::~DiamondTrap()
 {
 	cout << "DiamondTrap default destructor called (" << this << ")" << endl;
 }
+
+DiamondTrap &DiamondTrap::operator=(const DiamondTrap &rhs)
+{
+	if (&rhs != this)
+	{
+		_name = rhs._name;
+		ClapTrap::_name = rhs.ClapTrap::_name;
+	 	_hitPts = rhs._hitPts;
+		_energyPts = rhs._energyPts;
+		_attackDmg = rhs._attackDmg;
+	}
+	return (*this);
+}
+
+void	DiamondTrap::whoAmI()
+{
+	cout << "I'm " << _name << ", also known as "
+		 << ClapTrap::_name << ", nice to meet you!"
+		 << endl;
+}
+
+// cout << "name: " << _name << '\n'
+//  << "clap name: " << ClapTrap::_name << '\n'
+//  << "hit points: " << _hitPts << '\n'
+//  << "energy points: " << _energyPts << '\n'
+//  << "attack damage: " << _attackDmg << '\n'
+//  << endl;

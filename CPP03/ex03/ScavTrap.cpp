@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 01:05:35 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/26 23:33:24 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/27 21:05:01 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 // ClapTrap default constructor is implicitely added and called here.
 ScavTrap::ScavTrap()
 {
-	_hitPts = 100;
-	_energyPts = 50;
-	_attackDmg = 20;
+	_hitPts = _HP_DFLT;
+	_energyPts = _EP_DFLT;
+	_attackDmg = _AD_DFLT;
 	cout << "ScavTrap default constructor called (" << this << ")" << endl;
 }
 
@@ -25,9 +25,9 @@ ScavTrap::ScavTrap()
 // in the member initializer list.
 ScavTrap::ScavTrap(const string &name): ClapTrap(name)
 {
-	_hitPts = 100;
-	_energyPts = 50;
-	_attackDmg = 20;
+	_hitPts = _HP_DFLT;
+	_energyPts = _EP_DFLT;
+	_attackDmg = _AD_DFLT;
 	cout << "ScavTrap string constructor called (" << this << ")" << endl;
 }
 

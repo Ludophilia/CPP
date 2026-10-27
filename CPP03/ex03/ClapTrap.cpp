@@ -6,20 +6,20 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 01:29:10 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/21 22:01:59 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/27 19:28:56 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(): _name("???"), _hitPts(10),
-	_energyPts(10), _attackDmg(0)
+ClapTrap::ClapTrap(): _name("???"), _hitPts(_HP_DFLT),
+	_energyPts(_EP_DFLT), _attackDmg(_AD_DFLT)
 {
 	cout << "ClapTrap default constructor called (" << this << ")" << endl;
 }
 
-ClapTrap::ClapTrap(const string &name): _name(name), _hitPts(10),
-	_energyPts(10), _attackDmg(0)
+ClapTrap::ClapTrap(const string &name): _name(name), _hitPts(_HP_DFLT),
+	_energyPts(_EP_DFLT), _attackDmg(_AD_DFLT)
 {
 	cout << "ClapTrap string constructor called (" << this << ")" << endl;
 }

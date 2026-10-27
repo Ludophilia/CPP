@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 21:21:48 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/26 23:24:50 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/27 21:27:54 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,13 @@ class DiamondTrap: public FragTrap, public ScavTrap // Order matter for the
 	public:
 
 	DiamondTrap();
-	// DiamondTrap(const string &name);
-	// DiamondTrap(const DiamondTrap &src);
+	DiamondTrap(const string &name);
+	DiamondTrap(const DiamondTrap &src);
 	~DiamondTrap();
-	// DiamondTrap &operator=(const DiamondTrap &rhs);
 
-	
+	DiamondTrap &operator=(const DiamondTrap &rhs);
+
+	void	whoAmI();
 
 	private:
 

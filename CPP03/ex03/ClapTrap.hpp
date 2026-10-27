@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 01:29:19 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/21 22:25:12 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/27 19:30:59 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,14 @@ class ClapTrap
 
 	protected:
 
-	string		_name;
-	int			_hitPts;
-	int			_energyPts;
-	int			_attackDmg;
+	static const int	_HP_DFLT = 10;
+	static const int	_EP_DFLT = 10;
+	static const int	_AD_DFLT = 0;
+
+	string				_name;
+	int					_hitPts;
+	int					_energyPts;
+	int					_attackDmg;
 };
 
 #endif
