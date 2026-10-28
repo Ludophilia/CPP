@@ -6,14 +6,14 @@
 #    By: jegerman <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/27 16:55:45 by jegerman          #+#    #+#              #
-#    Updated: 2026/10/26 23:34:36 by jegerman         ###   ########.fr        #
+#    Updated: 2026/10/28 16:36:21 by jegerman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := diamond
 
 CXX := c++
-CXXFLAGS := -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98 -I.
+CXXFLAGS := -Wall -Wextra -Werror -Wshadow -std=c++98 -I.
 
 SRCS := main.cpp
 SRCS += ClapTrap.cpp
