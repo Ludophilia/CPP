@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 21:21:46 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/28 16:33:42 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/28 16:38:49 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ DiamondTrap::DiamondTrap(): _name("default")
 // For non-default constructors however, they need to be explicitely called
 // in the member initializer list, in the same order as what's been written in
 // the class declaration.
-DiamondTrap::DiamondTrap(const string &_name): ClapTrap(_name + "_clap_name"),
-	FragTrap(), ScavTrap(), _name(_name)
+DiamondTrap::DiamondTrap(const string &name): ClapTrap(name + "_clap_name"),
+	FragTrap(), ScavTrap(), _name(name)
 {
 	_hitPts = FragTrap::_HP_DFLT;
 	_energyPts = ScavTrap::_EP_DFLT;
