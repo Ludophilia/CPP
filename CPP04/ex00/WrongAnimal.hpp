@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 20:56:35 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/19 23:13:36 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/29 23:18:10 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,26 @@
 # include <iostream>
 # include <string>
 
-typedef std::string String;
+using std::string;
+using std::cout;
+using std::endl;
 
 class WrongAnimal
 {
 	public:
-	
-	WrongAnimal(void);
-	virtual ~WrongAnimal(void);
+
+	WrongAnimal();
+	virtual ~WrongAnimal(); // Remove virtual no? As it should be Wrong...
 	WrongAnimal(const WrongAnimal &src);
 
 	WrongAnimal &operator=(const WrongAnimal &rhs);
 
-	const String	&getType(void) const;
-	void			makeSound(void) const;
+	const string	&getType() const;
+	void			makeSound() const;
 
 	protected:
-	
-	String	type;
+
+	string	type;
 };
 
 #endif

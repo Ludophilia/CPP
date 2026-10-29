@@ -12,34 +12,34 @@
 
 #include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal(void): type("WrongAnimal")
+WrongAnimal::WrongAnimal(): type("WrongAnimal")
 {
-	std::cout << "Default WrongAnimal constructor called" << std::endl;
+	cout << "WrongAnimal default constructor called" << endl;
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal &src): type(src.type)
 {
-	std::cout << "Copy WrongAnimal constructor called" << std::endl;
+	cout << "WrongAnimal copy constructor called" << endl;
 }
 
-WrongAnimal::~WrongAnimal(void)
+WrongAnimal::~WrongAnimal()
 {
-	std::cout << "Default WrongAnimal destructor called" << std::endl;
+	cout << "WrongAnimal default destructor called" << endl;
 }
 
 WrongAnimal	&WrongAnimal::operator=(const WrongAnimal &rhs)
 {
 	if (this != &rhs)
-		this->type = rhs.type;
+		type = rhs.type;
 	return (*this);
 }
 
-const String	&WrongAnimal::getType(void) const
+const string	&WrongAnimal::getType() const
 {
-	return (this->type);
+	return (type);
 }
 
-void	WrongAnimal::makeSound(void) const
+void	WrongAnimal::makeSound() const
 {
-	std::cout << "* LOUD AND UNBEARABLE ANIMAL NOISE *" << std::endl;
+	cout << "* EVEN LOUDER AND MORE UNBEARABLE ANIMAL NOISE *" << endl;
 }

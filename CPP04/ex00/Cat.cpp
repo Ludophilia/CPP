@@ -6,36 +6,36 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 22:16:56 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/19 23:03:10 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/29 23:07:41 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat(void)
+Cat::Cat()
 {
-	this->type = "Cat";
-	std::cout << "Default Cat constructor called" << std::endl;
+	type = "Cat";
+	cout << "Cat default constructor called" << endl;
 }
 
 Cat::Cat(const Cat &src): Animal(src)
 {
-	std::cout << "Copy Cat constructor called" << std::endl;
+	cout << "Cat copy constructor called" << endl;
 }
 
-Cat::~Cat(void)
+Cat::~Cat()
 {
-	std::cout << "Default Cat destructor called" << std::endl;
+	cout << "Cat default destructor called" << endl;
 }
 
 Cat	&Cat::operator=(const Cat &rhs)
 {
 	if (this != &rhs)
-		this->type = rhs.type;
+		type = rhs.type;
 	return (*this);
 }
 
-void	Cat::makeSound(void) const
+void	Cat::makeSound() const
 {
-	std::cout << "* Victorian cat cries *" << std::endl;
+	cout << "* meow *" << endl;
 }

@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 20:56:35 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/19 22:42:46 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/29 23:04:39 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,26 @@
 # include <iostream>
 # include <string>
 
-typedef std::string String;
+using std::string;
+using std::cout;
+using std::endl;
 
 class Animal
 {
 	public:
-	
-	Animal(void);
-	virtual ~Animal(void);
+
+	Animal();
 	Animal(const Animal &src);
+	virtual ~Animal();
 
 	Animal &operator=(const Animal &rhs);
 
-	const String	&getType(void) const;
-	virtual void	makeSound(void) const;
+	const string	&getType() const; // = 0; // ???
+	virtual void	makeSound() const; // = 0;
 
 	protected:
-	
-	String	type;
+
+	string	type;
 };
 
 #endif
