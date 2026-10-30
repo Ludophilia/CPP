@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 20:56:35 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/29 23:18:10 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/30 20:39:46 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class WrongAnimal
 	public:
 
 	WrongAnimal();
-	virtual ~WrongAnimal(); // Remove virtual no? As it should be Wrong...
+	virtual ~WrongAnimal();
 	WrongAnimal(const WrongAnimal &src);
 
 	WrongAnimal &operator=(const WrongAnimal &rhs);

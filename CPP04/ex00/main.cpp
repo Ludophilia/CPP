@@ -6,33 +6,36 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 21:32:45 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/20 00:01:58 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/30 21:28:05 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 #include "WrongCat.hpp"
 #include "Dog.hpp"
+#include <iostream>
 
-int	main(void)
+int	main()
 {
 	const Animal		*meta = new Animal();
 	const Animal		*i = new Cat();
-	const WrongAnimal	*wi = new WrongCat();
 	const Animal		*j = new Dog();
+	const WrongAnimal	*wi = new WrongCat();
 
-	std::cout << meta->getType() << " " << std::endl;
+	cout << endl;
+	cout << meta->getType() << " " << endl;
 	meta->makeSound();
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound(); // will output the cat sound!
-	std::cout << wi->getType() << " " << std::endl;
-	wi->makeSound(); // will NOT output the cat sound!
-	std::cout << j->getType() << " " << std::endl;
+	cout << i->getType() << " " << endl;
+	i->makeSound();
+	cout << j->getType() << " " << endl;
 	j->makeSound();
+	cout << wi->getType() << " " << endl;
+	wi->makeSound();
 
+	cout << endl;
 	delete meta;
 	delete i;
-	delete wi;
 	delete j;
+	delete wi;
 	return (0);
 }

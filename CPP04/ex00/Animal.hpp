@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 20:56:35 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/29 23:04:39 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/30 20:53:58 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ class Animal
 
 	Animal &operator=(const Animal &rhs);
 
-	const string	&getType() const; // = 0; // ???
-	virtual void	makeSound() const; // = 0;
+	const string	&getType() const;
+	virtual void	makeSound() const;
 
 	protected:
 
