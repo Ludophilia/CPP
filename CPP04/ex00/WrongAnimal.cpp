@@ -41,5 +41,5 @@ const string	&WrongAnimal::getType() const
 
 void	WrongAnimal::makeSound() const
 {
-	cout << "* EVEN LOUDER AND MORE UNBEARABLE ANIMAL NOISE *" << endl;
+	cout << "👽💬" << endl;
 }

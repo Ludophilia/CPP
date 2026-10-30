@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 22:35:46 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/29 23:09:06 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/30 22:24:56 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,5 @@ Dog	&Dog::operator=(const Dog &rhs)
 
 void	Dog::makeSound() const
 {
-	cout << "* woof *" << endl;
+	cout << "🐶💬" << endl;
 }

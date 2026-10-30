@@ -37,5 +37,5 @@ WrongCat	&WrongCat::operator=(const WrongCat &rhs)
 
 void	WrongCat::makeSound() const
 {
-	cout << "* woem is meow backwards *" << endl;
+	cout << "😾💬" << endl;
 }

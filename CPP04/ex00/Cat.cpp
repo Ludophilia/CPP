@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 22:16:56 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/29 23:07:41 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/30 22:24:31 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,5 @@ Cat	&Cat::operator=(const Cat &rhs)
 
 void	Cat::makeSound() const
 {
-	cout << "* meow *" << endl;
+	cout << "😾💬" << endl;
 }
