@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 20:56:35 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/20 20:46:26 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/30 20:53:58 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,29 @@
 
 # define ANIMAL_HPP
 
-# include "Brain.hpp"
+# include <iostream>
+# include <string>
 
-typedef std::string String;
+using std::string;
+using std::cout;
+using std::endl;
 
 class Animal
 {
 	public:
-	
-	Animal(void);
-	virtual ~Animal(void);
+
+	Animal();
 	Animal(const Animal &src);
+	virtual ~Animal();
 
-	Animal	&operator=(const Animal &rhs);
+	Animal &operator=(const Animal &rhs);
 
-	const String	&getType(void) const;
-	virtual void	makeSound(void) const;
+	const string	&getType() const;
+	virtual void	makeSound() const;
 
 	protected:
-	
-	String	type;
+
+	string	type;
 };
 
 #endif

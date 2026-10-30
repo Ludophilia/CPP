@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 22:28:45 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/21 00:04:34 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/30 23:05:58 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,24 @@
 
 # define DOG_HPP
 
+# include <iostream>
 # include "Animal.hpp"
+# include "Brain.hpp"
+
+using std::cout;
+using std::endl;
 
 class Dog: public Animal
 {
 	public:
 	
-	Dog(void);
-	~Dog(void);
+	Dog();
 	Dog(const Dog &src);
+	~Dog();
 
 	Dog &operator=(const Dog &rhs);
 
-	void	makeSound(void) const;
+	void	makeSound() const;
 
 	private:
 

@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 19:30:29 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/23 20:45:43 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/30 23:03:51 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,24 @@
 # include <iostream>
 # include <string>
 
-typedef std::string String;
+using std::string;
+using std::cout;
+using std::endl;
 
 class Brain
 {
 	public:
 
-	Brain(void);
+	Brain();
 	Brain(const Brain &src);
-	~Brain(void);
+	~Brain();
+
 	Brain	&operator=(const Brain &rhs);
 
 	private:
 
-	static const int 	size = 100;
-	String				ideas[size];
+	static const int 	SIZE = 100;
+	string				ideas[SIZE];
 };
 
 #endif

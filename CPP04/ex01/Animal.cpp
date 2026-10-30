@@ -6,40 +6,40 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 20:56:37 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/19 23:59:52 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/29 23:12:54 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal(void): type("Animal")
+Animal::Animal(): type("Animal")
 {
-	std::cout << "Default Animal constructor called" << std::endl;
+	cout << "Animal default constructor called" << endl;
 }
 
 Animal::Animal(const Animal &src): type(src.type)
 {
-	std::cout << "Copy Animal constructor called" << std::endl;
+	cout << "Animal copy constructor called" << endl;
 }
 
-Animal::~Animal(void)
+Animal::~Animal()
 {
-	std::cout << "Default Animal destructor called" << std::endl;
+	cout << "Animal default destructor called" << endl;
 }
 
 Animal	&Animal::operator=(const Animal &rhs)
 {
 	if (this != &rhs)
-		this->type = rhs.type;
+		type = rhs.type;
 	return (*this);
 }
 
-const String	&Animal::getType(void) const
+const string	&Animal::getType() const
 {
-	return (this->type);
+	return (type);
 }
 
-void	Animal::makeSound(void) const
+void	Animal::makeSound() const
 {
-	std::cout << "* Generic yet elegant animal sound *" << std::endl;
+	cout << "* LOUD AND UNBEARABLE ANIMAL NOISE *" << endl;
 }
