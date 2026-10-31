@@ -6,23 +6,23 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 22:35:46 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/30 23:08:05 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/31 22:20:37 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
+#include <cassert>
 
 Dog::Dog(): _brain(new Brain)
 {
-	type = "Dog";
 	cout << "Dog default constructor called" << endl;
+	type = "Dog";
 }
 
 Dog::Dog(const Dog &src): Animal(src), _brain(new Brain(*src._brain)) 
 {
-	cout << "Dog copy constructor called with brain " << endl;
-	// cout << "\t- Source Brain address: " << src._brain << endl;
-	// cout << "\t- New Brain address: " << _brain << endl;
+	cout << "Dog copy constructor called with brain " << _brain 
+		 << " from " << src._brain << endl;
 }
 
 Dog::~Dog()

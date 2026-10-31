@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 20:56:37 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/29 23:12:54 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/31 18:44:04 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,5 @@ const string	&Animal::getType() const
 
 void	Animal::makeSound() const
 {
-	cout << "* LOUD AND UNBEARABLE ANIMAL NOISE *" << endl;
+	cout << "👽💬" << endl;
 }

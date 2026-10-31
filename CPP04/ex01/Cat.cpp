@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 22:16:56 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/30 23:01:12 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/31 22:15:00 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,14 @@
 
 Cat::Cat(): _brain(new Brain)
 {
-	type = "Cat";
 	cout << "Cat default constructor called" << endl;
+	type = "Cat";
 }
 
 Cat::Cat(const Cat &src): Animal(src), _brain(new Brain(*src._brain)) 
 {
-	cout << "Cat copy constructor called" << endl;
-	// cout << "\t- Source Brain address: " << src._brain << endl;
-	// cout << "\t- New Brain address: " << _brain << endl;
+	cout << "Cat copy constructor called with brain " << _brain 
+		 << " from " << src._brain << endl;
 }
 
 Cat::~Cat()
