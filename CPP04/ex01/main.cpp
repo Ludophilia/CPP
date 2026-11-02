@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 21:32:45 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/02 20:06:31 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/02 20:17:38 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	testIfAnimalDeepOrShallowCopy()
 int	main()
 {
 	testAnimalArrayConstructionAndDestruction(4);
+	cout << endl;
 	testIfAnimalDeepOrShallowCopy();
 	return (0);
 }

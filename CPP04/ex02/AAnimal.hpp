@@ -6,34 +6,37 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 20:56:35 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/24 01:17:09 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/02 21:14:01 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AAnimal_HPP
+#ifndef ANIMAL_HPP
 
-# define AAnimal_HPP
+# define ANIMAL_HPP
 
-# include "Brain.hpp"
+# include <iostream>
+# include <string>
 
-typedef std::string String;
+using std::string;
+using std::cout;
+using std::endl;
 
 class AAnimal
 {
 	public:
-	
-	AAnimal(void);
-	virtual ~AAnimal(void);
+
+	AAnimal();
 	AAnimal(const AAnimal &src);
+	virtual ~AAnimal();
 
-	AAnimal	&operator=(const AAnimal &rhs);
+	AAnimal &operator=(const AAnimal &rhs);
 
-	const String	&getType(void) const;
-	virtual void	makeSound(void) const = 0;
+	const string	&getType() const;
+	virtual void	makeSound() const = 0;
 
 	protected:
-	
-	String	type;
+
+	string	type;
 };
 
 #endif

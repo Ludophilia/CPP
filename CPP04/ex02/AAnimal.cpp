@@ -1,45 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AAnimal.cpp                                        :+:      :+:    :+:   */
+/*   AAnimal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 20:56:37 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/24 01:26:46 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/10/31 18:44:04 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AAnimal.hpp"
 
-AAnimal::AAnimal(void): type("Animal")
+AAnimal::AAnimal(): type("AAnimal")
 {
-	std::cout << "Default AAnimal constructor called" << std::endl;
+	cout << "AAnimal default constructor called" << endl;
 }
 
 AAnimal::AAnimal(const AAnimal &src): type(src.type)
 {
-	std::cout << "Copy AAnimal constructor called" << std::endl;
+	cout << "AAnimal copy constructor called" << endl;
 }
 
-AAnimal::~AAnimal(void)
+AAnimal::~AAnimal()
 {
-	std::cout << "Default AAnimal destructor called" << std::endl;
+	cout << "AAnimal default destructor called" << endl;
 }
 
 AAnimal	&AAnimal::operator=(const AAnimal &rhs)
 {
 	if (this != &rhs)
-		this->type = rhs.type;
+		type = rhs.type;
 	return (*this);
 }
 
-const String	&AAnimal::getType(void) const
+const string	&AAnimal::getType() const
 {
-	return (this->type);
+	return (type);
 }
 
-void	AAnimal::makeSound(void) const
+void	AAnimal::makeSound() const
 {
-	std::cout << "* Generic yet elegant animal sound *" << std::endl;
+	cout << "👽💬" << endl;
 }

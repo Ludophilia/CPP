@@ -6,42 +6,41 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 22:35:46 by jegerman          #+#    #+#             */
-/*   Updated: 2026/03/24 01:26:18 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/02 21:28:50 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog(void): _brain(new Brain)
+Dog::Dog(): _brain(new Brain)
 {
-	std::cout << "Default Dog constructor called" << std::endl;
-	this->type = "Dog";
+	cout << "Dog default constructor called" << endl;
+	type = "Dog";
 }
 
 Dog::Dog(const Dog &src): AAnimal(src), _brain(new Brain(*src._brain)) 
 {
-	std::cout << "Copy Dog constructor called with brain " << std::endl;
-	std::cout << "\t- Source Brain address: " << src._brain << std::endl;
-	std::cout << "\t- New Brain address: " << this->_brain << std::endl;
+	cout << "Dog copy constructor called with brain " << _brain 
+		 << " from " << src._brain << endl;
 }
 
-Dog::~Dog(void)
+Dog::~Dog()
 {
-	std::cout << "Default Dog destructor called" << std::endl;
-	delete this->_brain;
+	cout << "Dog default destructor called" << endl;
+	delete _brain;
 }
 
 Dog	&Dog::operator=(const Dog &rhs)
 {
 	if (this != &rhs)
 	{
-		this->type = rhs.type;
-		*this->_brain = *rhs._brain;
+		type = rhs.type;
+		*_brain = *rhs._brain;
 	}
 	return (*this);
 }
 
-void	Dog::makeSound(void) const
+void	Dog::makeSound() const
 {
-	std::cout << "🐕 *Shakespearian dog howls*" << std::endl;
+	cout << "🐶💬" << endl;
 }
