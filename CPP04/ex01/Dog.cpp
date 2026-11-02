@@ -6,12 +6,11 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 22:35:46 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/31 22:20:37 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/02 19:44:50 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
-#include <cassert>
 
 Dog::Dog(): _brain(new Brain)
 {

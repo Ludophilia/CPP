@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 21:32:45 by jegerman          #+#    #+#             */
-/*   Updated: 2026/10/31 22:21:11 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/02 20:06:31 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,7 @@ void	testAnimalArrayConstructionAndDestruction(const int animalNb)
 		cerr << "Error: " << e.what() << endl;
 	}
 	while (--pos >= 0)
-	{
 		delete animals[pos];
-		cout << endl;
-	}
 }
 
 void	testIfAnimalDeepOrShallowCopy()
@@ -53,7 +50,7 @@ void	testIfAnimalDeepOrShallowCopy()
 		Cat		catA, catB(catA);
 		cout << endl;
 	}
-	catch (const std::exception &e)
+	catch (const std::bad_alloc &e)
 	{
 		cerr << "Error: " << e.what() << endl;
 	}
