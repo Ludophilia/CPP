@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/02 22:16:17 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/02 23:27:07 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/03 22:29:23 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,12 @@ int		main()
 	me->use(0, *bob); // * shoots an ice bolt at bob *$
 	me->use(1, *bob); // * heals bob's wounds *$
 
+
 	delete src;
 	delete me;
 	delete bob;
 	// delete tmp;
+
 
 	return (0);
 }
