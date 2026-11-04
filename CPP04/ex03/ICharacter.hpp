@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/03 22:47:32 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/03 23:37:39 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/04 20:39:08 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ class ICharacter
 {
 	public:
 
-	virtual ~ICharacter() {};
-
 	virtual const string	&getName() const = 0;
 	virtual void			equip(AMateria* m) = 0;
 	virtual void 			unequip(int idx) = 0;
 	virtual void 			use(int idx, ICharacter& target) = 0;
+
+	virtual ~ICharacter() {}; // virtual ~ICharacter() = default; (c++11)
 };
 
 #endif

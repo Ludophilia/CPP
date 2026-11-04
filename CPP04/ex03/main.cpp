@@ -6,10 +6,9 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/02 22:16:17 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/03 22:29:23 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/04 20:18:52 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 // AMateria (Abstract Materia)
 //		= Ice (Concrete Materia)
