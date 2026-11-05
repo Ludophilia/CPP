@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/02 22:16:17 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/04 20:18:52 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/05 21:54:25 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,32 +22,35 @@
 
 int		main()
 {
-	ICharacter			*me = new Character("me");
-	ICharacter			*bob = new Character("bob");
-	IMateriaSource		*src = new MateriaSource();
-	AMateria			*tmp;
+	// Let's start small, shall we?
+
+	
+	// ICharacter			*me = new Character("me");
+	// ICharacter			*bob = new Character("bob");
+	// IMateriaSource		*src = new MateriaSource();
+	// AMateria			*tmp;
 
 
-	src->learnMateria(new Ice()); // source learns "templates" of Materia to create
-								  // them when needed via createMateria using just a string
-								  // that identifies its type.
-	src->learnMateria(new Cure());
+	// src->learnMateria(new Ice()); // source learns "templates" of Materia to create
+	// 							  // them when needed via createMateria using just a string
+	// 							  // that identifies its type.
+	// src->learnMateria(new Cure());
 
 
-	tmp = src->createMateria("ice"); // What's for? It doesn't leak?
-	me->equip(tmp);
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
+	// tmp = src->createMateria("ice"); // What's for? It doesn't leak?
+	// me->equip(tmp);
+	// tmp = src->createMateria("cure");
+	// me->equip(tmp);
 
 
-	me->use(0, *bob); // * shoots an ice bolt at bob *$
-	me->use(1, *bob); // * heals bob's wounds *$
+	// me->use(0, *bob); // * shoots an ice bolt at bob *$
+	// me->use(1, *bob); // * heals bob's wounds *$
 
 
-	delete src;
-	delete me;
-	delete bob;
-	// delete tmp;
+	// delete src;
+	// delete me;
+	// delete bob;
+	// // delete tmp;
 
 
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/03 22:40:32 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/03 23:27:35 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/05 23:15:52 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,31 @@
 # define AMATERIA_HPP
 
 # include <string>
+# include <iostream>
 # include "ICharacter.hpp"
 
 using std::string;
+using std::cout;
+using std::endl;
 
 class AMateria
 {
 	public:
 
-	// AMateria();
+	AMateria(); // = default in C++ 11
 	AMateria(const string &type);
-	// AMateria(const AMateria &src);
-	// ~AMateria();
+	AMateria(const AMateria &src);
+	virtual ~AMateria();
 
-	// AMateria	&operator=(const AMateria &rhs);
-	
-	const string		&getType() const; // Returns the materia type
+	AMateria	&operator=(const AMateria &rhs);
+
+	const string		&getType() const;
 	virtual AMateria	*clone() const = 0;
-	virtual void		use(ICharacter& target) const; // const added
+	virtual void		use(ICharacter &target) const; // const added
 
 	protected:
 
-	// string	_type;
+	string	_type;
 };
 
 #endif
