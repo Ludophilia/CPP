@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/03 22:47:32 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/05 20:08:39 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/06 19:50:51 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class ICharacter
 	public:
 
 	virtual const string	&getName() const = 0;
-	virtual void			equip(AMateria* m) = 0;
+	virtual void			equip(AMateria *m) = 0;
 	virtual void 			unequip(int idx) = 0;
 	virtual void 			use(int idx, ICharacter &target) = 0;
 

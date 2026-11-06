@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/05 20:20:03 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/05 23:11:25 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/05 23:46:54 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class Cure: public AMateria
 
 	Cure	&operator=(const Cure &rhs);
 
-	void		use(ICharacter& target) const;
+	void		use(ICharacter &target) const;
 	AMateria	*clone() const;
 };
 

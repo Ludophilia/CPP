@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/05 20:20:06 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/05 23:10:07 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/05 23:46:59 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class Ice: public AMateria
 
 	Ice	&operator=(const Ice &rhs);
 
-	void		use(ICharacter& target) const;
+	void		use(ICharacter &target) const;
 	AMateria	*clone() const;
 };
 
