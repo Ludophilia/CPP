@@ -6,7 +6,7 @@
 #    By: jegerman <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/27 16:55:45 by jegerman          #+#    #+#              #
-#    Updated: 2026/11/06 22:44:40 by jegerman         ###   ########.fr        #
+#    Updated: 2026/11/09 23:03:03 by jegerman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,14 @@ CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -I.
 
 SRCS := main.cpp
 SRCS += AMateria.cpp
+
+SRCS += Character.cpp
+
 SRCS += Cure.cpp
 SRCS += Ice.cpp
-SRCS += Character.cpp
+
+
+
 # SRCS += .cpp
 
 OBJS := $(SRCS:.cpp=.o)

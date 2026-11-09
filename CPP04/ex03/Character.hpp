@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/05 23:20:25 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/06 23:08:32 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/09 22:21:29 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class Character: public ICharacter
 	Character(const Character &src);
 	~Character();
 
-	Character	&operator=(const Character &rhs);
+	Character		&operator=(const Character &rhs);
 
 	const string	&getName() const;
 
@@ -42,8 +42,9 @@ class Character: public ICharacter
 
 	private:
 
-	void			_cleanUpSlots() const;
+	void			_initSlots();
 	void			_copySourceSlots(const Character &src);
+	void			_cleanUpSlots();
 
 	protected:
 

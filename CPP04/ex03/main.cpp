@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/02 22:16:17 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/05 21:54:25 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/09 23:04:16 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,12 @@
 // IMateriaSource (Interface MateriaSource)
 //		= MateriaSource
 
+#include <iostream> // REMOVE
+
 int		main()
 {
 	// Let's start small, shall we?
-
+	std::cout << "Ca compile 🥹" << std::endl;
 	
 	// ICharacter			*me = new Character("me");
 	// ICharacter			*bob = new Character("bob");

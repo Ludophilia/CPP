@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/03 22:47:32 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/06 19:50:51 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/09 23:10:09 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,16 @@
 # define ICHARACTER_HPP
 
 # include <string>
-# include "AMateria.hpp"
 
 using std::string;
 
+// # include "AMateria.hpp" // circular dependency ❌
+class AMateria; // ✅ circular dependency to AMateria broken with forward 
+// declaration. Only possible when pointers are involved it seems?
+
 // An Interface still needs a virtual destructor to avoid messing up with the
 // destruction process of the Derived classes that will be called as ICharacter
-// but still need to run their own destructor.
+// but still need to run their own destructors.
 class ICharacter
 {
 	public:

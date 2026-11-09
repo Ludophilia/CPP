@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/03 22:40:32 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/05 23:15:52 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/09 22:56:10 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class AMateria
 
 	const string		&getType() const;
 	virtual AMateria	*clone() const = 0;
-	virtual void		use(ICharacter &target) const; // const added
+	virtual void		use(ICharacter &target) const;
 
 	protected:
 
