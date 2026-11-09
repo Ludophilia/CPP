@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/05 23:20:38 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/09 22:37:23 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/09 23:20:40 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,11 @@ void	Character::equip(AMateria *m)
 void	Character::unequip(int idx)
 {
 	if (idx >= 0 && idx < Character::MAX_SLOTS && _slot[idx] != NULL)
-		_slot[idx] = NULL; // Uncomplete... What should be done with the unequipped materia?
+	{
+		_slot[idx] = NULL;
+		// Uncomplete... What should be done with the unequipped materia?
+		_slotSize--;
+	}
 }
 
 // - If they try to use a non-existent Materia, nothing should happen 
