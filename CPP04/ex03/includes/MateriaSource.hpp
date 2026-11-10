@@ -1,45 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/03 22:40:32 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/09 22:56:10 by jegerman         ###   ########.fr       */
+/*   Created: 2026/11/10 19:58:41 by jegerman          #+#    #+#             */
+/*   Updated: 2026/11/10 21:00:34 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AMATERIA_HPP
+#ifndef MATERIASOURCE_HPP
 
-# define AMATERIA_HPP
+# define MATERIASOURCE_HPP
 
 # include <string>
-# include <iostream>
-# include "ICharacter.hpp"
+# include "IMateriaSource.hpp"
 
 using std::string;
-using std::cout;
-using std::endl;
 
-class AMateria
+class AMateria;
+
+class MateriaSource: public IMateriaSource
 {
 	public:
 
-	AMateria(); // = default in C++ 11
-	AMateria(const string &type);
-	AMateria(const AMateria &src);
-	virtual ~AMateria();
+	MateriaSource();
+	MateriaSource(const MateriaSource &src);
+	~MateriaSource();
 
-	AMateria	&operator=(const AMateria &rhs);
+	MateriaSource	&operator=(const MateriaSource &rhs);
 
-	const string		&getType() const;
-	virtual AMateria	*clone() const = 0;
-	virtual void		use(ICharacter &target) const;
+	void		learnMateria(AMateria *m);
+	AMateria	*createMateria(const string &type);
 
 	protected:
 
-	string	_type;
+	static const int	MAX_SLOTS = 4;
+
+	AMateria			*_slot[MAX_SLOTS];
+	int					_slotSize;
 };
 
 #endif

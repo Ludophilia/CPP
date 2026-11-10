@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/05 23:20:25 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/09 22:21:29 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/10 23:32:58 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <iostream>
 # include "ICharacter.hpp"
 # include "AMateria.hpp"
+# include "Inventory.hpp"
 
 using std::string;
 using std::cout;
@@ -40,19 +41,20 @@ class Character: public ICharacter
 	void 			unequip(int idx);
 	void 			use(int idx, ICharacter &target);
 
-	private:
+	// private:
 
-	void			_initSlots();
-	void			_copySourceSlots(const Character &src);
-	void			_cleanUpSlots();
+	// void			_initSlots();
+	// void			_copySourceSlots(const Character &src);
+	// void			_cleanUpSlots();
 
 	protected:
 
 	static const int	MAX_SLOTS = 4;
 
 	string				_name;
-	int					_slotSize;
-	AMateria			*_slot[MAX_SLOTS];
+	Inventory			_inventory;
+	// AMateria			*_slot[MAX_SLOTS];
+	// int					_slotSize;
 };
 
 #endif
