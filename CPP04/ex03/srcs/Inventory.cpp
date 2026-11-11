@@ -18,9 +18,21 @@ Inventory::Inventory(): _size(0)
 		_slot[i] = NULL;
 }
 
-Inventory::Inventory(const Inventory &src)
+Inventory::Inventory(const Inventory &src): _size(src._size)
 {
-	*this = src;
+	try
+		{
+			while (++i < src._size)
+				_slot[i] = rhs._slot[i]->clone();
+		}
+		catch (const bad_alloc &e)
+		{
+			cerr << e.what() << endl;
+			while (--i >= 0)
+				delete _slot[i];
+			throw;
+		}
+	// *this = src;
 }
 
 void	Inventory::cleanUp()
@@ -43,6 +55,14 @@ Inventory	&Inventory::operator=(const Inventory &rhs)
 	{
 		int i = -1;
 
+		// And what if there are already some materias in place? This won't work.
+		// unless...
+
+		cleanUp();
+
+		// duplicate code :/
+
+		
 		try
 		{
 			_size = rhs._size;
