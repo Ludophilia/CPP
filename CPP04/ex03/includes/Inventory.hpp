@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/10 22:28:47 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/12 16:49:13 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/12 20:10:30 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ class Inventory
 	// int					getSize();
 	// int					setSize();
 
-	void				cleanUp(bool fwd, int i); // private?
 
 	private:
 
@@ -46,7 +45,10 @@ class Inventory
 	AMateria			*_slot[MAX_SLOTS];
 	int					_size;
 
-	void 				_cloneSlots(const Inventory &src) throw(bad_alloc);
+	void				_init();
+	void 				_clone(const Inventory &src) throw(bad_alloc);
+	void				_cleanup(bool fwd, int i);
+
 };
 
 #endif

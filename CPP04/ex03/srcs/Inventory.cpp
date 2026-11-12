@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/10 22:41:44 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/12 16:57:46 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/12 20:22:37 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,33 +15,39 @@
 Inventory::Inventory()
 	: _size(0)
 {
-	for (int i = 0; i < Inventory::MAX_SLOTS; i++)
-		_slot[i] = NULL;
+	_init();
 }
 
 Inventory::Inventory(const Inventory &src) throw(bad_alloc)
 	: _size(src._size) 
 {
-	_cloneSlots(src);
+	_init();
+	_clone(src);
 }
 
 Inventory::~Inventory()
 {
-	cleanUp();
+	_cleanup();
 }
 
 Inventory	&Inventory::operator=(const Inventory &rhs) throw(bad_alloc)
 {
 	if (this != &rhs)
 	{
+		_cleanup();
 		_size = rhs._size;
-		cleanUp();
-		_cloneSlots(rhs);
+		_clone(rhs);
 	}
 	return (*this);
 }
 
-void	Inventory::_cloneSlots(const Inventory &src) throw(bad_alloc)
+void	Inventory::_init()
+{
+	for (int i = 0; i < Inventory::MAX_SLOTS; i++)
+		_slot[i] = NULL;
+}
+
+void	Inventory::_clone(const Inventory &src) throw(bad_alloc)
 {
 	int	i = -1;
 
@@ -53,12 +59,12 @@ void	Inventory::_cloneSlots(const Inventory &src) throw(bad_alloc)
 	catch (const bad_alloc &e)
 	{
 		cerr << e.what() << endl;
-		cleanUp(false, i - 1);
+		_cleanup(false, i - 1);
 		throw;
 	}
 }
 
-void	Inventory::cleanUp(bool fwd = true, int i = 0)
+void	Inventory::_cleanup(bool fwd = true, int i = 0)
 {
 	while ((fwd && i < _size) || (!fwd && i >= 0))
 	{
@@ -67,3 +73,5 @@ void	Inventory::cleanUp(bool fwd = true, int i = 0)
 		i += fwd ? 1: -1;
 	}
 }
+
+// 12/11 - _size update methods required
