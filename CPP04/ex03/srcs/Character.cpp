@@ -6,49 +6,36 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/05 23:20:38 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/10 23:47:12 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/12 17:00:29 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
-Character::Character(): _name("default"), _inventory()
-{
-	// _initSlots();
-}
+Character::Character()
+	: _name("default"), _inventory() {}
 
-Character::Character(const string &name): _name(name), _inventory()
-{
-	// _initSlots();
-}
+Character::Character(const string &name)
+	: _name(name), _inventory() {}
 
-Character::Character(const Character &src): _name(src._name),
-	_inventory(src._inventory)
-{
-	// _initSlots();
-	// _copySourceSlots(src);
-}
+Character::Character(const Character &src) throw(bad_alloc)
+	: _name(src._name), _inventory(src._inventory) {}
 
 Character::~Character()
 {
-	// _cleanUpSlots();
+	// Does it call Inventory destructor? Of course It does but let's be
+	// sure of that...
 }
 
 Character	&Character::operator=(const Character &rhs)
 {
 	if (this != &rhs)
 	{
-		_inventory.cleanUp();
 		_name = rhs._name;
 		_inventory = rhs._inventory;
 	}
 	return (*this);
 }
-
-
-
-
-
 
 const string	&Character::getName() const
 {
@@ -101,38 +88,3 @@ void 	Character::use(int idx, ICharacter &target)
 	if (idx >= 0 && idx < Character::MAX_SLOTS && _slot[idx] != NULL)
 		_slot[idx]->use(target);
 }
-
-
-// void	Character::_initSlots()
-// {
-// 	for (int i = 0; i < Character::MAX_SLOTS; i++)
-// 		_slot[i] = NULL;
-// }
-
-// void	Character::_cleanUpSlots()
-// {
-// 	for (int i = 0; i < _slotSize; i++)
-// 	{
-// 		delete _slot[i];
-// 		_slot[i] = NULL;
-// 	}
-// }
-
-// void	Character::_copySourceSlots(const Character &src)
-// {
-// 	int	i = -1;
-
-// 	try
-// 	{
-// 		while (++i < _slotSize)
-// 			_slot[i] = src._slot[i]->clone();
-// 	}
-// 	catch (const std::bad_alloc &e)
-// 	{
-// 		cerr << e.what() << endl;
-// 		while (--i >= 0)
-// 			delete _slot[i];
-// 		throw;
-// 	}
-// }
-

@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/03 22:40:32 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/10 22:22:03 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/12 16:04:51 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,13 @@
 using std::string;
 using std::cout;
 using std::endl;
+using std::bad_alloc;
 
 class AMateria
 {
 	public:
 
-	AMateria(); // = default in C++ 11 // Do I really need them as I can't init a 
+	AMateria(); // = default in C++ 11
 	AMateria(const string &type);
 	AMateria(const AMateria &src);
 	virtual ~AMateria();
@@ -34,7 +35,7 @@ class AMateria
 	AMateria	&operator=(const AMateria &rhs);
 
 	const string		&getType() const;
-	virtual AMateria	*clone() const = 0;
+	virtual AMateria	*clone() const throw(bad_alloc) = 0;
 	virtual void		use(ICharacter &target) const;
 
 	protected:

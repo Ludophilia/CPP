@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/05 23:20:25 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/10 23:32:58 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/12 16:56:24 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class Character: public ICharacter
 
 	Character();
 	Character(const string &name);
-	Character(const Character &src);
+	Character(const Character &src) throw(bad_alloc);
 	~Character();
 
 	Character		&operator=(const Character &rhs);
@@ -49,7 +49,9 @@ class Character: public ICharacter
 
 	protected:
 
-	static const int	MAX_SLOTS = 4;
+	// Will be replaced by Inventory?
+
+	static const int	MAX_SLOTS = 4;	
 
 	string				_name;
 	Inventory			_inventory;

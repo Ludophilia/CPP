@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/10 22:28:47 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/10 23:40:52 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/12 16:49:13 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,29 +28,25 @@ class Inventory
 	public:
 
 	Inventory();
-	Inventory(const Inventory &src);
+	Inventory(const Inventory &src) throw(bad_alloc);
 	~Inventory();
 
-	Inventory &operator=(const Inventory &rhs);
+	Inventory &operator=(const Inventory &rhs) throw(bad_alloc);
 
-	void	cleanUp();
-
-	// void			_initSlots();
-	// void			_copySourceSlots(const Character &src);
-	// void			_cleanUpSlots();
-
-
-	// AMateria			*getSlots();
+	// AMateria				*getSlots();
 	// int					getSize();
 	// int					setSize();
+
+	void				cleanUp(bool fwd, int i); // private?
 
 	private:
 
 	static const int	MAX_SLOTS = 4;
 	
-	// const int  			_maxSlots = 4;
 	AMateria			*_slot[MAX_SLOTS];
 	int					_size;
+
+	void 				_cloneSlots(const Inventory &src) throw(bad_alloc);
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/10 19:58:30 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/10 22:01:58 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/12 15:24:57 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void		MateriaSource::learnMateria(AMateria *m)
 // Returns a new Materia. The latter is a copy of the Materia previously learned by
 // the MateriaSource whose type equals the one passed as parameter.
 // Returns 0 if the type is unknown.
-AMateria	*MateriaSource::createMateria(const string &type)
+AMateria	*MateriaSource::createMateria(const string &type) throw(bad_alloc)
 {
 	for (int i = 0; i < _slotSize; i++)
 	{

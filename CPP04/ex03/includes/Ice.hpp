@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/05 20:20:06 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/05 23:46:59 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/12 15:24:23 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 using std::cout;
 using std::endl;
+using std::bad_alloc;
 
 class Ice: public AMateria
 {
@@ -31,7 +32,7 @@ class Ice: public AMateria
 	Ice	&operator=(const Ice &rhs);
 
 	void		use(ICharacter &target) const;
-	AMateria	*clone() const;
+	AMateria	*clone() const throw(bad_alloc);
 };
 
 #endif

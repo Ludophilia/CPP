@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/05 22:48:24 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/05 23:14:40 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/12 15:23:20 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	Ice::use(ICharacter &target) const
 	cout << "* shoots an ice bolt at " << target.getName() << " *" << endl;
 }
 
-AMateria	*Ice::clone() const
+AMateria	*Ice::clone() const throw(bad_alloc)
 {
 	return (new Ice());
 }

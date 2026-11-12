@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/05 23:13:05 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/05 23:14:33 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/12 15:22:30 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	Cure::use(ICharacter &target) const
 	cout << "* heals " << target.getName() << "'s wounds *" << endl;
 }
 
-AMateria	*Cure::clone() const
+AMateria	*Cure::clone() const throw(bad_alloc)
 {
 	return (new Cure());
 }
