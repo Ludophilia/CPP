@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/10 22:41:44 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/12 21:59:14 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/12 23:14:42 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,29 @@ void	Inventory::_cleanup(bool fwd, int i)
 	}
 }
 
+AMateria	*Inventory::get(const string &type)
+{
+	for (int i = 0; i < _size; i++)
+	{
+		if (_slot[i]->getType() == type)
+			return (_slot[i]);
+	}
+	return (NULL);
+}
+
+void	Inventory::use(int idx, ICharacter &target)
+{
+	if (idx >= 0 && idx < Inventory::MAX_SLOTS && _slot[idx] != NULL)
+		_slot[idx]->use(target);
+}
+
 void	Inventory::add(AMateria *m)
 {
 	if (_size < Inventory::MAX_SLOTS)
 	{
 		for (int i = 0; i < _size; i++)
 		{
-			if (_slot[i] != NULL)
+			if (_slot[i] == NULL)
 			{
 				_slot[i] = m;
 				break ;
@@ -90,12 +106,6 @@ void	Inventory::add(AMateria *m)
 	}
 }
 
-void	Inventory::use(int idx, ICharacter &target)
-{
-	if (idx >= 0 && idx < Inventory::MAX_SLOTS && _slot[idx] != NULL)
-		_slot[idx]->use(target);
-}
-
 void	Inventory::remove(int idx)
 {
 	if (idx >= 0 && idx < Inventory::MAX_SLOTS && _slot[idx] != NULL)
@@ -103,9 +113,8 @@ void	Inventory::remove(int idx)
 		_slot[idx] = NULL;
 		_size--;
 		// ❌ Uncomplete... What should be done with the unequipped materia?
+		// - Handle the Materias your character leaves "on the floor" as you like.
+		// Save the addresses before calling unequip(), or anything else, but
+		// don’t forget that you have to avoid memory leaks.
 	}
 }
-
-// - Handle the Materias your character leaves "on the floor" as you like.
-// Save the addresses before calling unequip(), or anything else, but
-// don’t forget that you have to avoid memory leaks.

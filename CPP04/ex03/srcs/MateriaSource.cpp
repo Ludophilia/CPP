@@ -6,37 +6,38 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/10 19:58:30 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/12 15:24:57 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/12 23:15:41 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
 
-// MateriaSource();
-// MateriaSource(const MateriaSource &src);
-// ~MateriaSource();
+MateriaSource::MateriaSource()
+	: _source() {}
 
-// MateriaSource	&operator=(const MateriaSource &rhs);
+MateriaSource::MateriaSource(const MateriaSource &src) throw(bad_alloc)
+	: _source(src._source) {}
 
-// Copies the Materia passed as a parameter and stores it in memory so it can
-// be cloned later.
-//  Like the Character, the MateriaSource can know at most 4 Materias. They
-// are not necessarily unique.
-void		MateriaSource::learnMateria(AMateria *m)
+MateriaSource::~MateriaSource() {}
+
+MateriaSource	&MateriaSource::operator=(const MateriaSource &rhs)
+	throw(bad_alloc)
 {
-	if (_slotSize < 4)
-		_slot[_slotSize++] = m;
+	if (this != &rhs)
+		_source = rhs._source;
+	return (*this);
 }
 
-// Returns a new Materia. The latter is a copy of the Materia previously learned by
-// the MateriaSource whose type equals the one passed as parameter.
-// Returns 0 if the type is unknown.
+void		MateriaSource::learnMateria(AMateria *m)
+{
+	_source.add(m);
+}
+
 AMateria	*MateriaSource::createMateria(const string &type) throw(bad_alloc)
 {
-	for (int i = 0; i < _slotSize; i++)
-	{
-		if (_slot[i]->getType() == type)
-			return (_slot[i]->clone());
-	}
+	AMateria *sourceMateria = _source.get(type);
+	
+	if (sourceMateria != NULL)
+		return (sourceMateria->clone());
 	return (0);
 }

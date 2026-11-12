@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/10 22:28:47 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/12 21:37:05 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/12 23:14:30 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,14 @@
 # define INVENTORY_HPP
 
 #include <iostream>
-#include "AMateria.hpp"
+#include <string>
 
-// class AMateria;
+#include "AMateria.hpp"
 
 using std::cerr;
 using std::endl;
 using std::bad_alloc;
+using std::string;
 
 class Inventory
 {
@@ -33,8 +34,9 @@ class Inventory
 
 	Inventory 			&operator=(const Inventory &rhs) throw(bad_alloc);
 
-	void				add(AMateria *m);
+	AMateria			*get(const string &type);
 	void				use(int idx, ICharacter &target);
+	void				add(AMateria *m);
 	void				remove(int idx);
 
 	private:
