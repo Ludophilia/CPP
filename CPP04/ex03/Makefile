@@ -6,7 +6,7 @@
 #    By: jegerman <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/27 16:55:45 by jegerman          #+#    #+#              #
-#    Updated: 2026/11/10 22:16:50 by jegerman         ###   ########.fr        #
+#    Updated: 2026/11/12 20:25:02 by jegerman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRCS += $(SRCS_DIR)/AMateria.cpp
 SRCS += $(SRCS_DIR)/Cure.cpp
 SRCS += $(SRCS_DIR)/Ice.cpp
 SRCS += $(SRCS_DIR)/Character.cpp
+SRCS += $(SRCS_DIR)/Inventory.cpp
 SRCS += $(SRCS_DIR)/MateriaSource.cpp
 
 OBJS := $(SRCS:.cpp=.o)

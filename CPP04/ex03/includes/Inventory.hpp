@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/10 22:28:47 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/12 20:10:30 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/12 21:37:05 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,11 @@ class Inventory
 	Inventory(const Inventory &src) throw(bad_alloc);
 	~Inventory();
 
-	Inventory &operator=(const Inventory &rhs) throw(bad_alloc);
+	Inventory 			&operator=(const Inventory &rhs) throw(bad_alloc);
 
-	// AMateria				*getSlots();
-	// int					getSize();
-	// int					setSize();
-
+	void				add(AMateria *m);
+	void				use(int idx, ICharacter &target);
+	void				remove(int idx);
 
 	private:
 
@@ -47,8 +46,7 @@ class Inventory
 
 	void				_init();
 	void 				_clone(const Inventory &src) throw(bad_alloc);
-	void				_cleanup(bool fwd, int i);
-
+	void				_cleanup(bool fwd = true, int i = 0);
 };
 
 #endif

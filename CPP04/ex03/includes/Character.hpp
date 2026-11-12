@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/05 23:20:25 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/12 16:56:24 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/12 21:36:36 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,25 +38,13 @@ class Character: public ICharacter
 	const string	&getName() const;
 
 	void			equip(AMateria *m);
-	void 			unequip(int idx);
 	void 			use(int idx, ICharacter &target);
-
-	// private:
-
-	// void			_initSlots();
-	// void			_copySourceSlots(const Character &src);
-	// void			_cleanUpSlots();
+	void 			unequip(int idx);
 
 	protected:
 
-	// Will be replaced by Inventory?
-
-	static const int	MAX_SLOTS = 4;	
-
 	string				_name;
 	Inventory			_inventory;
-	// AMateria			*_slot[MAX_SLOTS];
-	// int					_slotSize;
 };
 
 #endif
