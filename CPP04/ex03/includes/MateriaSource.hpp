@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/10 19:58:41 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/12 23:11:24 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/13 20:24:20 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class MateriaSource: public IMateriaSource
 	MateriaSource	&operator=(const MateriaSource &rhs) throw(bad_alloc);
 
 	void			learnMateria(AMateria *m);
-	AMateria		*createMateria(const string &type) throw(bad_alloc);
+	AMateria		*createMateria(const string &type) const throw(bad_alloc);
 
 	protected:
 

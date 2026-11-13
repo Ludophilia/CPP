@@ -18,14 +18,13 @@
 
 using std::string;
 
-// class AMateria;
-#include "AMateria.hpp"
+# include "AMateria.hpp"
 
 class IMateriaSource
 {
 	public:
 
-	virtual AMateria	*createMateria(const string &type) = 0;
+	virtual AMateria	*createMateria(const string &type) const = 0;
 	virtual void		learnMateria(AMateria *) = 0;
 
 	virtual ~IMateriaSource() {};
