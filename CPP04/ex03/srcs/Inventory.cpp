@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/10 22:41:44 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/12 23:14:42 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/13 22:40:31 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Inventory::Inventory()
 }
 
 Inventory::Inventory(const Inventory &src) throw(bad_alloc)
-	: _size(src._size) 
+	: _size(0)
 {
 	_init();
 	_clone(src);
@@ -35,7 +35,6 @@ Inventory	&Inventory::operator=(const Inventory &rhs) throw(bad_alloc)
 	if (this != &rhs)
 	{
 		_cleanup();
-		_size = rhs._size;
 		_clone(rhs);
 	}
 	return (*this);
@@ -53,8 +52,14 @@ void	Inventory::_clone(const Inventory &src) throw(bad_alloc)
 
 	try
 	{
-		while (++i < src._size)
-			_slot[i] = src._slot[i]->clone();
+		while (++i < Inventory::MAX_SLOTS)
+		{
+			if (src._slot[i] != NULL)
+			{
+				_slot[i] = src._slot[i]->clone();
+				_size++;
+			}
+		}
 	}
 	catch (const bad_alloc &e)
 	{
@@ -66,25 +71,29 @@ void	Inventory::_clone(const Inventory &src) throw(bad_alloc)
 
 void	Inventory::_cleanup(bool fwd, int i)
 {
-	while ((fwd && i < _size) || (!fwd && i >= 0))
+	while ((fwd && i < Inventory::MAX_SLOTS) || (!fwd && i >= 0))
 	{
-		delete _slot[i];
-		_slot[i] = NULL;
+		if (_slot[i] != NULL)
+		{
+			delete _slot[i];
+			_slot[i] = NULL;
+			_size--;
+		}
 		i += fwd ? 1: -1;
 	}
 }
 
-AMateria	*Inventory::get(const string &type)
+AMateria	*Inventory::get(const string &type) const
 {
-	for (int i = 0; i < _size; i++)
+	for (int i = 0; i < Inventory::MAX_SLOTS; i++)
 	{
-		if (_slot[i]->getType() == type)
+		if (_slot[i] != NULL && _slot[i]->getType() == type)
 			return (_slot[i]);
 	}
 	return (NULL);
 }
 
-void	Inventory::use(int idx, ICharacter &target)
+void	Inventory::use(int idx, ICharacter &target) const
 {
 	if (idx >= 0 && idx < Inventory::MAX_SLOTS && _slot[idx] != NULL)
 		_slot[idx]->use(target);
@@ -94,7 +103,7 @@ void	Inventory::add(AMateria *m)
 {
 	if (_size < Inventory::MAX_SLOTS)
 	{
-		for (int i = 0; i < _size; i++)
+		for (int i = 0; i < Inventory::MAX_SLOTS; i++)
 		{
 			if (_slot[i] == NULL)
 			{
