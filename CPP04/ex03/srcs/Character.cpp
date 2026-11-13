@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/05 23:20:38 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/12 21:43:31 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/13 22:41:18 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Character::Character(const Character &src) throw(bad_alloc)
 
 Character::~Character() {}
 
-Character	&Character::operator=(const Character &rhs)
+Character	&Character::operator=(const Character &rhs) throw(bad_alloc)
 {
 	if (this != &rhs)
 	{
@@ -48,7 +48,7 @@ void	Character::unequip(int idx)
 	_inventory.remove(idx);
 }
 
-void 	Character::use(int idx, ICharacter &target)
+void 	Character::use(int idx, ICharacter &target) const
 {
 	_inventory.use(idx, target);
 }

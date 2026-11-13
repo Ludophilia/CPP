@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/10 19:58:30 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/12 23:15:41 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/13 22:38:20 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ void		MateriaSource::learnMateria(AMateria *m)
 	_source.add(m);
 }
 
-AMateria	*MateriaSource::createMateria(const string &type) throw(bad_alloc)
+AMateria	*MateriaSource::createMateria(const string &type) const
+	throw(bad_alloc)
 {
 	AMateria *sourceMateria = _source.get(type);
 	
