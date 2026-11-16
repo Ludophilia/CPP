@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/02 22:16:17 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/13 22:49:53 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/16 21:07:39 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,28 @@
 #include "Cure.hpp"
 // #include <iostream>
 
+/*
+
+= AMateria
+	=> Ice; Cure ([x] clone, [x] use)
+	=> clone Already tested via materiaSource createMateria and use via Character use
+
+= IMateriaSource 
+	=> MateriaSource ([ ] operator=, [x] learnMateria, [x] createMateria, [ ] leaks)
+
+	=> [] Test what happens when trying to add to an full Inventory?
+
+	
+= ICharacter 
+	=> Character ([ ] operator=, [x] equip, [x] use, [ ] unequip, [ ] leaks)
+
+= Inventory
+	=> [ ] operator=, [x] use, [x] add, [ ] remove, [x] get, [ ] 
+	=> operator= already in MateriaSource and Character copy constructor and 
+	operator=, use in Character use, add in Character equip, remove in 
+	Character unequip, get in MAteriaSource createMateria
+
+*/
 int		main()
 {
 	ICharacter			*me = new Character("me");
@@ -40,7 +62,3 @@ int		main()
 
 	return (0);
 }
-
-// TODO
-// [ ] Inventory
-//		= [ ] How to manage the unequipped materia?

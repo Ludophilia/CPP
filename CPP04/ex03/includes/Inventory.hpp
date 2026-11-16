@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/10 22:28:47 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/13 21:11:41 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/16 20:39:22 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ class Inventory
 	Inventory 			&operator=(const Inventory &rhs) throw(bad_alloc);
 
 	AMateria			*get(const string &type) const;
+
 	void				use(int idx, ICharacter &target) const;
 	void				add(AMateria *m);
 	void				remove(int idx);

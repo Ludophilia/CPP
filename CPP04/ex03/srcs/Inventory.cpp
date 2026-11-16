@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/10 22:41:44 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/13 22:40:31 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/16 21:06:32 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ void	Inventory::_clone(const Inventory &src) throw(bad_alloc)
 				_size++;
 			}
 		}
+		if (_size != src._size)
+			throw bad_alloc();
 	}
 	catch (const bad_alloc &e)
 	{
@@ -97,6 +99,8 @@ void	Inventory::use(int idx, ICharacter &target) const
 {
 	if (idx >= 0 && idx < Inventory::MAX_SLOTS && _slot[idx] != NULL)
 		_slot[idx]->use(target);
+	else
+		cerr << "The materia at index " << idx << " doesn't exist!" << endl;
 }
 
 void	Inventory::add(AMateria *m)
@@ -113,6 +117,8 @@ void	Inventory::add(AMateria *m)
 		}
 		_size++;
 	}
+	else
+		cerr << "Inventory full: can't add a new materia!" << endl;
 }
 
 void	Inventory::remove(int idx)
@@ -121,9 +127,7 @@ void	Inventory::remove(int idx)
 	{
 		_slot[idx] = NULL;
 		_size--;
-		// ❌ Uncomplete... What should be done with the unequipped materia?
-		// - Handle the Materias your character leaves "on the floor" as you like.
-		// Save the addresses before calling unequip(), or anything else, but
-		// don’t forget that you have to avoid memory leaks.
 	}
+	else
+		cerr << "Can't remove materia at index " << idx << "!" << endl;
 }
