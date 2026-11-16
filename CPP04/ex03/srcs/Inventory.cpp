@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/10 22:41:44 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/16 21:06:32 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/16 23:49:44 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,12 +100,12 @@ void	Inventory::use(int idx, ICharacter &target) const
 	if (idx >= 0 && idx < Inventory::MAX_SLOTS && _slot[idx] != NULL)
 		_slot[idx]->use(target);
 	else
-		cerr << "The materia at index " << idx << " doesn't exist!" << endl;
+		cerr << "the materia at index " << idx << " doesn't exist!" << endl;
 }
 
 void	Inventory::add(AMateria *m)
 {
-	if (_size < Inventory::MAX_SLOTS)
+	if (m != NULL && _size < Inventory::MAX_SLOTS)
 	{
 		for (int i = 0; i < Inventory::MAX_SLOTS; i++)
 		{
@@ -118,7 +118,7 @@ void	Inventory::add(AMateria *m)
 		_size++;
 	}
 	else
-		cerr << "Inventory full: can't add a new materia!" << endl;
+		cerr << "can't add the new materia identified by: " << m << endl;
 }
 
 void	Inventory::remove(int idx)
@@ -129,5 +129,5 @@ void	Inventory::remove(int idx)
 		_size--;
 	}
 	else
-		cerr << "Can't remove materia at index " << idx << "!" << endl;
+		cerr << "can't remove materia at index " << idx << "!" << endl;
 }
