@@ -6,20 +6,25 @@
 #    By: jegerman <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/27 16:55:45 by jegerman          #+#    #+#              #
-#    Updated: 2026/10/31 21:26:17 by jegerman         ###   ########.fr        #
+#    Updated: 2026/11/17 23:16:43 by jegerman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME := poly
+NAME := brain
 
 CXX := c++
-CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -I.
+CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 
-SRCS := main.cpp
-SRCS += Animal.cpp
-SRCS += Cat.cpp
-SRCS += Dog.cpp
-SRCS += Brain.cpp
+SRCS_DIR := srcs
+INCL_DIR := includes
+
+CXXFLAGS += -I$(INCL_DIR)
+
+SRCS := $(SRCS_DIR)/main.cpp
+SRCS += $(SRCS_DIR)/Animal.cpp
+SRCS += $(SRCS_DIR)/Cat.cpp
+SRCS += $(SRCS_DIR)/Dog.cpp
+SRCS += $(SRCS_DIR)/Brain.cpp
 
 OBJS := $(SRCS:.cpp=.o)
 
