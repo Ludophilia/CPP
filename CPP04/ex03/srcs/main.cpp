@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/02 22:16:17 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/17 00:15:49 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/17 22:41:54 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,43 +14,52 @@
 #include "MateriaSource.hpp"
 #include "Ice.hpp"
 #include "Cure.hpp"
-// #include <iostream>
-
-/*
-
-= AMateria
-	=> Ice; Cure ([x] clone, [x] use)
-	=> clone Already tested via materiaSource createMateria and use via Character use
-
-= IMateriaSource 
-	=> MateriaSource ([x] operator=, [x] learnMateria, [x] createMateria, [x] leaks)
-
-	=> [x] Test what happens when trying to add to an full Inventory?
-
-	
-= ICharacter 
-	=> Character ([ ] operator=, [x] equip, [x] use, [ ] unequip, [ ] leaks)
-
-= Inventory
-	=> [ ] operator=, [x] use, [x] add, [ ] remove, [x] get, [ ] 
-	=> operator= already in MateriaSource and Character copy constructor and 
-	operator=, use in Character use, add in Character equip, remove in 
-	Character unequip, get in MAteriaSource createMateria
-
-*/
-
 #include <cassert>
+
+void	characterLifecycleTestCase()
+{
+	AMateria	*cure, *ice;
+	Character	*cloud, tifa("Tifa"), rufus("Rufus"),
+				scarlet("Scarlet");
+
+	try
+	{
+		cure = new Cure();
+		ice = new Ice();
+		cloud = new Character("Cloud");
+
+		// cout << cloud->getName() << ":" << endl;
+		cloud->equip(ice);
+		cloud->equip(cure);
+		cloud->unequip(1);
+		cloud->use(1, rufus);
+		delete cure; // One way to manage unequipped materia
+		cloud->use(0, rufus);
+
+		// cout << tifa.getName() << ":" << endl;
+		tifa = *cloud; // Again, testing if they are DEEP copies.
+		delete cloud; // cloud's name will erase tifa's. How sad...
+		tifa.use(1, scarlet);
+		tifa.use(0, scarlet);
+		// tifa.unequip(0); // Would have been nice if the method had returned  
+		// the address of the unequipped Materia but that's not what its 
+		// signature requires so I can't use that here...
+	}
+	catch(const std::exception& e)
+	{
+		cerr << e.what() << endl;
+	}
+}
 
 void	materiaSourceLifecycleTestCase()
 {
 	Character		yuffie("Yuffie"), vincent("Vincent");
 	MateriaSource	*source0, source1;
-	AMateria		*m1, *m2;	
+	AMateria		*m1, *m2;
 
 	try
 	{
 		source0 = new MateriaSource();
-		assert(source0 != NULL);
 
 		m1 = source0->createMateria("ice"); // won't work
 		assert(m1 == NULL);
@@ -62,7 +71,6 @@ void	materiaSourceLifecycleTestCase()
 			m1 = !(i % 2) ? (AMateria *)(new Ice()) : (new Cure());
 			source0->learnMateria(m1);
 		}
-		cout << endl;
 		delete m1; // because there 4 + 1
 		
 		m1 = source0->createMateria("ultima");
@@ -72,7 +80,6 @@ void	materiaSourceLifecycleTestCase()
 		m1 = source0->createMateria("ice"); // will because source now knows ice and cure
 		assert(m1 != NULL);
 		m1->use(yuffie);
-		cout << endl;
 		delete m1;
 
 		source1 = *source0; // using source1 from source0
@@ -120,7 +127,10 @@ void	characterAndMateriaInterfacesGeneralTestCase()
 
 int		main()
 {
-	// characterAndMateriaInterfacesGeneralTestCase();
 	materiaSourceLifecycleTestCase();
+	cout << endl;
+	characterLifecycleTestCase();
+	cout << endl;
+	characterAndMateriaInterfacesGeneralTestCase();
 	return (0);
 }

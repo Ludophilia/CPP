@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/10 22:41:44 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/16 23:49:44 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/17 22:32:03 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,8 @@ void	Inventory::use(int idx, ICharacter &target) const
 	if (idx >= 0 && idx < Inventory::MAX_SLOTS && _slot[idx] != NULL)
 		_slot[idx]->use(target);
 	else
-		cerr << "the materia at index " << idx << " doesn't exist!" << endl;
+		cerr << "* error: the materia at index " << idx << " doesn't exist! *"
+			 << endl;
 }
 
 void	Inventory::add(AMateria *m)
@@ -118,7 +119,8 @@ void	Inventory::add(AMateria *m)
 		_size++;
 	}
 	else
-		cerr << "can't add the new materia identified by: " << m << endl;
+		cerr << "* error: can't add the new materia at " << m
+			 << " *" << endl;
 }
 
 void	Inventory::remove(int idx)
@@ -129,5 +131,6 @@ void	Inventory::remove(int idx)
 		_size--;
 	}
 	else
-		cerr << "can't remove materia at index " << idx << "!" << endl;
+		cerr << "* error: can't remove materia at index " << idx << "! *"
+			 << endl;
 }
