@@ -6,19 +6,24 @@
 #    By: jegerman <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/27 16:55:45 by jegerman          #+#    #+#              #
-#    Updated: 2026/08/03 15:58:01 by jegerman         ###   ########.fr        #
+#    Updated: 2026/11/18 21:25:56 by jegerman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := phonebook
 
 CXX := c++
-CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -I.
+CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 # CXXFLAGS += -g -fsanitize=address
 
-SRCS := main.cpp
-SRCS += Contact.cpp
-SRCS += PhoneBook.cpp
+SRCS_DIR := srcs
+INCL_DIR := includes
+
+CXXFLAGS += -I$(INCL_DIR)
+
+SRCS := $(SRCS_DIR)/main.cpp
+SRCS += $(SRCS_DIR)/Contact.cpp
+SRCS += $(SRCS_DIR)/PhoneBook.cpp
 
 OBJS := $(SRCS:.cpp=.o)
 
