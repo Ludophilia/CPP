@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 19:07:09 by jegerman          #+#    #+#             */
-/*   Updated: 2026/08/11 21:52:26 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/18 22:58:51 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,15 @@ using std::string;
 class Weapon
 {
 	public:
-		Weapon(const string &type);
 
-		const string	&getType() const;
-		void			setType(const string &newType);
+	Weapon(const string &type);
+
+	const string	&getType() const;
+	void			setType(const string &newType);
 	
 	private:
-		string	_type;
+
+	string	_type;
 };
 
 #endif
