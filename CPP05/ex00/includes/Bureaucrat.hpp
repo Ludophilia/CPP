@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 20:45:27 by jegerman          #+#    #+#             */
-/*   Updated: 2026/11/19 23:53:22 by jegerman         ###   ########.fr       */
+/*   Updated: 2026/11/20 00:26:59 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@
 using std::string;
 using std::exception;
 using std::ostream;
+using std::cout;
+using std::cerr;
+using std::endl;
 
 // Tip: structs are public by default, while classes are private.
 class Bureaucrat
@@ -53,8 +56,8 @@ class Bureaucrat
 
 	private:
 
-	unsigned		_grade;
 	const string	_name;
+	unsigned		_grade;
 };
 
 ostream		&operator<<(ostream &lhs, const Bureaucrat &rhs);
